@@ -23,3 +23,13 @@ python download.py
 ```
 
 This will download a 500Mb XML file compressed with BZ2, and convert it into a 800Mb SQLite database, whose main table schema is `entries(id, title, content)`, representing the articles from Wiktionary. The database is named after the dump timestamp `YYYYMMDD.sqlite3`.
+
+### Usage
+
+Within the `ontology` directory, you may execute the main script with the following syntax:
+
+```bash
+python . [-h] [-v] [-q] {populate,check_duplicates,extract_tocs} ...
+```
+
+Use the `-h` flag for a more detailed help message.
