@@ -33,3 +33,5 @@ python . [-h] [-v] [-q] {populate,check_duplicates,extract_tocs} ...
 ```
 
 Use the `-h` flag for a more detailed help message.
+
+**Warning: working with the whole data through Owlready can be quite memory intensive. Be sure to have several Gbs of RAM free.**

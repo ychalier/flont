@@ -22,7 +22,7 @@ def get_db_cursor(database_filename):
 def format_literal(raw):
     """Format a literal into a safe format.
     """
-    return urllib.parse.quote(raw)
+    return "entry_" + urllib.parse.quote(raw)
 
 
 def load_ontology(path):

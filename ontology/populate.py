@@ -134,7 +134,7 @@ def extract_table_of_content(text):
 
 def iter_sections(content, target_level):
     """Read a Wiktionary article content and iterate over sections of a given
-    level.
+    level (determined by the number of '=' signs around the section title).
     """
     is_recording = False
     buffer_title, buffer_content = None, list()
@@ -156,96 +156,115 @@ def iter_sections(content, target_level):
         yield buffer_title, "\n".join(buffer_content)
 
 
-def clean_wikitext(text):
-    """Clean a sentence of Wikitext markups.
+def iter_db_rows(database_filename):
+    """Iterate over the database rows.
     """
-    text = WIKITEXT_BRACES.sub("", text)
-    text = WIKITEXT_BRACKETS.sub(r"\1", text)
-    text = WIKITEXT_TAG.sub("", text)
-    text = WIKITEXT_QUOTES.sub("", text)
-    text = re.sub("''", "\"", text)
-    return text.strip()
+    with utils.get_db_cursor(database_filename) as cursor:
+        total = cursor.execute("SELECT COUNT(*) FROM entries").fetchone()[0]
+        for entry_title, entry_content in tqdm.tqdm(
+                cursor.execute("SELECT title, content FROM entries"),
+                total=total):
+            yield entry_title, entry_content
 
 
-def extract_definitions(content):
-    """Exract the beginning of a section, where lies the definitions and the
-    examples.
+def extract_french_section(wikitext):
+    """Extract the content of the section titled {{langue|fr}}.
+    """
+    for title, content in iter_sections(wikitext, 2):
+        if title == "langue|fr":
+            return content
+    return None
+
+
+def create_literal(ontology, title):
+    """Append a flont:Literal to the ontology.
+    """
+    literal_name = utils.format_literal(title)
+    literal = ontology.Literal(literal_name)
+    literal.label = title
+    return literal
+
+
+def iter_lexical_entries(wikitext):
+    """Iterate over the various syntactic occurrences of a literal.
+    """
+    for title, content in iter_sections(wikitext, 3):
+        model = slugify.slugify(title.split("|")[1].strip())
+        class_ = MODEL_TO_CLASS_MAPPING.get(model)
+        if class_ is not None:
+            yield class_, content
+
+
+def create_lexical_entry(ontology, existing, literal, class_):
+    """Append a flont:LexicalEntry to the ontology.
+    """
+    entry_name_radix = "%s_%s" % (literal.name, CLASS_ABBREVIATIONS[class_])
+    existing.setdefault(entry_name_radix, dict())
+    index = len(existing[entry_name_radix]) + 1
+    entry_name = "%s%d" % (entry_name_radix, index)
+    existing[entry_name_radix][entry_name] = 0
+    lexical_entry = ontology[class_](entry_name)
+    lexical_entry.hasLiteral = literal
+    # literal.isLiteralOf.append(lexical_entry)
+    return lexical_entry
+
+
+def extract_senses_section(wikitext):
+    """Extract the content of a lexical entry section.
     """
     lines = list()
-    for line in content.split("\n"):
+    for line in wikitext.split("\n"):
         if TITLE_PATTERN.search(line.strip()) is not None:
             break
         lines.append(line)
     return "\n".join(lines)
 
 
-def iter_individuals(database_filename):
-    """Iterator for the individual lexical entries in the database.
+def iter_lexical_senses(wikitext):
+    """Iterate over the definitions listed under a lexical entry.
     """
-    individuals = dict()
-    for title, model, content in iter_senses(database_filename):
-        class_ = MODEL_TO_CLASS_MAPPING[model]
-        formatted_title = utils.format_literal(title)\
-            + "."\
-            + CLASS_ABBREVIATIONS[class_]
-        individuals.setdefault(formatted_title, 0)
-        index, definition, examples = individuals[formatted_title] + \
-            1, None, list()
-        for row in content.split("\n"):
-            if row.strip().startswith("#*"):
-                examples.append(utils.clean_wikitext(row))
-            elif row.strip().startswith("#"):
-                if definition is not None:
-                    yield formatted_title + ".%d" % index, class_, title, definition, examples[:]
-                    individuals[formatted_title] += 1
-                    index += 1
-                    examples = list()
-                definition = utils.clean_wikitext(row.strip())
-            else:
-                pass
-        if definition is not None:
-            yield formatted_title + ".%d" % index, class_, title, definition, examples[:]
-            individuals[formatted_title] += 1
+    definition, examples = None, list()
+    for row in wikitext.split("\n"):
+        if row.strip().startswith("#*"):
+            examples.append(re.sub(r"^#\* *", "", row.strip()))
+        elif row.strip().startswith("#"):
+            if definition is not None:
+                yield definition, examples[:]
+                examples = list()
+            definition = re.sub(r"^# *", "", row.strip())
+    if definition is not None:
+        yield definition, examples[:]
 
 
-def iter_senses(database_filename):
-    """Iterate over the senses from within the database.
+def create_lexical_sense(ontology, existing, lexical_entry, definition, examples):
+    """Append a flont:LexicalSense to the ontology.
     """
-    ignored_section = list()
-    without_section = list()
-    with utils.get_db_cursor(database_filename) as cursor:
-        total = cursor.execute("SELECT COUNT(*) FROM entries").fetchone()[0]
-        for row in tqdm.tqdm(cursor.execute("SELECT title, content FROM entries"), total=total):
-            found_section = False
-            for sec_title, sec_content in iter_sections(row[1], 2):
-                found_section = True
-                if sec_title == "langue|fr":
-                    for subsec_title, subsec_content in iter_sections(sec_content, 3):
-                        model = slugify.slugify(
-                            subsec_title.split("|")[1].strip())
-                        if model in MODEL_TO_CLASS_MAPPING:
-                            yield row[0], model, extract_definitions(subsec_content)
-                elif "langue" in sec_title.split("|"):
-                    pass
-                else:
-                    ignored_section.append((row[0], sec_title))
-            if not found_section:
-                without_section.append(row[0])
-        logging.info("iter_models ignored %d sections", len(ignored_section))
-        logging.info("iter_models found %d entries with no section",
-                     len(without_section))
+    lexical_entry_name_radix = re.sub(r"\d*$", "", lexical_entry.name)
+    index = existing[lexical_entry_name_radix][lexical_entry.name] + 1
+    sense_name = "%s.%d" % (lexical_entry.name, index)
+    existing[lexical_entry_name_radix][lexical_entry.name] += 1
+    lexical_sense = ontology.LexicalSense(sense_name)
+    lexical_sense.definition = definition
+    lexical_sense.examples = examples
+    lexical_sense.isSenseOf = lexical_entry
+    return lexical_sense
 
 
 def populate_individuals(database_filename, ontology_schema, output_filename):
-    """Populate the ontology schema with individuals from the Wiktionary
-    database, and write the result to a new file.
+    """Read the database and populate the ontology with individuals.
     """
+    logging.info("Populating ontology with %s", database_filename)
     ontology = owlready2\
         .get_ontology("file://" + os.path.join(os.getcwd(), ontology_schema))\
         .load()
-    for name, class_, label, definition, examples in iter_individuals(database_filename):
-        individual = ontology[class_](name)
-        individual.label = label
-        individual.definition = definition
-        individual.example = examples
+    existing = dict()
+    for entry_title, entry_content in iter_db_rows(database_filename):
+        literal = create_literal(ontology, entry_title)
+        for class_, content in iter_lexical_entries(extract_french_section(entry_content)):
+            lexical_entry = create_lexical_entry(
+                ontology, existing, literal, class_)
+            for definition, examples in iter_lexical_senses(extract_senses_section(content)):
+                create_lexical_sense(ontology, existing,
+                                     lexical_entry, definition, examples)
+    logging.info("Saving ontology to %s", os.path.realpath(output_filename))
     ontology.save(file=output_filename, format="rdfxml")
