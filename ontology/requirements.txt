@@ -1,2 +1,3 @@
 owlready2
 tqdm
+python-slugify
