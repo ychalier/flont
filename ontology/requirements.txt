@@ -1,3 +1,5 @@
 owlready2
 tqdm
 python-slugify
+clint
+bz2file

@@ -2,4 +2,7 @@
 *.owl
 *.tsv
 *.json
+*.xml
+*.bz2
+*.zip
 !schema.owl
