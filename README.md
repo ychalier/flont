@@ -9,6 +9,7 @@ The [French Wiktionary](https://fr.wiktionary.org/wiki/Wiktionnaire:Page_d%E2%80
 ## Built With
 
 - Input data: [Wiktionary](https://www.wiktionary.org/)
+- WikiText parsing: [WikiTextParser](https://github.com/5j9/wikitextparser)
 - Python OWL interface: [Owlready](https://pythonhosted.org/Owlready/)
 - Ontology crafting: [Protégé](https://protege.stanford.edu/)
 - Web application framework: [Django](https://www.djangoproject.com/)
