@@ -7,7 +7,7 @@ import logging
 import codecs
 import tqdm
 import utils
-import populate
+import wikitextparser
 
 
 def check_for_duplicates(database_filename):
@@ -38,10 +38,12 @@ def extract_tocs(database_filename, output_filename):
         for row in tqdm.tqdm(
                 cursor.execute("SELECT title, content FROM entries"),
                 total=total):
-            for toc in populate.extract_table_of_content(row[1]):
+            for section in wikitextparser.parse(row[1]).sections:
+                if section.title is None:
+                    continue
+                toc = (section.level, section.title)
                 if toc not in tocs:
-                    tocs[toc] = [1, row[0], "\"%s\"" %
-                                 re.sub("\t|\n", " ", row[1])]
+                    tocs[toc] = [1, row[0], "\"%s\"" % re.sub("\t|\n", " ", row[1])]
                 else:
                     tocs[toc][0] += 1
     with codecs.open(output_filename, "w", "utf8") as outfile:

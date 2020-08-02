@@ -9,16 +9,66 @@ Here are some pointers into Wiktionary's documentation:
 import os
 import re
 import logging
-import slugify
 import owlready2
 import tqdm
 import utils
+import wikitextparser
 
-TITLE_PATTERN = re.compile("^(=+) {{(.+)}}")
-WIKITEXT_BRACES = re.compile(r"{{.*}}")
-WIKITEXT_BRACKETS = re.compile(r"\[\[(?:.*?\|)?(.*?)\]\]")
-WIKITEXT_TAG = re.compile(r"^ *# *\*?")
-WIKITEXT_QUOTES = re.compile(r"'''")
+
+DEFINITION_PATTERN = re.compile(r"^ *# *(\*?) *(.*)")
+
+MODEL_TO_CLASS_MAPPING = {
+    "adj": "Adjective",
+    "adjectif": "Adjective",
+    "adjectif démonstratif": "DemonstrativeAdjective",
+    "adjectif exclamatif": "ExclamativeAdjective",
+    "adjectif indéfini": "IndefiniteAdjective",
+    "adjectif interrogatif": "InterrogativeAdjective",
+    "adjectif numéral": "NumeralAdjective",
+    "adjectif possessif": "PossessiveAdjective",
+    "adjectif relatif": "RelativeAdjective",
+    "adverbe": "Adverb",
+    "adverbe interrogatif": "InterrogativeAdverb",
+    "adverbe relatif": "RelativeAdverb",
+    "article défini": "DefiniteArticle",
+    "article indéfini": "IndefiniteArticle",
+    "article partitif": "PartitiveArticle",
+    "conjonction": "Conjunction",
+    "conjonction de coordination": "CoordinatingConjunction",
+    "interfixe": "Interfix",
+    "interjection": "Interjection",
+    "lettre": "Letter",
+    "locution": "Locution",
+    "locution-phrase": "Locution",
+    "nom": "CommonNoun",
+    "nom commun": "CommonNoun",
+    "nom de famille": "FamilyName",
+    "nom propre": "ProperNoun",
+    "nom scientifique": "CommonNoun",
+    "onomatopée": "Onomatopoeia",
+    "particule": "Particle",
+    "patronyme": "FamilyName",
+    "phrase": "Sentence",
+    "phrases": "Sentence",
+    "postposition": "Postposition",
+    "préfixe": "Prefix",
+    "prénom": "FirstName",
+    "préposition": "Preposition",
+    "pronom": "Pronoun",
+    "pronom démonstratif": "DemonstrativePronoun",
+    "pronom indéfini": "IndefinitePronoun",
+    "pronom interrogatif": "InterrogativePronoun",
+    "pronom personnel": "PersonalPronoun",
+    "pronom possessif": "PossessivePronoun",
+    "pronom relatif": "RelativePronoun",
+    "proverbe": "Proverb",
+    "substantif": "CommonNoun",
+    "suffixe": "Suffix",
+    "symbole": "Symbol",
+    "verbe": "Verb",
+}
+
+LEXICAL_ENTRY_CATEGORIES = frozenset(MODEL_TO_CLASS_MAPPING)
 
 CLASS_ABBREVIATIONS = {
     "Adjective": "adj",
@@ -64,207 +114,357 @@ CLASS_ABBREVIATIONS = {
     "Verb": "v",
 }
 
-MODEL_TO_CLASS_MAPPING = {
-    "adj": "Adjective",
-    "adjectif": "Adjective",
-    "adjectif-demonstratif": "DemonstrativeAdjective",
-    "adjectif-exclamatif": "ExclamativeAdjective",
-    "adjectif-indefini": "IndefiniteAdjective",
-    "adjectif-interrogatif": "InterrogativeAdjective",
-    "adjectif-numeral": "NumeralAdjective",
-    "adjectif-possessif": "PossessiveAdjective",
-    "adjectif-relatif": "RelativeAdjective",
-    "adverbe": "Adverb",
-    "adverbe-interrogatif": "InterrogativeAdverb",
-    "adverbe-relatif": "RelativeAdverb",
-    "article-defini": "DefiniteArticle",
-    "article-indefini": "IndefiniteArticle",
-    "article-partitif": "PartitiveArticle",
-    "conjonction": "Conjunction",
-    "conjonction-de-coordination": "CoordinatingConjunction",
-    "interfixe": "Interfix",
-    "interjection": "Interjection",
-    "lettre": "Letter",
-    "locution": "Locution",
-    "locution-phrase": "Locution",
-    "nom": "CommonNoun",
-    "nom-commun": "CommonNoun",
-    "nom-de-famille": "FamilyName",
-    "nom-propre": "ProperNoun",
-    "nom-scientifique": "CommonNoun",
-    "onomatopee": "Onomatopoeia",
-    "particule": "Particle",
-    "patronyme": "FamilyName",
-    "phrase": "Sentence",
-    "phrases": "Sentence",
-    "postposition": "Postposition",
-    "prefixe": "Prefix",
-    "prenom": "FirstName",
-    "preposition": "Preposition",
-    "pronom": "Pronoun",
-    "pronom-demonstratif": "DemonstrativePronoun",
-    "pronom-indefini": "IndefinitePronoun",
-    "pronom-interrogatif": "InterrogativePronoun",
-    "pronom-personnel": "PersonalPronoun",
-    "pronom-possessif": "PossessivePronoun",
-    "pronom-relatif": "RelativePronoun",
-    "proverbe": "Proverb",
-    "substantif": "CommonNoun",
-    "suffixe": "Suffix",
-    "symbole": "Symbol",
-    "verbe": "Verb",
-}
 
-
-def extract_table_of_content(text):
-    """Parse the full text of an entry to extract its titles hierarchy.
+def parse_section_title(section):
+    """Extract and lemmatize the category of a section title.
     """
-    toc = list()
-    for line in text.split("\n"):
-        match = TITLE_PATTERN.search(line)
-        if match is not None:
-            level, title = len(match.group(1)), match.group(2).strip()
-            if "S|" in title or "S |" in title:
-                clean_title = slugify.slugify(title.split("|")[1].strip())
+    parsed = re.sub("=|{|}", "", section.title).lower()
+    split = parsed.split("|")
+    if len(split) == 1:
+        return split[0].strip()
+    if split[0].strip() == "s":
+        return split[1].strip()
+    return split[0].strip()
+
+
+def clear_wikitext(text):
+    """Clean a string by removing wikitext markup.
+    """
+    parsed = wikitextparser.parse(text)
+    plain_text = ""
+    try:
+        plain_text = parsed.plain_text()
+    except TypeError:
+        pass
+    return plain_text.strip()
+
+
+class WikitextArticle:
+    """Object representation of a parsed wikitext article.
+    """
+
+    IGNORE = {
+        "références",
+        "voir aussi",
+        "voir",
+        "variante typographique",
+        "liens externes",
+        "traductions",
+        "sources",
+        "erreur",
+        "faute",
+        "pesornel",  # ???
+        "synonymes",  # level error
+        "variante",  # level error
+        "homophone", # level error
+        "paronymes",  # level error
+        "quasi-synonymes"  # level error
+    }
+
+    def __init__(self, title=None):
+        self.title = title
+        self.lexical_entries = list()
+        self.anagrams = list()
+        self.etymology = None
+        self.pronunciation = None
+
+    @classmethod
+    def from_text(cls, title, content):
+        """Instantiate a WikitextArticle object.
+        """
+        article = cls(title)
+        for section in wikitextparser.parse(content).sections:
+            if section.title is not None\
+                and section.title.strip() == "{{langue|fr}}":
+                for subsection in section.get_sections(level=3):
+                    article.parse_section(subsection)
+                break
+        return article
+
+    def to_dict(self):
+        """Serialization.
+        """
+        return {
+            "title": self.title,
+            "lexical_entries": [e.to_dict() for e in self.lexical_entries],
+            "anagrams": self.anagrams,
+            "etymology": self.etymology,
+            "pronunciation": self.pronunciation
+        }
+
+    def _parseanagrams(self, section):
+        for link in section.wikilinks:
+            self.anagrams.append(link.target)
+
+    def _parseetymology(self, section):
+        self.etymology = clear_wikitext(section.contents)
+        # TODO: More precise parsing
+
+    def _parse_lexical_entry(self, section):
+        lexical_entry = WikitextLexicalEntry.from_section(section)
+        self.lexical_entries.append(lexical_entry)
+
+    def _parsepronunciation(self, section):
+        self.pronunciation = section.contents
+        # TODO: More precise parsing
+
+    def parse_section(self, section):
+        """Parse a level 3 section.
+        """
+        category = parse_section_title(section)
+        function = {
+            "anagrammes": self._parseanagrams,
+            "étymologie": self._parseetymology,
+            "prononciation": self._parsepronunciation
+        }.get(category)
+        if function is not None:
+            function(section)
+        elif category in LEXICAL_ENTRY_CATEGORIES:
+            self._parse_lexical_entry(section)
+        elif category in WikitextArticle.IGNORE:
+            pass
+        else:
+            logging.warning(
+                "This section could not be parsed: %s",
+                section.title
+            )
+
+
+class WikitextLexicalEntry:
+    """Object representation for a parsed lexical entry.
+    """
+
+    LINKS_FOLDERS = {
+        "synonymes": "synonyms",
+        "syn": "synonyms",
+        "quasi-synonymes": "quasi_synonyms",
+        "q-syn": "quasi_synonyms",
+        "antonymes": "antonyms",
+        "dérivés": "derivatives",
+        "vocabulaire": "vocabulary",
+        "voc": "vocabulary",
+        "hyponymes": "hyponyms",
+        "hyperonymes": "hypernyms",
+        "apparentés": "related",
+        "phrases": "sentences",
+        "holonymes": "holonyms",
+        "méronymes": "meronyms",
+        "homophones": "homophones",
+        "abréviations": "abreviations",
+        "variantes orthographiques": "spelling_variants",
+        "variantes": "variants",
+        "variantes dialectales": "dialect_variants",
+        "expressions": "locutions",
+        "gentilés": "demonyms",
+        "paronymes": "paronyms",
+        "diminutifs": "diminutives",
+        "augmentatifs": "augmentatives",
+        "composés": "composites",
+        "anciennes orthographes": "old_spellings",
+        "troponymes": "troponyms",
+    }
+
+    IGNORE = {
+        "notes",
+        "transcriptions",
+        "dérivés autres langues",
+        "faux-amis",
+        "translittérations",
+        "voir aussi",
+        "trad-trier",
+        "remarque",
+        "voir",
+        "apparentés étymologiques",
+        "traductions"
+        "anagrammes",  # level error
+    }
+
+    def __init__(self):
+        self.pos = None
+        self.lexical_senses = list()
+        self.links = dict()
+        for folder in set(WikitextLexicalEntry.LINKS_FOLDERS.values()):
+            self.links[folder] = list()
+
+    @classmethod
+    def from_section(cls, section):
+        """Instantiate an object from the parsed section.
+        """
+        entry = cls()
+        entry.parse_section(section)
+        return entry
+
+    def to_dict(self):
+        """Serialization.
+        """
+        return {
+            "pos": self.pos,
+            "senses": [s.to_dict() for s in self.lexical_senses],
+            "links": self.links
+        }
+
+    def _parse_head(self, section):
+        head = section.get_sections(include_subsections=False, level=3)[0]
+        templates = {
+            t.name: t.arguments
+            for t in head.templates
+        }
+        # IDEA: parse templates for gender detection, flexion info and more.
+        self.pos = templates["S"][0].value
+        definition, examples = None, list()
+        for line in head.contents.split("\n"):
+            match = DEFINITION_PATTERN.search(line)
+            if match is None:
+                continue
+            if match.group(1) == "":
+                if definition is not None:
+                    self.lexical_senses.append(
+                        WikitextLexicalSense.from_text(definition, examples))
+                    examples = list()
+                definition = match.group(2)
             else:
-                clean_title = slugify.slugify(title.split("|")[0].strip())
-            toc.append((str(level), clean_title))
-    return toc
+                examples.append(match.group(2))
+        if definition is not None:
+            self.lexical_senses.append(
+                WikitextLexicalSense.from_text(definition, examples))
+
+    def _parse_links(self, section, folder):
+        for link in section.wikilinks:
+            self.links[folder].append(link.target)
+
+    def parse_section(self, section):
+        """Parse a wikitext section.
+        """
+        self._parse_head(section)
+        for subsection in section.get_sections(level=4):
+            category = parse_section_title(subsection)
+            folder = WikitextLexicalEntry.LINKS_FOLDERS.get(category)
+            if folder is not None:
+                self._parse_links(section, folder)
+            elif category in WikitextLexicalEntry.IGNORE:
+                pass
+            else:
+                logging.warning(
+                    "This subsection could not be parsed: %s",
+                    subsection.title
+                )
+
+    def get_class(self):
+        """Return the ontology class name of the entry.
+        """
+        return MODEL_TO_CLASS_MAPPING[self.pos]
 
 
-def iter_sections(content, target_level):
-    """Read a Wiktionary article content and iterate over sections of a given
-    level (determined by the number of '=' signs around the section title).
+class WikitextLexicalSense:
+    """Object representation for a parsed lexical sense.
     """
-    is_recording = False
-    buffer_title, buffer_content = None, list()
-    for line in content.split("\n"):
-        match = TITLE_PATTERN.search(line)
-        if match is not None:
-            level, name = len(match.group(1)), match.group(2)
-            if level == target_level:
-                is_recording = True
-                if buffer_title is not None:
-                    yield buffer_title, "\n".join(buffer_content)
-                buffer_title = name
-                buffer_content = list()
-            elif is_recording:
-                buffer_content.append(line)
-        elif is_recording:
-            buffer_content.append(line)
-    if is_recording and buffer_title is not None:
-        yield buffer_title, "\n".join(buffer_content)
+
+    def __init__(self):
+        self.definition = None
+        self.examples = list()
+
+    @classmethod
+    def from_text(cls, definition, examples):
+        """Instantiate a WikitextLexicalSense from wikitext.
+        """
+        sense = cls()
+        sense.parse_text(definition, examples)
+        return sense
+
+    def to_dict(self):
+        """Serialization.
+        """
+        return {
+            "definition": self.definition,
+            "examples": self.examples
+        }
+
+    def parse_text(self, definition, examples):
+        """Read some wikitext and set the inner attributes.
+        """
+        self.definition = clear_wikitext(definition)
+        for example in examples:
+            self.examples.append(clear_wikitext(example))
+        # IDEA: parse definition templates for more info
 
 
-def iter_db_rows(database_filename):
+class OntologyBuilder:
+    """Wrapper for methods appending individuals to the ontology.
+    """
+
+    def __init__(self, ontology_schema):
+        uri = "file://" + os.path.join(os.getcwd(), ontology_schema)
+        self.ontology = owlready2.get_ontology(uri).load()
+        self.existing = dict()
+
+    def create_literal(self, title):
+        """Append a flont:Literal to the ontology.
+        """
+        literal_name = utils.format_literal(title)
+        literal = self.ontology.Literal(literal_name)
+        literal.label = title
+        return literal
+
+    def create_lexical_entry(self, literal, cls):
+        """Append a flont:LexicalEntry to the ontology.
+        """
+        entry_name_radix = "%s_%s" % (literal.name, CLASS_ABBREVIATIONS[cls])
+        self.existing.setdefault(entry_name_radix, dict())
+        index = len(self.existing[entry_name_radix]) + 1
+        entry_name = "%s%d" % (entry_name_radix, index)
+        self.existing[entry_name_radix][entry_name] = 0
+        lexical_entry = self.ontology[cls](entry_name)
+        lexical_entry.hasLiteral = literal
+        # literal.isLiteralOf.append(lexical_entry)
+        return lexical_entry
+
+    def create_lexical_sense(self, lexical_entry, definition, examples):
+        """Append a flont:LexicalSense to the ontology.
+        """
+        lexical_entry_name_radix = re.sub(r"\d*$", "", lexical_entry.name)
+        index = self.existing[lexical_entry_name_radix][lexical_entry.name] + 1
+        sense_name = "%s.%d" % (lexical_entry.name, index)
+        self.existing[lexical_entry_name_radix][lexical_entry.name] += 1
+        lexical_sense = self.ontology.LexicalSense(sense_name)
+        lexical_sense.definition = definition
+        lexical_sense.example = examples
+        lexical_sense.isSenseOf = lexical_entry
+        return lexical_sense
+
+
+def iter_db_rows(database_filename, max_iters=None):
     """Iterate over the database rows.
     """
     with utils.get_db_cursor(database_filename) as cursor:
-        total = cursor.execute("SELECT COUNT(*) FROM entries").fetchone()[0]
-        for entry_title, entry_content in tqdm.tqdm(
-                cursor.execute("SELECT title, content FROM entries"),
-                total=total):
-            yield entry_title, entry_content
+        if max_iters is None:
+            total = cursor.execute("SELECT COUNT(*) FROM entries").fetchone()[0]
+            query = "SELECT title, content FROM entries"
+        else:
+            total = max_iters
+            query = "SELECT title, content FROM entries LIMIT %d" % max_iters
+        for row in tqdm.tqdm(cursor.execute(query), total=total):
+            yield row
 
 
-def extract_french_section(wikitext):
-    """Extract the content of the section titled {{langue|fr}}.
-    """
-    for title, content in iter_sections(wikitext, 2):
-        if title == "langue|fr":
-            return content
-    return None
-
-
-def create_literal(ontology, title):
-    """Append a flont:Literal to the ontology.
-    """
-    literal_name = utils.format_literal(title)
-    literal = ontology.Literal(literal_name)
-    literal.label = title
-    return literal
-
-
-def iter_lexical_entries(wikitext):
-    """Iterate over the various syntactic occurrences of a literal.
-    """
-    for title, content in iter_sections(wikitext, 3):
-        model = slugify.slugify(title.split("|")[1].strip())
-        class_ = MODEL_TO_CLASS_MAPPING.get(model)
-        if class_ is not None:
-            yield class_, content
-
-
-def create_lexical_entry(ontology, existing, literal, class_):
-    """Append a flont:LexicalEntry to the ontology.
-    """
-    entry_name_radix = "%s_%s" % (literal.name, CLASS_ABBREVIATIONS[class_])
-    existing.setdefault(entry_name_radix, dict())
-    index = len(existing[entry_name_radix]) + 1
-    entry_name = "%s%d" % (entry_name_radix, index)
-    existing[entry_name_radix][entry_name] = 0
-    lexical_entry = ontology[class_](entry_name)
-    lexical_entry.hasLiteral = literal
-    # literal.isLiteralOf.append(lexical_entry)
-    return lexical_entry
-
-
-def extract_senses_section(wikitext):
-    """Extract the content of a lexical entry section.
-    """
-    lines = list()
-    for line in wikitext.split("\n"):
-        if TITLE_PATTERN.search(line.strip()) is not None:
-            break
-        lines.append(line)
-    return "\n".join(lines)
-
-
-def iter_lexical_senses(wikitext):
-    """Iterate over the definitions listed under a lexical entry.
-    """
-    definition, examples = None, list()
-    for row in wikitext.split("\n"):
-        if row.strip().startswith("#*"):
-            examples.append(re.sub(r"^#\* *", "", row.strip()))
-        elif row.strip().startswith("#"):
-            if definition is not None:
-                yield definition, examples[:]
-                examples = list()
-            definition = re.sub(r"^# *", "", row.strip())
-    if definition is not None:
-        yield definition, examples[:]
-
-
-def create_lexical_sense(ontology, existing, lexical_entry, definition, examples):
-    """Append a flont:LexicalSense to the ontology.
-    """
-    lexical_entry_name_radix = re.sub(r"\d*$", "", lexical_entry.name)
-    index = existing[lexical_entry_name_radix][lexical_entry.name] + 1
-    sense_name = "%s.%d" % (lexical_entry.name, index)
-    existing[lexical_entry_name_radix][lexical_entry.name] += 1
-    lexical_sense = ontology.LexicalSense(sense_name)
-    lexical_sense.definition = definition
-    lexical_sense.examples = examples
-    lexical_sense.isSenseOf = lexical_entry
-    return lexical_sense
-
-
-def populate_individuals(database_filename, ontology_schema, output_filename):
+def populate_individuals(database_filename, ontology_schema,
+                         output_filename, max_iters=None):
     """Read the database and populate the ontology with individuals.
     """
     logging.info("Populating ontology with %s", database_filename)
-    ontology = owlready2\
-        .get_ontology("file://" + os.path.join(os.getcwd(), ontology_schema))\
-        .load()
-    existing = dict()
-    for entry_title, entry_content in iter_db_rows(database_filename):
-        literal = create_literal(ontology, entry_title)
-        for class_, content in iter_lexical_entries(extract_french_section(entry_content)):
-            lexical_entry = create_lexical_entry(
-                ontology, existing, literal, class_)
-            for definition, examples in iter_lexical_senses(extract_senses_section(content)):
-                create_lexical_sense(ontology, existing,
-                                     lexical_entry, definition, examples)
+    builder = OntologyBuilder(ontology_schema)
+    for row in iter_db_rows(database_filename, max_iters):
+        article = WikitextArticle.from_text(*row)
+        literal = builder.create_literal(article.title)
+        for wikitext_lexical_entry in article.lexical_entries:
+            ontology_lexical_entry = builder.create_lexical_entry(
+                literal,
+                wikitext_lexical_entry.get_class()
+            )
+            for wikitext_lexical_sense in wikitext_lexical_entry.lexical_senses:
+                builder.create_lexical_sense(
+                    ontology_lexical_entry,
+                    wikitext_lexical_sense.definition,
+                    wikitext_lexical_sense.examples
+                )
     logging.info("Saving ontology to %s", os.path.realpath(output_filename))
-    ontology.save(file=output_filename, format="rdfxml")
+    builder.ontology.save(file=output_filename, format="rdfxml")

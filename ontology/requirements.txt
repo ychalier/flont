@@ -3,3 +3,4 @@ tqdm
 python-slugify
 clint
 bz2file
+wikitextparser

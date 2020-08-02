@@ -2,6 +2,7 @@
 
 import logging
 import argparse
+from __init__ import __version__  # pylint: disable=E0611
 import populate
 import explore
 
@@ -20,6 +21,9 @@ def main():
     populate_parser.add_argument(
         "ontology", type=str, help="path to the ontology schema file (*.owl)")
     populate_parser.add_argument("output", type=str, help="output filename")
+    populate_parser.add_argument(
+        "-mi", "--max-iter", type=int, default=0,
+        help="maximum number of iterations")
     duplicates_parser = subparsers.add_parser("check_duplicates")
     duplicates_parser.add_argument(
         "database", type=str, help="path to the database")
@@ -34,11 +38,16 @@ def main():
     elif args.quiet:
         log_level = logging.WARNING
     logging.basicConfig(
+        filename="flont.log",
         format='%(levelname)s %(asctime)s %(module)s %(message)s',
         level=log_level)
+    logging.info("FLOnt v%s", __version__)
     if args.action == "populate":
+        max_iters = None
+        if args.max_iter > 0:
+            max_iters = args.max_iter
         populate.populate_individuals(
-            args.database, args.ontology, args.output)
+            args.database, args.ontology, args.output, max_iters)
     elif args.action == "check_duplicates":
         explore.check_for_duplicates(args.database)
     elif args.action == "extract_tocs":
