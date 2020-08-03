@@ -12,10 +12,10 @@
         <rdfs:label xml:lang="en">FLOnt</rdfs:label>
         <owl:versionInfo xml:lang="en">0.1.0</owl:versionInfo>
     </owl:Ontology>
+    
 
 
-
-    <!--
+    <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Object Properties
@@ -23,7 +23,17 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
 
+
+    <!-- https://ontology.chalier.fr/flont#hasAbbreviation -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasAbbreviation">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasVariant"/>
+        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+    </owl:ObjectProperty>
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasAugmentative -->
@@ -32,9 +42,9 @@
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasIntensityLinkWith"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasDemonym -->
@@ -42,9 +52,9 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasDemonym">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasSemanticLinkWith"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#ProperNoun"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#CommonNoun"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasDerivative -->
@@ -52,9 +62,49 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasDerivative">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#isLinkedTo"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
+    
 
+
+    <!-- https://ontology.chalier.fr/flont#hasDerivedLocution -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasDerivedLocution">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasDerivative"/>
+        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#hasDerivedPhrase -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasDerivedPhrase">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasDerivative"/>
+        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#Word"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#hasDerivedWord -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasDerivedWord">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasDerivative"/>
+        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#hasDialectVariant -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasDialectVariant">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasVariant"/>
+        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+    </owl:ObjectProperty>
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasDiminutive -->
@@ -63,9 +113,9 @@
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasIntensityLinkWith"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasGender -->
@@ -76,7 +126,7 @@
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Gender"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasGrammaticalTrait -->
@@ -86,7 +136,7 @@
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#GrammaticalTrait"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasHolonym -->
@@ -95,20 +145,20 @@
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasPartitiveLinkWith"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasHomophone -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasHomophone">
-        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#isLinkedTo"/>
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#soundsSimilarTo"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasHypernym -->
@@ -117,9 +167,9 @@
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasTaxonomicalLinkWith"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasHyponym -->
@@ -128,9 +178,9 @@
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasTaxonomicalLinkWith"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasIntensityLinkWith -->
@@ -139,9 +189,9 @@
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasSemanticLinkWith"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasLiteral -->
@@ -153,7 +203,7 @@
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasMeronym -->
@@ -162,9 +212,9 @@
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasPartitiveLinkWith"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasNumber -->
@@ -175,7 +225,7 @@
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Number"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasOldSpelling -->
@@ -183,9 +233,9 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasOldSpelling">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasVariant"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasPartitiveLinkWith -->
@@ -194,9 +244,9 @@
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasSemanticLinkWith"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasPerson -->
@@ -207,7 +257,37 @@
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Person"/>
     </owl:ObjectProperty>
+    
 
+
+    <!-- https://ontology.chalier.fr/flont#hasRelatedVocabulary -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasRelatedVocabulary">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasRelative"/>
+        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#hasRelatedWord -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasRelatedWord">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasRelative"/>
+        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#hasRelative -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasRelative">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#isLinkedTo"/>
+        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+    </owl:ObjectProperty>
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasSemanticLinkWith -->
@@ -216,9 +296,9 @@
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#isLinkedTo"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasSense -->
@@ -230,7 +310,7 @@
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalSense"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasSimilarityLinkWith -->
@@ -239,9 +319,9 @@
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasSemanticLinkWith"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasSpellingVariant -->
@@ -250,9 +330,9 @@
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasVariant"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasTaxonomicalLinkWith -->
@@ -261,9 +341,9 @@
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasSemanticLinkWith"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasTense -->
@@ -274,7 +354,17 @@
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Tense"/>
     </owl:ObjectProperty>
+    
 
+
+    <!-- https://ontology.chalier.fr/flont#hasTroponym -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasTroponym">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasTaxonomicalLinkWith"/>
+        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+    </owl:ObjectProperty>
+    
 
 
     <!-- https://ontology.chalier.fr/flont#hasVariant -->
@@ -283,9 +373,9 @@
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#isLinkedTo"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#isAnagramOf -->
@@ -296,7 +386,7 @@
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#isAntonymOf -->
@@ -305,19 +395,19 @@
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasSimilarityLinkWith"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#isComponentOf -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#isComponentOf">
-        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#isLinkedTo"/>
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasDerivative"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#isInflectionOf -->
@@ -328,7 +418,7 @@
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#isLinkedTo -->
@@ -336,7 +426,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#isLinkedTo">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#isLiteralOf -->
@@ -347,18 +437,18 @@
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#isParonymOf -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#isParonymOf">
-        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#isLinkedTo"/>
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#soundsSimilarTo"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#isQuasiSynonymOf -->
@@ -367,9 +457,9 @@
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasSimilarityLinkWith"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#isSenseOf -->
@@ -380,7 +470,7 @@
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalSense"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
     </owl:ObjectProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#isSynonymOf -->
@@ -389,22 +479,22 @@
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasSimilarityLinkWith"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
+    
 
 
+    <!-- https://ontology.chalier.fr/flont#soundsSimilarTo -->
 
-    <!-- https://ontology.chalier.fr/flont#isUsedIn -->
-
-    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#isUsedIn">
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#soundsSimilarTo">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#isLinkedTo"/>
-        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#Word"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Phrase"/>
+        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
+    
 
 
-
-    <!--
+    <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Data properties
@@ -412,7 +502,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#definition -->
@@ -423,7 +513,7 @@
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalSense"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#example -->
@@ -433,7 +523,7 @@
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalSense"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#label -->
@@ -444,7 +534,7 @@
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#pronunciation -->
@@ -453,10 +543,10 @@
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
+    
 
 
-
-    <!--
+    <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Classes
@@ -464,7 +554,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Adjective -->
@@ -472,7 +562,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Adjective">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#ContentWord"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Adposition -->
@@ -480,7 +570,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Adposition">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#FunctionWord"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Adverb -->
@@ -488,7 +578,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Adverb">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#ContentWord"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Affix -->
@@ -496,7 +586,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Affix">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Article -->
@@ -504,7 +594,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Article">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#FunctionWord"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#CommonNoun -->
@@ -512,7 +602,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#CommonNoun">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Noun"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Conditional -->
@@ -520,7 +610,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Conditional">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Tense"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Conjunction -->
@@ -528,7 +618,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Conjunction">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#FunctionWord"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#ContentWord -->
@@ -536,7 +626,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#ContentWord">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Word"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#CoordinatingConjunction -->
@@ -544,7 +634,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#CoordinatingConjunction">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Conjunction"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#DefiniteArticle -->
@@ -552,7 +642,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#DefiniteArticle">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Article"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#DemonstrativeAdjective -->
@@ -560,7 +650,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#DemonstrativeAdjective">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Adjective"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#DemonstrativePronoun -->
@@ -568,7 +658,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#DemonstrativePronoun">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Pronoun"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#ExclamativeAdjective -->
@@ -576,7 +666,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#ExclamativeAdjective">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Adjective"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#FamilyName -->
@@ -584,7 +674,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#FamilyName">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#ProperNoun"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#FirstName -->
@@ -592,7 +682,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#FirstName">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#ProperNoun"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#FunctionWord -->
@@ -600,7 +690,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#FunctionWord">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Word"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Gender -->
@@ -608,7 +698,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Gender">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#GrammaticalTrait"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Gerund -->
@@ -616,13 +706,13 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Gerund">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Tense"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#GrammaticalTrait -->
 
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#GrammaticalTrait"/>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Imperative -->
@@ -630,7 +720,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Imperative">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Tense"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#IndefiniteAdjective -->
@@ -638,7 +728,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#IndefiniteAdjective">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Adjective"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#IndefiniteArticle -->
@@ -646,7 +736,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#IndefiniteArticle">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Article"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#IndefinitePronoun -->
@@ -654,7 +744,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#IndefinitePronoun">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Pronoun"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Indicative -->
@@ -662,7 +752,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Indicative">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Tense"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Infinitive -->
@@ -670,7 +760,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Infinitive">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Tense"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Interfix -->
@@ -678,7 +768,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Interfix">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Affix"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Interjection -->
@@ -686,7 +776,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Interjection">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#FunctionWord"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#InterrogativeAdjective -->
@@ -694,7 +784,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#InterrogativeAdjective">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Adjective"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#InterrogativeAdverb -->
@@ -702,7 +792,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#InterrogativeAdverb">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Adverb"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#InterrogativePronoun -->
@@ -710,7 +800,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#InterrogativePronoun">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Pronoun"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Letter -->
@@ -718,25 +808,25 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Letter">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Sign"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#LexicalEntry -->
 
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#LexicalEntry"/>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#LexicalSense -->
 
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#LexicalSense"/>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Literal -->
 
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Literal"/>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Locution -->
@@ -744,7 +834,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Locution">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Phrase"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Noun -->
@@ -752,7 +842,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Noun">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#ContentWord"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Number -->
@@ -760,7 +850,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Number">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#GrammaticalTrait"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#NumeralAdjective -->
@@ -768,7 +858,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#NumeralAdjective">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Adjective"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Onomatopoeia -->
@@ -776,7 +866,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Onomatopoeia">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Interjection"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Participle -->
@@ -784,7 +874,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Participle">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Tense"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Particle -->
@@ -792,7 +882,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Particle">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#FunctionWord"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#PartitiveArticle -->
@@ -800,7 +890,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#PartitiveArticle">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Article"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Person -->
@@ -808,7 +898,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Person">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#GrammaticalTrait"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#PersonalPronoun -->
@@ -816,7 +906,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#PersonalPronoun">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Pronoun"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Phrase -->
@@ -824,7 +914,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Phrase">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#PossessiveAdjective -->
@@ -832,7 +922,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#PossessiveAdjective">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Adjective"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#PossessivePronoun -->
@@ -840,7 +930,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#PossessivePronoun">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Pronoun"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Postposition -->
@@ -848,7 +938,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Postposition">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Adposition"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Prefix -->
@@ -856,7 +946,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Prefix">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Affix"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Preposition -->
@@ -864,7 +954,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Preposition">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Adposition"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Pronoun -->
@@ -872,7 +962,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Pronoun">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#FunctionWord"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#ProperNoun -->
@@ -880,7 +970,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#ProperNoun">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Noun"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Proverb -->
@@ -888,7 +978,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Proverb">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Phrase"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#RelativeAdjective -->
@@ -896,7 +986,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#RelativeAdjective">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Adjective"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#RelativeAdverb -->
@@ -904,7 +994,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#RelativeAdverb">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Adverb"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#RelativePronoun -->
@@ -912,7 +1002,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#RelativePronoun">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Pronoun"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Sentence -->
@@ -920,7 +1010,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Sentence">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Phrase"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Sign -->
@@ -928,7 +1018,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Sign">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Subjonctive -->
@@ -936,7 +1026,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Subjonctive">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Tense"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Suffix -->
@@ -944,7 +1034,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Suffix">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Affix"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Symbol -->
@@ -952,7 +1042,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Symbol">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Sign"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Tense -->
@@ -960,7 +1050,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Tense">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#GrammaticalTrait"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Verb -->
@@ -968,7 +1058,7 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Verb">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#ContentWord"/>
     </owl:Class>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Word -->
@@ -976,10 +1066,10 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Word">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
     </owl:Class>
+    
 
 
-
-    <!--
+    <!-- 
     ///////////////////////////////////////////////////////////////////////////////////////
     //
     // Individuals
@@ -987,7 +1077,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#ConditionalPresent -->
@@ -995,7 +1085,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#ConditionalPresent">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Conditional"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#ConditionnalPastFirstForm -->
@@ -1003,7 +1093,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#ConditionnalPastFirstForm">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Conditional"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#ConditionnalPastSecondForm -->
@@ -1011,7 +1101,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#ConditionnalPastSecondForm">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Conditional"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Feminine -->
@@ -1019,7 +1109,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#Feminine">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Gender"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#FirstPerson -->
@@ -1027,7 +1117,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#FirstPerson">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Person"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#FuturePerfect -->
@@ -1035,7 +1125,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#FuturePerfect">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Indicative"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#GerundPast -->
@@ -1043,7 +1133,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#GerundPast">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Gerund"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#GerundPresent -->
@@ -1051,7 +1141,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#GerundPresent">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Gerund"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#ImperativePast -->
@@ -1059,7 +1149,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#ImperativePast">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Imperative"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#ImperativePresent -->
@@ -1067,7 +1157,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#ImperativePresent">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Imperative"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#IndicativeImperfect -->
@@ -1075,7 +1165,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#IndicativeImperfect">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Indicative"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#IndicativePluperfect -->
@@ -1083,7 +1173,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#IndicativePluperfect">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Indicative"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#IndicativePresent -->
@@ -1091,7 +1181,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#IndicativePresent">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Indicative"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#InfinitivePast -->
@@ -1099,7 +1189,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#InfinitivePast">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Infinitive"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#InfinitivePresent -->
@@ -1107,7 +1197,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#InfinitivePresent">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Infinitive"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Masculine -->
@@ -1115,7 +1205,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#Masculine">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Gender"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#ParticiplePast -->
@@ -1123,7 +1213,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#ParticiplePast">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Participle"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#ParticiplePresent -->
@@ -1131,7 +1221,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#ParticiplePresent">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Participle"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#PastAnterior -->
@@ -1139,7 +1229,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#PastAnterior">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Indicative"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#PerfectTense -->
@@ -1147,7 +1237,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#PerfectTense">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Indicative"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Plural -->
@@ -1155,7 +1245,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#Plural">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Number"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#SecondPerson -->
@@ -1163,7 +1253,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#SecondPerson">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Person"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#SimpleFuture -->
@@ -1171,7 +1261,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#SimpleFuture">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Indicative"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#SimplePast -->
@@ -1179,7 +1269,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#SimplePast">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Indicative"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#Singular -->
@@ -1187,7 +1277,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#Singular">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Number"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#SubjonctiveImperfect -->
@@ -1195,7 +1285,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#SubjonctiveImperfect">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Subjonctive"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#SubjonctivePast -->
@@ -1203,7 +1293,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#SubjonctivePast">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Subjonctive"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#SubjonctivePluperfect -->
@@ -1211,7 +1301,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#SubjonctivePluperfect">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Subjonctive"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#SubjonctivePresent -->
@@ -1219,7 +1309,7 @@
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#SubjonctivePresent">
         <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Subjonctive"/>
     </owl:NamedIndividual>
-
+    
 
 
     <!-- https://ontology.chalier.fr/flont#ThirdPerson -->
@@ -1232,3 +1322,4 @@
 
 
 <!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

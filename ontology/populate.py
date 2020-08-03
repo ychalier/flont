@@ -17,7 +17,39 @@ import wikitextparser
 
 DEFINITION_PATTERN = re.compile(r"^ *# *(\*?) *(.*)")
 
-MODEL_TO_CLASS_MAPPING = {
+
+TEMPLATE_TO_RELATION_MAPPING = {
+    "synonymes": "isSynonymOf",
+    "syn": "isSynonymOf",
+    "quasi-synonymes": "isQuasiSynonymOf",
+    "q-syn": "isQuasiSynonymOf",
+    "antonymes": "isAntonymOf",
+    "dérivés": "hasDerivedWord",
+    "phrases": "hasDerivedPhrase",
+    "expressions": "hasDerivedLocution",
+    "vocabulaire": "hasRelatedVocabulary",
+    "voc": "hasRelatedVocabulary",
+    "apparentés": "hasRelatedWord",
+    "hyponymes": "hasHyponym",
+    "hyperonymes": "hasHypernym",
+    "holonymes": "hasHolonym",
+    "méronymes": "hasMeronym",
+    "homophones": "hasHomophone",
+    "abréviations": "hasAbbreviation",
+    "variantes orthographiques": "hasSpellingVariant",
+    "variantes": "hasVariant",
+    "variantes dialectales": "hasDialectVariant",
+    "gentilés": "hasDemonym",
+    "paronymes": "isParonymOf",
+    "diminutifs": "hasDiminutive",
+    "augmentatifs": "hasAugmentative",
+    "composés": "isComponentOf",
+    "anciennes orthographes": "hasOldSpelling",
+    "troponymes": "hasTroponym",
+}
+
+
+TEMPLATE_TO_CLASS_MAPPING = {
     "adj": "Adjective",
     "adjectif": "Adjective",
     "adjectif démonstratif": "DemonstrativeAdjective",
@@ -39,6 +71,7 @@ MODEL_TO_CLASS_MAPPING = {
     "interjection": "Interjection",
     "lettre": "Letter",
     "locution": "Locution",
+    "locution phrase": "Locution",
     "locution-phrase": "Locution",
     "nom": "CommonNoun",
     "nom commun": "CommonNoun",
@@ -68,45 +101,45 @@ MODEL_TO_CLASS_MAPPING = {
     "verbe": "Verb",
 }
 
-LEXICAL_ENTRY_CATEGORIES = frozenset(MODEL_TO_CLASS_MAPPING)
+LEXICAL_ENTRY_CATEGORIES = frozenset(TEMPLATE_TO_CLASS_MAPPING)
 
 CLASS_ABBREVIATIONS = {
     "Adjective": "adj",
-    "DemonstrativeAdjective": "adj.dem",
-    "ExclamativeAdjective": "adj.excl",
-    "IndefiniteAdjective": "adj.idef",
-    "InterrogativeAdjective": "adj.int",
-    "NumeralAdjective": "adj.num",
-    "PossessiveAdjective": "adj.poss",
-    "RelativeAdjective": "adj.rel",
+    "DemonstrativeAdjective": "adjDem",
+    "ExclamativeAdjective": "adjExcl",
+    "IndefiniteAdjective": "adjIdef",
+    "InterrogativeAdjective": "adjInt",
+    "NumeralAdjective": "adjNum",
+    "PossessiveAdjective": "adjPoss",
+    "RelativeAdjective": "adjRel",
     "Adverb": "adv",
-    "InterrogativeAdverb": "adv.int",
-    "RelativeAdverb": "adv.rel",
-    "Interfix": "aff.int",
-    "DefiniteArticle": "art.def",
-    "IndefiniteArticle": "art.idef",
-    "PartitiveArticle": "art.part",
+    "InterrogativeAdverb": "advInt",
+    "RelativeAdverb": "advRel",
+    "Interfix": "affInt",
+    "DefiniteArticle": "artDef",
+    "IndefiniteArticle": "artIdef",
+    "PartitiveArticle": "artPart",
     "Conjunction": "conj",
-    "CoordinatingConjunction": "conj.coo",
+    "CoordinatingConjunction": "conjCoo",
     "Interjection": "int",
     "Letter": "let",
     "Locution": "loc",
-    "CommonNoun": "n.com",
-    "FamilyName": "n.fam",
-    "FirstName": "n.first",
-    "ProperNoun": "n.prop",
+    "CommonNoun": "nCom",
+    "FamilyName": "nFam",
+    "FirstName": "nFirst",
+    "ProperNoun": "nProp",
     "Onomatopoeia": "ono",
     "Particle": "part",
     "Postposition": "postp",
     "Prefix": "pref",
     "Preposition": "prep",
     "Pronoun": "pron",
-    "DemonstrativePronoun": "pron.dem",
-    "IndefinitePronoun": "pron.idef",
-    "InterrogativePronoun": "pron.int",
-    "PersonalPronoun": "pron.pers",
-    "PossessivePronoun": "pron.poss",
-    "RelativePronoun": "pron.rel",
+    "DemonstrativePronoun": "pronDem",
+    "IndefinitePronoun": "pronIdef",
+    "InterrogativePronoun": "pronInt",
+    "PersonalPronoun": "pronPers",
+    "PossessivePronoun": "pronPoss",
+    "RelativePronoun": "pronRel",
     "Proverb": "prov",
     "Sentence": "sent",
     "Suffix": "suff",
@@ -192,30 +225,28 @@ class WikitextArticle:
             "pronunciation": self.pronunciation
         }
 
-    def _parseanagrams(self, section):
+    def _parse_anagrams(self, section):
         for link in section.wikilinks:
             self.anagrams.append(link.target)
 
-    def _parseetymology(self, section):
+    def _parse_etymology(self, section):
         self.etymology = clear_wikitext(section.contents)
-        # TODO: More precise parsing
 
     def _parse_lexical_entry(self, section):
         lexical_entry = WikitextLexicalEntry.from_section(section)
         self.lexical_entries.append(lexical_entry)
 
-    def _parsepronunciation(self, section):
-        self.pronunciation = section.contents
-        # TODO: More precise parsing
+    def _parse_pronunciation(self, section):
+        self.pronunciation = clear_wikitext(section.contents)
 
     def parse_section(self, section):
         """Parse a level 3 section.
         """
         category = parse_section_title(section)
         function = {
-            "anagrammes": self._parseanagrams,
-            "étymologie": self._parseetymology,
-            "prononciation": self._parsepronunciation
+            "anagrammes": self._parse_anagrams,
+            "étymologie": self._parse_etymology,
+            "prononciation": self._parse_pronunciation
         }.get(category)
         if function is not None:
             function(section)
@@ -233,36 +264,6 @@ class WikitextArticle:
 class WikitextLexicalEntry:
     """Object representation for a parsed lexical entry.
     """
-
-    LINKS_FOLDERS = {
-        "synonymes": "synonyms",
-        "syn": "synonyms",
-        "quasi-synonymes": "quasi_synonyms",
-        "q-syn": "quasi_synonyms",
-        "antonymes": "antonyms",
-        "dérivés": "derivatives",
-        "vocabulaire": "vocabulary",
-        "voc": "vocabulary",
-        "hyponymes": "hyponyms",
-        "hyperonymes": "hypernyms",
-        "apparentés": "related",
-        "phrases": "sentences",
-        "holonymes": "holonyms",
-        "méronymes": "meronyms",
-        "homophones": "homophones",
-        "abréviations": "abreviations",
-        "variantes orthographiques": "spelling_variants",
-        "variantes": "variants",
-        "variantes dialectales": "dialect_variants",
-        "expressions": "locutions",
-        "gentilés": "demonyms",
-        "paronymes": "paronyms",
-        "diminutifs": "diminutives",
-        "augmentatifs": "augmentatives",
-        "composés": "composites",
-        "anciennes orthographes": "old_spellings",
-        "troponymes": "troponyms",
-    }
 
     IGNORE = {
         "notes",
@@ -283,7 +284,7 @@ class WikitextLexicalEntry:
         self.pos = None
         self.lexical_senses = list()
         self.links = dict()
-        for folder in set(WikitextLexicalEntry.LINKS_FOLDERS.values()):
+        for folder in set(TEMPLATE_TO_RELATION_MAPPING.values()):
             self.links[folder] = list()
 
     @classmethod
@@ -305,12 +306,11 @@ class WikitextLexicalEntry:
 
     def _parse_head(self, section):
         head = section.get_sections(include_subsections=False, level=3)[0]
-        templates = {
-            t.name: t.arguments
-            for t in head.templates
-        }
         # IDEA: parse templates for gender detection, flexion info and more.
-        self.pos = templates["S"][0].value
+        # templates = {
+        #     t.name: t.arguments
+        #     for t in head.templates
+        # }
         definition, examples = None, list()
         for line in head.contents.split("\n"):
             match = DEFINITION_PATTERN.search(line)
@@ -335,12 +335,13 @@ class WikitextLexicalEntry:
     def parse_section(self, section):
         """Parse a wikitext section.
         """
+        self.pos = parse_section_title(section)
         self._parse_head(section)
         for subsection in section.get_sections(level=4):
             category = parse_section_title(subsection)
-            folder = WikitextLexicalEntry.LINKS_FOLDERS.get(category)
+            folder = TEMPLATE_TO_RELATION_MAPPING.get(category)
             if folder is not None:
-                self._parse_links(section, folder)
+                self._parse_links(subsection, folder)
             elif category in WikitextLexicalEntry.IGNORE:
                 pass
             else:
@@ -352,7 +353,7 @@ class WikitextLexicalEntry:
     def get_class(self):
         """Return the ontology class name of the entry.
         """
-        return MODEL_TO_CLASS_MAPPING[self.pos]
+        return TEMPLATE_TO_CLASS_MAPPING[self.pos]
 
 
 class WikitextLexicalSense:
@@ -396,6 +397,7 @@ class OntologyBuilder:
         uri = "file://" + os.path.join(os.getcwd(), ontology_schema)
         self.ontology = owlready2.get_ontology(uri).load()
         self.existing = dict()
+        self.memory = dict()
 
     def create_literal(self, title):
         """Append a flont:Literal to the ontology.
@@ -403,11 +405,13 @@ class OntologyBuilder:
         literal_name = utils.format_literal(title)
         literal = self.ontology.Literal(literal_name)
         literal.label = title
+        self.memory[title] = {"literal": literal, "entries": list()}
         return literal
 
-    def create_lexical_entry(self, literal, cls):
+    def create_lexical_entry(self, title, literal, wikitext_lexical_entry):
         """Append a flont:LexicalEntry to the ontology.
         """
+        cls = wikitext_lexical_entry.get_class()
         entry_name_radix = "%s_%s" % (literal.name, CLASS_ABBREVIATIONS[cls])
         self.existing.setdefault(entry_name_radix, dict())
         index = len(self.existing[entry_name_radix]) + 1
@@ -416,6 +420,10 @@ class OntologyBuilder:
         lexical_entry = self.ontology[cls](entry_name)
         lexical_entry.hasLiteral = literal
         # literal.isLiteralOf.append(lexical_entry)
+        self.memory[title]["entries"].append({
+            "wikitext": wikitext_lexical_entry,
+            "ontology": lexical_entry
+        })
         return lexical_entry
 
     def create_lexical_sense(self, lexical_entry, definition, examples):
@@ -430,6 +438,21 @@ class OntologyBuilder:
         lexical_sense.example = examples
         lexical_sense.isSenseOf = lexical_entry
         return lexical_sense
+
+    def create_links(self):
+        """Create all relationships between lexical entries and literals
+        in the ontology. Future work may consider fine-tuning the left hand of
+        those relationships, linking lexical entries together, or even both
+        sides of the relationships by linking lexical senses together.
+        """
+        for memory_elt in tqdm.tqdm(self.memory.values(), total=len(self.memory)):
+            for entry in memory_elt["entries"]:
+                for folder, links in entry["wikitext"].links.items():
+                    for link in links:
+                        target_memory_elt = self.memory.get(link)
+                        if target_memory_elt is None:
+                            continue
+                        getattr(entry["ontology"], folder).append(target_memory_elt["literal"])
 
 
 def iter_db_rows(database_filename, max_iters=None):
@@ -452,13 +475,15 @@ def populate_individuals(database_filename, ontology_schema,
     """
     logging.info("Populating ontology with %s", database_filename)
     builder = OntologyBuilder(ontology_schema)
+    logging.info("Creating individuals...")
     for row in iter_db_rows(database_filename, max_iters):
         article = WikitextArticle.from_text(*row)
         literal = builder.create_literal(article.title)
         for wikitext_lexical_entry in article.lexical_entries:
             ontology_lexical_entry = builder.create_lexical_entry(
+                article.title,
                 literal,
-                wikitext_lexical_entry.get_class()
+                wikitext_lexical_entry
             )
             for wikitext_lexical_sense in wikitext_lexical_entry.lexical_senses:
                 builder.create_lexical_sense(
@@ -466,5 +491,7 @@ def populate_individuals(database_filename, ontology_schema,
                     wikitext_lexical_sense.definition,
                     wikitext_lexical_sense.examples
                 )
+    logging.info("Creating relationships between entries...")
+    builder.create_links()
     logging.info("Saving ontology to %s", os.path.realpath(output_filename))
     builder.ontology.save(file=output_filename, format="rdfxml")
