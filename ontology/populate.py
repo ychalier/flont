@@ -9,10 +9,36 @@ Here are some pointers into Wiktionary's documentation:
 import os
 import re
 import logging
-import owlready2
+import urllib.parse
+import sqlite3
+import contextlib
 import tqdm
-import utils
+import owlready2
 import wikitextparser
+
+
+@contextlib.contextmanager
+def get_db_cursor(database_filename):
+    """Context function for read-only interaction with the database.
+    """
+    connection = sqlite3.connect(database_filename)
+    cursor = connection.cursor()
+    yield cursor
+    connection.close()
+
+
+def iter_db_rows(database_filename, max_iters=None):
+    """Iterate over the database rows.
+    """
+    with get_db_cursor(database_filename) as cursor:
+        if max_iters is None:
+            total = cursor.execute("SELECT COUNT(*) FROM entries").fetchone()[0]
+            query = "SELECT title, content FROM entries"
+        else:
+            total = max_iters
+            query = "SELECT title, content FROM entries LIMIT %d" % max_iters
+        for row in tqdm.tqdm(cursor.execute(query), total=total):
+            yield row
 
 
 DEFINITION_PATTERN = re.compile(r"^ *# *(\*?) *(.*)")
@@ -146,6 +172,12 @@ CLASS_ABBREVIATIONS = {
     "Symbol": "sym",
     "Verb": "v",
 }
+
+
+def format_literal(raw):
+    """Format a literal into a safe format.
+    """
+    return "_" + urllib.parse.quote(raw)
 
 
 def parse_section_title(section):
@@ -402,7 +434,7 @@ class OntologyBuilder:
     def create_literal(self, title):
         """Append a flont:Literal to the ontology.
         """
-        literal_name = utils.format_literal(title)
+        literal_name = format_literal(title)
         literal = self.ontology.Literal(literal_name)
         literal.label = title
         self.memory[title] = {"literal": literal, "entries": list()}
@@ -445,7 +477,7 @@ class OntologyBuilder:
         those relationships, linking lexical entries together, or even both
         sides of the relationships by linking lexical senses together.
         """
-        for memory_elt in tqdm.tqdm(self.memory.values(), total=len(self.memory)):
+        for memory_elt in self.memory.values():
             for entry in memory_elt["entries"]:
                 for folder, links in entry["wikitext"].links.items():
                     for link in links:
@@ -453,20 +485,6 @@ class OntologyBuilder:
                         if target_memory_elt is None:
                             continue
                         getattr(entry["ontology"], folder).append(target_memory_elt["literal"])
-
-
-def iter_db_rows(database_filename, max_iters=None):
-    """Iterate over the database rows.
-    """
-    with utils.get_db_cursor(database_filename) as cursor:
-        if max_iters is None:
-            total = cursor.execute("SELECT COUNT(*) FROM entries").fetchone()[0]
-            query = "SELECT title, content FROM entries"
-        else:
-            total = max_iters
-            query = "SELECT title, content FROM entries LIMIT %d" % max_iters
-        for row in tqdm.tqdm(cursor.execute(query), total=total):
-            yield row
 
 
 def populate_individuals(database_filename, ontology_schema,

@@ -29,7 +29,7 @@ This will download a 500Mb XML file compressed with BZ2, and convert it into a 8
 Within the `ontology` directory, you may execute the main script with the following syntax:
 
 ```bash
-python . [-h] [-v] [-q] {populate,check_duplicates,extract_tocs} ...
+python . [-h] [-v] [-q] populate [database] [schema] [output]
 ```
 
 Use the `-h` flag for a more detailed help message.
