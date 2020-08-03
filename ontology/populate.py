@@ -269,7 +269,13 @@ class WikitextArticle:
         self.lexical_entries.append(lexical_entry)
 
     def _parse_pronunciation(self, section):
-        self.pronunciation = clear_wikitext(section.contents)
+        for template in section.templates:
+            if template.name != "pron":
+                continue
+            argument = template.get_arg("1")
+            if argument is not None:
+                self.pronunciation = argument.value
+            break
 
     def parse_section(self, section):
         """Parse a level 3 section.
@@ -431,13 +437,15 @@ class OntologyBuilder:
         self.existing = dict()
         self.memory = dict()
 
-    def create_literal(self, title):
+    def create_literal(self, article):
         """Append a flont:Literal to the ontology.
         """
-        literal_name = format_literal(title)
+        literal_name = format_literal(article.title)
         literal = self.ontology.Literal(literal_name)
-        literal.label = title
-        self.memory[title] = {"literal": literal, "entries": list()}
+        literal.label = article.title
+        if article.pronunciation is not None:
+            literal.pronunciation.append(article.pronunciation)
+        self.memory[article.title] = {"literal": literal, "entries": list()}
         return literal
 
     def create_lexical_entry(self, title, literal, wikitext_lexical_entry):
@@ -451,7 +459,6 @@ class OntologyBuilder:
         self.existing[entry_name_radix][entry_name] = 0
         lexical_entry = self.ontology[cls](entry_name)
         lexical_entry.hasLiteral = literal
-        # literal.isLiteralOf.append(lexical_entry)
         self.memory[title]["entries"].append({
             "wikitext": wikitext_lexical_entry,
             "ontology": lexical_entry
@@ -496,7 +503,7 @@ def populate_individuals(database_filename, ontology_schema,
     logging.info("Creating individuals...")
     for row in iter_db_rows(database_filename, max_iters):
         article = WikitextArticle.from_text(*row)
-        literal = builder.create_literal(article.title)
+        literal = builder.create_literal(article)
         for wikitext_lexical_entry in article.lexical_entries:
             ontology_lexical_entry = builder.create_lexical_entry(
                 article.title,
