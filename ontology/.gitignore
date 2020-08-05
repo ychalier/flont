@@ -1,5 +1,6 @@
 *.sqlite3
 *.owl
+*.csv
 *.tsv
 *.json
 *.xml

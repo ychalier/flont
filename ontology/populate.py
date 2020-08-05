@@ -12,6 +12,7 @@ import logging
 import urllib.parse
 import sqlite3
 import contextlib
+import enum
 import tqdm
 import owlready2
 import wikitextparser
@@ -126,8 +127,66 @@ TEMPLATE_TO_CLASS_MAPPING = {
     "symbole": "Symbol",
     "verbe": "Verb",
 }
-
 LEXICAL_ENTRY_CATEGORIES = frozenset(TEMPLATE_TO_CLASS_MAPPING)
+
+
+VERB_INFLECTION_MAPPING = {
+    "ppr": "presentParticiple",
+    "ppms": "pastParticipleMS",
+    "ppm": "pastParticipleMS",
+    "pp": "pastParticipleMS",
+    "ppfs": "pastParticipleFS",
+    "ppf": "pastParticipleFS",
+    "ppmp": "pastParticipleMP",
+    "ppfp": "pastParticipleFP",
+    "ind.p.1s": "indicativePresent1S",
+    "ind.p.2s": "indicativePresent2S",
+    "ind.p.3s": "indicativePresent3S",
+    "ind.p.1p": "indicativePresent1P",
+    "ind.p.2p": "indicativePresent2P",
+    "ind.p.3p": "indicativePresent3P",
+    "ind.i.1s": "indicativeImperfect1S",
+    "ind.i.2s": "indicativeImperfect2S",
+    "ind.i.3s": "indicativeImperfect3S",
+    "ind.i.1p": "indicativeImperfect1P",
+    "ind.i.2p": "indicativeImperfect2P",
+    "ind.i.3p": "indicativeImperfect3P",
+    "ind.ps.1s": "indicativeSimplePast1S",
+    "ind.ps.2s": "indicativeSimplePast2S",
+    "ind.ps.3s": "indicativeSimplePast3S",
+    "ind.ps.1p": "indicativeSimplePast1P",
+    "ind.ps.2p": "indicativeSimplePast2P",
+    "ind.ps.3p": "indicativeSimplePast3P",
+    "ind.f.1s": "indicativeSimpleFuture1S",
+    "ind.f.2s": "indicativeSimpleFuture2S",
+    "ind.f.3s": "indicativeSimpleFuture3S",
+    "ind.f.1p": "indicativeSimpleFuture1P",
+    "ind.f.2p": "indicativeSimpleFuture2P",
+    "ind.f.3p": "indicativeSimpleFuture3P",
+    "cond.p.1s": "conditionalPresent1S",
+    "cond.p.2s": "conditionalPresent2S",
+    "cond.p.3s": "conditionalPresent3S",
+    "cond.p.1p": "conditionalPresent1P",
+    "cond.p.2p": "conditionalPresent2P",
+    "cond.p.3p": "conditionalPresent3P",
+    "sub.p.1s": "subjonctivePresent1S",
+    "sub.p.2s": "subjonctivePresent2S",
+    "sub.p.3s": "subjonctivePresent3S",
+    "sub.p.1p": "subjonctivePresent1P",
+    "sub.p.2p": "subjonctivePresent2P",
+    "sub.p.3p": "subjonctivePresent3P",
+    "sub.i.1s": "subjonctiveImperfect1S",
+    "sub.i.2s": "subjonctiveImperfect2S",
+    "sub.i.3s": "subjonctiveImperfect3S",
+    "sub.i.1p": "subjonctiveImperfect1P",
+    "sub.i.2p": "subjonctiveImperfect2P",
+    "sub.i.3p": "subjonctiveImperfect3P",
+    "imp.p.2s": "imperativePresent2S",
+    "imp.p.1p": "imperativePresent1P",
+    "imp.p.2p": "imperativePresent2P",
+    "imp.p.2s.postposé": "imperativePresent2SPostposed"
+}
+
 
 CLASS_ABBREVIATIONS = {
     "Adjective": "adj",
@@ -171,6 +230,54 @@ CLASS_ABBREVIATIONS = {
     "Suffix": "suff",
     "Symbol": "sym",
     "Verb": "v",
+}
+
+
+@enum.unique
+class AgreementInflection(enum.Enum):
+    """Types of inflection for non-verbs.
+    """
+
+    FEMININE_SINGULAR = 0
+    FEMININE_PLURAL = 1
+    MASCULINE_PLURAL = 2
+    MASCULINE_FEMINE_PLURAL = 3
+    PLURAL = 4
+
+
+@enum.unique
+class GrammaticalTrait(enum.Enum):
+    """Types of traits for nouns.
+    """
+
+    MASCULINE = 0
+    FEMINE = 1
+    SINGULAR = 2
+    PLURAL = 3
+
+
+INFLECTION_LINK_REGEX = r"(?:(?:{l(?:ien)?\|(.*?)[\|}])|(?:\[\[(.*?)\]\]))"
+
+
+AGREEMENT_INFLECTION_PATTERNS = {
+    AgreementInflection.FEMININE_SINGULAR: [
+        re.compile(r"[Ff]éminin(?: singulier)?[' ]*d[ue’'].*" + INFLECTION_LINK_REGEX),
+        re.compile(r"Forme féminine d[e’'].*" + INFLECTION_LINK_REGEX)
+    ],
+    AgreementInflection.FEMININE_PLURAL: [
+        re.compile(r"[Ff]éminin pluriel[' ]*d[e’'].*" + INFLECTION_LINK_REGEX)
+    ],
+    AgreementInflection.MASCULINE_PLURAL: [
+        re.compile(r"[Mm]asculin pluriel[' ]*d[e’'].*" + INFLECTION_LINK_REGEX)
+    ],
+    AgreementInflection.MASCULINE_FEMINE_PLURAL: [
+        re.compile(r"Masculin et féminin pluriels d[e’'].*" + INFLECTION_LINK_REGEX)
+    ],
+    AgreementInflection.PLURAL: [
+        re.compile(r"[Pp]luriel(?:le)?(?: traditionnel)?[' ]*d[e’'].*" + INFLECTION_LINK_REGEX),
+        re.compile(r"[Pp]luriel[' ]*du nom.*" + INFLECTION_LINK_REGEX),
+        re.compile(r"Un des(?: deux)? pluriels d[e’'].*" + INFLECTION_LINK_REGEX)
+    ]
 }
 
 
@@ -324,6 +431,8 @@ class WikitextLexicalEntry:
         self.links = dict()
         for folder in set(TEMPLATE_TO_RELATION_MAPPING.values()):
             self.links[folder] = list()
+        self.inflections = set()
+        self.traits = set()
 
     @classmethod
     def from_section(cls, section):
@@ -342,13 +451,63 @@ class WikitextLexicalEntry:
             "links": self.links
         }
 
-    def _parse_head(self, section):
-        head = section.get_sections(include_subsections=False, level=3)[0]
-        # IDEA: parse templates for gender detection, flexion info and more.
-        # templates = {
-        #     t.name: t.arguments
-        #     for t in head.templates
-        # }
+    def _parse_traits(self, head):
+        for template in head.templates:
+            if template.name == "m":
+                self.traits.add(GrammaticalTrait.MASCULINE)
+            elif template.name == "f":
+                self.traits.add(GrammaticalTrait.FEMINE)
+            elif template.name == "mf":
+                self.traits.add(GrammaticalTrait.MASCULINE)
+                self.traits.add(GrammaticalTrait.FEMINE)
+            elif template.name == "p":
+                self.traits.add(GrammaticalTrait.PLURAL)
+
+    def _parse_verbal_inflections(self, head):
+        templates = {
+            t.name: t.arguments
+            for t in head.templates
+        }
+        verb_template = templates.get("fr-verbe-flexion")
+        if verb_template is None:
+            return
+        for i in range(1, len(verb_template)):
+            inflection = VERB_INFLECTION_MAPPING.get(verb_template[i].name)
+            if inflection is not None:
+                self.inflections.add((verb_template[0].value, inflection))
+
+    def _parse_agreement_inflections(self):
+        for lexical_sense in self.lexical_senses:
+            for agreement_inflection in AgreementInflection:
+                for pattern in AGREEMENT_INFLECTION_PATTERNS[agreement_inflection]:
+                    match = pattern.search(lexical_sense.definition)
+                    if match is not None:
+                        if match.group(1) is not None:
+                            target = match.group(1).strip()
+                        else:
+                            target = match.group(2).strip().split("|")[0].split("#")[0].strip()
+                        if agreement_inflection == AgreementInflection.FEMININE_SINGULAR:
+                            self.inflections.add((target, "hasFeminine"))
+                        elif agreement_inflection == AgreementInflection.FEMININE_PLURAL:
+                            self.inflections.add((target, "hasFemininePlural"))
+                        elif agreement_inflection == AgreementInflection.MASCULINE_PLURAL:
+                            self.inflections.add((target, "hasMasculinePlural"))
+                        elif agreement_inflection == AgreementInflection.MASCULINE_FEMINE_PLURAL:
+                            self.inflections.add((target, "hasMasculinePlural"))
+                            self.inflections.add((target, "hasFemininePlural"))
+                        elif agreement_inflection == AgreementInflection.PLURAL:
+                            self.inflections.add((target, "hasPlural"))
+
+
+    def _parse_inflections(self, head):
+        if "flexion" not in head.title:
+            return
+        if self.pos == "verbe":
+            self._parse_verbal_inflections(head)
+        else:
+            self._parse_agreement_inflections()
+
+    def _parse_definitions(self, head):
         definition, examples = None, list()
         for line in head.contents.split("\n"):
             match = DEFINITION_PATTERN.search(line)
@@ -365,6 +524,12 @@ class WikitextLexicalEntry:
         if definition is not None:
             self.lexical_senses.append(
                 WikitextLexicalSense.from_text(definition, examples))
+
+    def _parse_head(self, section):
+        head = section.get_sections(include_subsections=False, level=3)[0]
+        self._parse_definitions(head)
+        self._parse_traits(head)
+        self._parse_inflections(head)
 
     def _parse_links(self, section, folder):
         for link in section.wikilinks:
@@ -421,7 +586,7 @@ class WikitextLexicalSense:
     def parse_text(self, definition, examples):
         """Read some wikitext and set the inner attributes.
         """
-        self.definition = clear_wikitext(definition)
+        self.definition = definition
         for example in examples:
             self.examples.append(clear_wikitext(example))
         # IDEA: parse definition templates for more info
@@ -478,6 +643,42 @@ class OntologyBuilder:
         lexical_sense.isSenseOf = lexical_entry
         return lexical_sense
 
+    def create_property_links(self, entry):
+        """Create links between nodes, such as synonyms.
+        """
+        for folder, links in entry["wikitext"].links.items():
+            for link in links:
+                target_memory_elt = self.memory.get(link)
+                if target_memory_elt is None:
+                    continue
+                getattr(entry["ontology"], folder).append(target_memory_elt["literal"])
+
+    def create_inflection_links(self, entry):
+        """Create inflection links.
+        """
+        for target, inflection in entry["wikitext"].inflections:
+            target_memory_elt = self.memory.get(target)
+            if target_memory_elt is not None:
+                if inflection == "hasPlural":
+                    getattr(target_memory_elt["literal"], inflection).append(entry["ontology"])
+                else:
+                    setattr(target_memory_elt["literal"], inflection, entry["ontology"])
+            else:
+                logging.warning("Literal not found for inflection: %s", target)
+
+    def create_trait_links(self, entry):
+        """Create grammatical trait links.
+        """
+        for trait in entry["wikitext"].traits:
+            if trait == GrammaticalTrait.MASCULINE:
+                entry["ontology"].hasGender.append(self.ontology.masculine)
+            elif trait == GrammaticalTrait.FEMINE:
+                entry["ontology"].hasGender.append(self.ontology.feminine)
+            elif trait == GrammaticalTrait.SINGULAR:
+                entry["ontology"].hasNumber.append(self.ontology.singular)
+            elif trait == GrammaticalTrait.PLURAL:
+                entry["ontology"].hasNumber.append(self.ontology.plural)
+
     def create_links(self):
         """Create all relationships between lexical entries and literals
         in the ontology. Future work may consider fine-tuning the left hand of
@@ -486,12 +687,9 @@ class OntologyBuilder:
         """
         for memory_elt in self.memory.values():
             for entry in memory_elt["entries"]:
-                for folder, links in entry["wikitext"].links.items():
-                    for link in links:
-                        target_memory_elt = self.memory.get(link)
-                        if target_memory_elt is None:
-                            continue
-                        getattr(entry["ontology"], folder).append(target_memory_elt["literal"])
+                self.create_property_links(entry)
+                self.create_inflection_links(entry)
+                self.create_trait_links(entry)
 
 
 def populate_individuals(database_filename, ontology_schema,

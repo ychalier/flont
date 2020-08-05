@@ -26,12 +26,90 @@
     
 
 
+    <!-- https://ontology.chalier.fr/flont#conditional -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#conditional">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasConjugation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#conditionalPresent -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#conditionalPresent">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#conditional"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#conditionalPresent1P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#conditionalPresent1P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#conditionalPresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#conditionalPresent1S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#conditionalPresent1S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#conditionalPresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#conditionalPresent2P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#conditionalPresent2P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#conditionalPresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#conditionalPresent2S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#conditionalPresent2S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#conditionalPresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#conditionalPresent3P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#conditionalPresent3P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#conditionalPresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#conditionalPresent3S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#conditionalPresent3S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#conditionalPresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://ontology.chalier.fr/flont#hasAbbreviation -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasAbbreviation">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasVariant"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#hasAgreement -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasAgreement">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasInflection"/>
     </owl:ObjectProperty>
     
 
@@ -43,6 +121,14 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#hasConjugation -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasConjugation">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasInflection"/>
     </owl:ObjectProperty>
     
 
@@ -118,12 +204,30 @@
     
 
 
+    <!-- https://ontology.chalier.fr/flont#hasFeminine -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasFeminine">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasAgreement"/>
+        <owl:inverseOf rdf:resource="https://ontology.chalier.fr/flont#isFeminineOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#hasFemininePlural -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasFemininePlural">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasPlural"/>
+        <owl:inverseOf rdf:resource="https://ontology.chalier.fr/flont#isFemininePluralOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://ontology.chalier.fr/flont#hasGender -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasGender">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasGrammaticalTrait"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Gender"/>
     </owl:ObjectProperty>
     
@@ -133,7 +237,6 @@
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasGrammaticalTrait">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#GrammaticalTrait"/>
     </owl:ObjectProperty>
     
@@ -183,6 +286,15 @@
     
 
 
+    <!-- https://ontology.chalier.fr/flont#hasInflection -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasInflection">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="https://ontology.chalier.fr/flont#isInflectionOf"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://ontology.chalier.fr/flont#hasIntensityLinkWith -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasIntensityLinkWith">
@@ -206,6 +318,16 @@
     
 
 
+    <!-- https://ontology.chalier.fr/flont#hasMasculinePlural -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasMasculinePlural">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasPlural"/>
+        <owl:inverseOf rdf:resource="https://ontology.chalier.fr/flont#isMasculinePluralOf"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://ontology.chalier.fr/flont#hasMeronym -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasMeronym">
@@ -221,8 +343,6 @@
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasNumber">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasGrammaticalTrait"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Number"/>
     </owl:ObjectProperty>
     
@@ -249,13 +369,11 @@
     
 
 
-    <!-- https://ontology.chalier.fr/flont#hasPerson -->
+    <!-- https://ontology.chalier.fr/flont#hasPlural -->
 
-    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasPerson">
-        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasGrammaticalTrait"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Person"/>
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasPlural">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasAgreement"/>
+        <owl:inverseOf rdf:resource="https://ontology.chalier.fr/flont#isPluralOf"/>
     </owl:ObjectProperty>
     
 
@@ -346,17 +464,6 @@
     
 
 
-    <!-- https://ontology.chalier.fr/flont#hasTense -->
-
-    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasTense">
-        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasGrammaticalTrait"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
-        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Tense"/>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://ontology.chalier.fr/flont#hasTroponym -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasTroponym">
@@ -374,6 +481,314 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#imperative -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#imperative">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasConjugation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#imperativePresent -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#imperativePresent">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#imperative"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#imperativePresent1P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#imperativePresent1P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#imperativePresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#imperativePresent2P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#imperativePresent2P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#imperativePresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#imperativePresent2S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#imperativePresent2S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#imperativePresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#imperativePresent2SPostposed -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#imperativePresent2SPostposed">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#imperativePresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeImperfect -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeImperfect">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indidicative"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeImperfect1P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeImperfect1P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeImperfect"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeImperfect1S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeImperfect1S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeImperfect"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeImperfect2P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeImperfect2P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeImperfect"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeImperfect2S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeImperfect2S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeImperfect"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeImperfect3P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeImperfect3P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeImperfect"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeImperfect3S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeImperfect3S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeImperfect"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativePresent -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativePresent">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indidicative"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativePresent1P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativePresent1P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativePresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativePresent1S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativePresent1S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativePresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativePresent2P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativePresent2P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativePresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativePresent2S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativePresent2S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativePresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativePresent3P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativePresent3P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativePresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativePresent3S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativePresent3S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativePresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeSimpleFuture -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimpleFuture">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indidicative"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeSimpleFuture1P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimpleFuture1P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimpleFuture"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeSimpleFuture1S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimpleFuture1S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimpleFuture"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeSimpleFuture2P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimpleFuture2P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimpleFuture"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeSimpleFuture2S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimpleFuture2S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimpleFuture"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeSimpleFuture3P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimpleFuture3P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimpleFuture"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeSimpleFuture3S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimpleFuture3S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimpleFuture"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeSimplePast -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimplePast">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indidicative"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeSimplePast1P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimplePast1P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimplePast"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeSimplePast1S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimplePast1S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimplePast"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeSimplePast2P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimplePast2P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimplePast"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeSimplePast2S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimplePast2S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimplePast"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeSimplePast3P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimplePast3P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimplePast"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indicativeSimplePast3S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimplePast3S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimplePast"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#indidicative -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indidicative">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasConjugation"/>
     </owl:ObjectProperty>
     
 
@@ -410,13 +825,27 @@
     
 
 
+    <!-- https://ontology.chalier.fr/flont#isFeminineOf -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#isFeminineOf">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#isInflectionOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#isFemininePluralOf -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#isFemininePluralOf">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#isPluralOf"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://ontology.chalier.fr/flont#isInflectionOf -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#isInflectionOf">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AsymmetricProperty"/>
-        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
     </owl:ObjectProperty>
     
 
@@ -440,6 +869,14 @@
     
 
 
+    <!-- https://ontology.chalier.fr/flont#isMasculinePluralOf -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#isMasculinePluralOf">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#isPluralOf"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://ontology.chalier.fr/flont#isParonymOf -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#isParonymOf">
@@ -447,6 +884,14 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#isPluralOf -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#isPluralOf">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#isInflectionOf"/>
     </owl:ObjectProperty>
     
 
@@ -484,12 +929,197 @@
     
 
 
+    <!-- https://ontology.chalier.fr/flont#pastParticiple -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#pastParticiple">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasConjugation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#pastParticipleFP -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#pastParticipleFP">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#pastParticiple"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#pastParticipleFS -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#pastParticipleFS">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#pastParticiple"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#pastParticipleMP -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#pastParticipleMP">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#pastParticiple"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#pastParticipleMS -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#pastParticipleMS">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#pastParticiple"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#presentParticiple -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#presentParticiple">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasConjugation"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://ontology.chalier.fr/flont#soundsSimilarTo -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#soundsSimilarTo">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#isLinkedTo"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#subjonctive -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctive">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasConjugation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#subjonctiveImperfect -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctiveImperfect">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctive"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#subjonctiveImperfect1P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctiveImperfect1P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctiveImperfect"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#subjonctiveImperfect1S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctiveImperfect1S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctiveImperfect"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#subjonctiveImperfect2P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctiveImperfect2P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctiveImperfect"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#subjonctiveImperfect2S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctiveImperfect2S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctiveImperfect"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#subjonctiveImperfect3P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctiveImperfect3P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctiveImperfect"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#subjonctiveImperfect3S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctiveImperfect3S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctiveImperfect"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#subjonctivePresent -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctivePresent">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctive"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#subjonctivePresent1P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctivePresent1P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctivePresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#subjonctivePresent1S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctivePresent1S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctivePresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#subjonctivePresent2P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctivePresent2P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctivePresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#subjonctivePresent2S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctivePresent2S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctivePresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#subjonctivePresent3P -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctivePresent3P">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctivePresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#subjonctivePresent3S -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctivePresent3S">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctivePresent"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
     </owl:ObjectProperty>
     
 
@@ -605,14 +1235,6 @@
     
 
 
-    <!-- https://ontology.chalier.fr/flont#Conditional -->
-
-    <owl:Class rdf:about="https://ontology.chalier.fr/flont#Conditional">
-        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Tense"/>
-    </owl:Class>
-    
-
-
     <!-- https://ontology.chalier.fr/flont#Conjunction -->
 
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Conjunction">
@@ -701,25 +1323,9 @@
     
 
 
-    <!-- https://ontology.chalier.fr/flont#Gerund -->
-
-    <owl:Class rdf:about="https://ontology.chalier.fr/flont#Gerund">
-        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Tense"/>
-    </owl:Class>
-    
-
-
     <!-- https://ontology.chalier.fr/flont#GrammaticalTrait -->
 
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#GrammaticalTrait"/>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#Imperative -->
-
-    <owl:Class rdf:about="https://ontology.chalier.fr/flont#Imperative">
-        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Tense"/>
-    </owl:Class>
     
 
 
@@ -743,22 +1349,6 @@
 
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#IndefinitePronoun">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Pronoun"/>
-    </owl:Class>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#Indicative -->
-
-    <owl:Class rdf:about="https://ontology.chalier.fr/flont#Indicative">
-        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Tense"/>
-    </owl:Class>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#Infinitive -->
-
-    <owl:Class rdf:about="https://ontology.chalier.fr/flont#Infinitive">
-        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Tense"/>
     </owl:Class>
     
 
@@ -869,14 +1459,6 @@
     
 
 
-    <!-- https://ontology.chalier.fr/flont#Participle -->
-
-    <owl:Class rdf:about="https://ontology.chalier.fr/flont#Participle">
-        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Tense"/>
-    </owl:Class>
-    
-
-
     <!-- https://ontology.chalier.fr/flont#Particle -->
 
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Particle">
@@ -889,14 +1471,6 @@
 
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#PartitiveArticle">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Article"/>
-    </owl:Class>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#Person -->
-
-    <owl:Class rdf:about="https://ontology.chalier.fr/flont#Person">
-        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#GrammaticalTrait"/>
     </owl:Class>
     
 
@@ -1021,14 +1595,6 @@
     
 
 
-    <!-- https://ontology.chalier.fr/flont#Subjonctive -->
-
-    <owl:Class rdf:about="https://ontology.chalier.fr/flont#Subjonctive">
-        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Tense"/>
-    </owl:Class>
-    
-
-
     <!-- https://ontology.chalier.fr/flont#Suffix -->
 
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Suffix">
@@ -1041,14 +1607,6 @@
 
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Symbol">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Sign"/>
-    </owl:Class>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#Tense -->
-
-    <owl:Class rdf:about="https://ontology.chalier.fr/flont#Tense">
-        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#GrammaticalTrait"/>
     </owl:Class>
     
 
@@ -1080,243 +1638,27 @@
     
 
 
-    <!-- https://ontology.chalier.fr/flont#ConditionalPresent -->
+    <!-- https://ontology.chalier.fr/flont#feminine -->
 
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#ConditionalPresent">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Conditional"/>
-    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#feminine"/>
     
 
 
-    <!-- https://ontology.chalier.fr/flont#ConditionnalPastFirstForm -->
+    <!-- https://ontology.chalier.fr/flont#masculine -->
 
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#ConditionnalPastFirstForm">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Conditional"/>
-    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#masculine"/>
     
 
 
-    <!-- https://ontology.chalier.fr/flont#ConditionnalPastSecondForm -->
+    <!-- https://ontology.chalier.fr/flont#plural -->
 
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#ConditionnalPastSecondForm">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Conditional"/>
-    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#plural"/>
     
 
 
-    <!-- https://ontology.chalier.fr/flont#Feminine -->
+    <!-- https://ontology.chalier.fr/flont#singular -->
 
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#Feminine">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Gender"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#FirstPerson -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#FirstPerson">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Person"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#FuturePerfect -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#FuturePerfect">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Indicative"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#GerundPast -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#GerundPast">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Gerund"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#GerundPresent -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#GerundPresent">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Gerund"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#ImperativePast -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#ImperativePast">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Imperative"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#ImperativePresent -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#ImperativePresent">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Imperative"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#IndicativeImperfect -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#IndicativeImperfect">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Indicative"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#IndicativePluperfect -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#IndicativePluperfect">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Indicative"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#IndicativePresent -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#IndicativePresent">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Indicative"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#InfinitivePast -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#InfinitivePast">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Infinitive"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#InfinitivePresent -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#InfinitivePresent">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Infinitive"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#Masculine -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#Masculine">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Gender"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#ParticiplePast -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#ParticiplePast">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Participle"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#ParticiplePresent -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#ParticiplePresent">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Participle"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#PastAnterior -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#PastAnterior">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Indicative"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#PerfectTense -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#PerfectTense">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Indicative"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#Plural -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#Plural">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Number"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#SecondPerson -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#SecondPerson">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Person"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#SimpleFuture -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#SimpleFuture">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Indicative"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#SimplePast -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#SimplePast">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Indicative"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#Singular -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#Singular">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Number"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#SubjonctiveImperfect -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#SubjonctiveImperfect">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Subjonctive"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#SubjonctivePast -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#SubjonctivePast">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Subjonctive"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#SubjonctivePluperfect -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#SubjonctivePluperfect">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Subjonctive"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#SubjonctivePresent -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#SubjonctivePresent">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Subjonctive"/>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#ThirdPerson -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#ThirdPerson">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Person"/>
-    </owl:NamedIndividual>
+    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#singular"/>
 </rdf:RDF>
 
 
