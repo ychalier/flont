@@ -9,6 +9,7 @@ Here are some pointers into Wiktionary's documentation:
 import os
 import re
 import logging
+import gc
 import urllib.parse
 import sqlite3
 import contextlib
@@ -598,7 +599,8 @@ class OntologyBuilder:
 
     def __init__(self, ontology_schema):
         uri = "file://" + os.path.join(os.getcwd(), ontology_schema)
-        self.ontology = owlready2.get_ontology(uri).load()
+        self.world = owlready2.World()
+        self.ontology = self.world.get_ontology(uri).load()
         self.existing = dict()
         self.memory = dict()
 
@@ -663,8 +665,8 @@ class OntologyBuilder:
                     getattr(target_memory_elt["literal"], inflection).append(entry["ontology"])
                 else:
                     setattr(target_memory_elt["literal"], inflection, entry["ontology"])
-            else:
-                logging.warning("Literal not found for inflection: %s", target)
+            # else:
+            #     logging.warning("Literal not found for inflection: %s", target)
 
     def create_trait_links(self, entry):
         """Create grammatical trait links.
@@ -690,6 +692,17 @@ class OntologyBuilder:
                 self.create_property_links(entry)
                 self.create_inflection_links(entry)
                 self.create_trait_links(entry)
+
+    def save(self, output_filename):
+        """Save the ontology to the disk.
+        """
+        self.existing.clear()
+        self.memory.clear()
+        gc.collect()
+        if os.path.isfile(output_filename):
+            os.remove(output_filename)
+        self.world.set_backend(filename=output_filename)
+        self.world.save()
 
 
 def populate_individuals(database_filename, ontology_schema,
@@ -717,4 +730,4 @@ def populate_individuals(database_filename, ontology_schema,
     logging.info("Creating relationships between entries...")
     builder.create_links()
     logging.info("Saving ontology to %s", os.path.realpath(output_filename))
-    builder.ontology.save(file=output_filename, format="rdfxml")
+    builder.save(output_filename)
