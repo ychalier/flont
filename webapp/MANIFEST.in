@@ -1,0 +1,6 @@
+include README.md
+recursive-include flont *
+recursive-include flont/static *
+recursive-include flont/templates *
+global-exclude *.pyc
+global-exclude __pycache__

@@ -1,0 +1,45 @@
+.textarea_wrapper {
+    display: flex;
+    flex-direction: row;
+}
+
+textarea {
+    font-family: Consolas, monospace;
+    resize: none;
+    width: 100%;
+    padding: 8px;
+    background: black;
+    color: green;
+    border: none;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    margin: 0;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .3);
+}
+
+input[type="submit"] {
+    line-height: 32px;
+    font-size: 15px;
+    border: none;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    box-shadow: 0 3px 2px rgba(0, 0, 0, .3);
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, .3);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+table {
+    width: 100%;
+}

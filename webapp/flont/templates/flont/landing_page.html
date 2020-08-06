@@ -1,0 +1,37 @@
+{% extends 'flont/base.html' %}
+
+{% block body %}
+
+{% include 'flont/searchbar.html' %}
+
+<div class="fadein">
+
+    <p>
+        FLOnt (pour &laquo; French Lexicon Ontology &raquo;) est une
+        <b>ontologie</b> représentant le <b>dictionnaire français</b>. À ce titre,
+        elle contient les définitions des noms, verbes, adjectifs et autres mots de
+        la langue française, ainsi que des informations sur ce qui les lient,
+        syntactiquement ou sémantiquement. La version actuelle compte plus de six millions d'entités,
+        pour 1 801 056 mots et phrases (incluant les flexions).
+    </p>
+
+    <p>
+        Elle est construite automatiquement à partir des données collaboratives du
+        <a class="external" href="https://fr.wiktionary.org/wiki/Wiktionnaire:Page_d%E2%80%99accueil">Wiktionnaire</a>,
+        la branche française de Wiktionary, le projet de dictionnaire libre porté par
+        <a class="external" href="https://wikimediafoundation.org/">Wikimedia</a>.
+        La version actuelle est basée sur le <i>dump</i> du 20 juillet 2020.
+        Les scripts Python effectuant cette tâche sont disponibles sur
+        <a class="external" href="https://github.com/ychalier/flont">GitHub</a>.
+        Les contributions sont les bienvenues !
+    </p>
+
+    <div id="dictimg">
+        <img src="https://i.imgur.com/LopVa2r.png" alt="Dictionnaire en latin constitué de plusieurs volumes, œuvre d'Egidio Forcellini (1771).">
+    </div>
+
+</div>
+
+
+
+{% endblock body %}

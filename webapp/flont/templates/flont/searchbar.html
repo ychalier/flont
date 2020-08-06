@@ -1,0 +1,4 @@
+<form method="get" action="{% url 'flont:search' %}" class="searchbar__form">
+    <input class="searchbar__field" type="text" name="q" placeholder="Chercher un mot..." value="{{ query }}"/>
+    <input class="searchbar__button" type="submit" value="Chercher" />
+</form>
