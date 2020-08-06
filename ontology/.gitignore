@@ -1,6 +1,7 @@
 *.sqlite3
 *.db
 *.backup
+*.db-journal
 *.owl
 *.csv
 *.tsv
