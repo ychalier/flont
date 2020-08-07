@@ -3,8 +3,10 @@
 
 import re
 import urllib.parse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.http import Http404
 import flont.apps
+import rdflib
 from . import ontology
 
 
@@ -30,10 +32,9 @@ def search(request):
     """
     query = urllib.parse.unquote(request.GET.get("q", ""))
     node = ontology.find_literal_by_label(query)
-    literal = None
     if node is not None:
-        literal = ontology.retrieve_literal_info(node)
-    return render(request, "flont/search.html", {"query": query, "literal": literal})
+        return redirect("flont:graph", short_iri=str(node).replace(ontology.FLONT_IRI, ""))
+    return render(request, "flont/search.html", {"query": query})
 
 
 def endpoint(request):
@@ -52,4 +53,37 @@ def endpoint(request):
         "sparql_query": query,
         "results": results,
         "header": header
+    })
+
+
+def graph(request, short_iri):
+    """Direct access to the ontology graph.
+    """
+    iri_no_prefix = short_iri.replace("flont:", "")
+    full_iri = ontology.FLONT_IRI + iri_no_prefix
+    existing = flont.apps.ontology.search(iri=full_iri)
+    if len(existing) == 0:
+        raise Http404("Resource '%s' not found." % full_iri)
+    node = existing[0]
+    is_individual = iri_no_prefix.startswith("_")
+    entity_type = None
+    entity_data = None
+    if is_individual:
+        types = set(t.name for t in node.is_a)
+        if "Literal" in types:
+            entity_type = "literal"
+            entity_data = ontology.retrieve_literal_info(rdflib.URIRef(full_iri))
+        elif "LexicalSense" in types:
+            entity_type = "sense"
+            entity_data = ontology.retrieve_lexical_sense_info(rdflib.URIRef(full_iri))
+        else:
+            entity_type = "entry"
+            entity_data = ontology.retrieve_lexical_entry_info(rdflib.URIRef(full_iri))
+    else:
+        entity_type = "meta"
+    return render(request, "flont/graph.html", {
+        "flont_iri": ontology.FLONT_IRI,
+        "short_iri": iri_no_prefix,
+        "entity_type": entity_type,
+        "entity_data": entity_data
     })

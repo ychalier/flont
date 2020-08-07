@@ -249,6 +249,22 @@ def retrieve_literal_info(node):
     return literal
 
 
+def retrieve_lexical_entry_info(node):
+    lexical_entry = LexicalEntry(None, node)
+    lexical_entry.fetch_gender()
+    lexical_entry.fetch_inflections()
+    lexical_entry.fetch_links()
+    lexical_entry.fetch_pronunciation()
+    if len(lexical_entry.inflections) == 0:
+        lexical_entry.fetch_senses()
+    return lexical_entry
+
+
+def retrieve_lexical_sense_info(node):
+    lexical_sense = LexicalSense(None, node)
+    lexical_sense.fetch_definition()
+    return lexical_sense
+
 
 class WikiTextString:
     """String of WikiText.
@@ -500,6 +516,8 @@ class LexicalEntry:  # pylint: disable=R0902
         """Entry POS formatting with indexing.
         """
         self_label = self.pos_label()
+        if self.literal is None:
+            return self_label
         index, total = None, 0
         for other_entry in self.literal.entries:
             other_entry_label = other_entry.pos_label()
