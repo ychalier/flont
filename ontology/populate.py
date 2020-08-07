@@ -365,7 +365,10 @@ class WikitextArticle:
             "pronunciation": self.pronunciation
         }
 
-    def _parse_anagrams(self, section):
+    def parse_anagrams(self, section):
+        """Parse anagrams within a section. Public as it could be called from
+        a lexical entry having a misplaced anagrams section.
+        """
         for link in section.wikilinks:
             self.anagrams.append(link.target)
 
@@ -373,7 +376,7 @@ class WikitextArticle:
         self.etymology = clear_wikitext(section.contents)
 
     def _parse_lexical_entry(self, section):
-        lexical_entry = WikitextLexicalEntry.from_section(section)
+        lexical_entry = WikitextLexicalEntry.from_section(self, section)
         self.lexical_entries.append(lexical_entry)
 
     def _parse_pronunciation(self, section):
@@ -390,7 +393,7 @@ class WikitextArticle:
         """
         category = parse_section_title(section)
         function = {
-            "anagrammes": self._parse_anagrams,
+            "anagrammes": self.parse_anagrams,
             "étymologie": self._parse_etymology,
             "prononciation": self._parse_pronunciation
         }.get(category)
@@ -436,11 +439,11 @@ class WikitextLexicalEntry:
         self.traits = set()
 
     @classmethod
-    def from_section(cls, section):
+    def from_section(cls, literal, section):
         """Instantiate an object from the parsed section.
         """
         entry = cls()
-        entry.parse_section(section)
+        entry.parse_section(literal, section)
         return entry
 
     def to_dict(self):
@@ -536,7 +539,7 @@ class WikitextLexicalEntry:
         for link in section.wikilinks:
             self.links[folder].append(link.target)
 
-    def parse_section(self, section):
+    def parse_section(self, literal, section):
         """Parse a wikitext section.
         """
         self.pos = parse_section_title(section)
@@ -548,6 +551,8 @@ class WikitextLexicalEntry:
                 self._parse_links(subsection, folder)
             elif category in WikitextLexicalEntry.IGNORE:
                 pass
+            elif category == "anagrammes":
+                literal.parse_anagrams(subsection)
             else:
                 logging.warning(
                     "This subsection could not be parsed: %s",
@@ -612,7 +617,11 @@ class OntologyBuilder:
         literal.label = article.title
         if article.pronunciation is not None:
             literal.pronunciation.append(article.pronunciation)
-        self.memory[article.title] = {"literal": literal, "entries": list()}
+        self.memory[article.title] = {
+            "literal": literal,
+            "entries": list(),
+            "wikitext": article
+        }
         return literal
 
     def create_lexical_entry(self, title, literal, wikitext_lexical_entry):
@@ -681,17 +690,27 @@ class OntologyBuilder:
             elif trait == GrammaticalTrait.PLURAL:
                 entry["ontology"].hasNumber.append(self.ontology.plural)
 
+    def create_anagram_links(self, memory_elt):
+        """Create anagram links between literals.
+        """
+        for target in memory_elt["wikitext"].anagrams:
+            target_memory_elt = self.memory.get(target)
+            if target_memory_elt is not None:
+                memory_elt["literal"].isAnagramOf.append(target_memory_elt["literal"])
+
     def create_links(self):
         """Create all relationships between lexical entries and literals
         in the ontology. Future work may consider fine-tuning the left hand of
         those relationships, linking lexical entries together, or even both
         sides of the relationships by linking lexical senses together.
         """
-        for memory_elt in self.memory.values():
+        for memory_elt in tqdm.tqdm(self.memory.values(), total=len(self.memory)):
+            self.create_anagram_links(memory_elt)
             for entry in memory_elt["entries"]:
                 self.create_property_links(entry)
                 self.create_inflection_links(entry)
                 self.create_trait_links(entry)
+
 
     def save(self, output_filename):
         """Save the ontology to the disk.
