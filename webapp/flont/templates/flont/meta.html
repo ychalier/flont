@@ -1,0 +1,14 @@
+<table>
+    <tr>
+        <th>Sujet</th>
+        <th>Propriété</th>
+        <th>Objet</th>
+    </tr>
+    {% for s, p, o in meta.edges %}
+    <tr>
+        <td>{{ s.html | safe }}</td>
+        <td>{{ p.html | safe }}</td>
+        <td>{{ o.html | safe }}</td>
+    </tr>
+    {% endfor %}
+</table>

@@ -9,15 +9,16 @@
 
     {% include 'flont/searchbar.html' %}
 
-    <h1><span class="flont_iri">{{ flont_iri }}</span><span class="short_iri">{{ short_iri }}</span></h1>
-
     {% if entity_type == "literal" %}
         {% include 'flont/literal.html' with literal=entity_data %}
     {% elif entity_type == "entry" %}
         {% include 'flont/lexical_entry.html' with entry=entity_data %}
     {% elif entity_type == "sense" %}
+        <h1><span class="flont_iri">{{ flont_iri }}</span><span class="short_iri">{{ short_iri }}</span></h1>
         {% include 'flont/lexical_sense.html' with sense=entity_data %}
     {% elif entity_type == "meta" %}
+        <h1><span class="flont_iri">{{ flont_iri }}</span><span class="short_iri">{{ short_iri }}</span></h1>
+        {% include 'flont/meta.html' with meta=entity_data %}
     {% endif %}
 
 {% endblock body %}

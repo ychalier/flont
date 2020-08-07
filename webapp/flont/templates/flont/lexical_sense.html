@@ -1,1 +1,8 @@
 {{ sense.definition.html | safe }}
+
+<h2><a class="black" href="{% url 'flont:graph' short_iri='example' %}">Exemples</a></h2>
+{% for example in sense.examples %}
+<blockquote>
+    &laquo; {{ example }} &raquo;
+</blockquote>
+{% endfor  %}

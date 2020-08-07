@@ -12,28 +12,28 @@ FLONT_IRI = "https://ontology.chalier.fr/flont#"
 
 POS_LABEL_FR = {
     "adj": "Adjectif",
-    "adjDem": "Adjectif",
-    "adjExcl": "Adjectif",
-    "adjIdef": "Adjectif",
-    "adjInt": "Adjectif",
-    "adjNum": "Adjectif",
-    "adjPoss": "Adjectif",
-    "adjRel": "Adjectif",
+    "adjDem": "Adjectif démonstratif",
+    "adjExcl": "Adjectif exclamatif",
+    "adjIdef": "Adjectif indéfini",
+    "adjInt": "Adjectif interrogatif",
+    "adjNum": "Adjectif numéral",
+    "adjPoss": "Adjectif possessif",
+    "adjRel": "Adjectif relatif",
     "adv": "Adverbe",
-    "advInt": "Adverbe",
-    "advRel": "Adverbe",
+    "advInt": "Adverbe interrogatif",
+    "advRel": "Adverbe relatif",
     "affInt": "Interfixe",
-    "artDef": "Article",
-    "artIdef": "Article",
-    "artPart": "Article",
+    "artDef": "Article défini",
+    "artIdef": "Article indéfini",
+    "artPart": "Article partitif",
     "conj": "Conjonction",
-    "conjCoo": "Conjonction",
+    "conjCoo": "Conjonction de coordination",
     "int": "Interjection",
     "let": "Lettre",
     "loc": "Locution",
     "nCom": "Nom",
-    "nFam": "Nom propre",
-    "nFirst": "Nom propre",
+    "nFam": "Nom de famille",
+    "nFirst": "Prénom",
     "nProp": "Nom propre",
     "ono": "Onomatopée",
     "part": "Particule",
@@ -41,12 +41,12 @@ POS_LABEL_FR = {
     "pref": "Préfixe",
     "prep": "Préposition",
     "pron": "Pronom",
-    "pronDem": "Pronom",
-    "pronIdef": "Pronom",
-    "pronInt": "Pronom",
-    "pronPers": "Pronom",
-    "pronPoss": "Pronom",
-    "pronRel": "Pronom",
+    "pronDem": "Pronom démonstratif",
+    "pronIdef": "Pronom indéfini",
+    "pronInt": "Pronom interrogatif",
+    "pronPers": "Pronom personnel",
+    "pronPoss": "Pronom possessif",
+    "pronRel": "Pronom relatif",
     "prov": "Proverbe",
     "sent": "Phrase",
     "suff": "Suffixe",
@@ -169,18 +169,77 @@ def roman_numeral(num):
     return roman_num
 
 
+def shorten_iri(uri_ref):
+    """Convert a full IRI to a prefix IRI.
+    """
+    registry = {
+        "http://www.w3.org/1999/02/22-rdf-syntax-ns#": "rdf:",
+        "http://www.w3.org/2000/01/rdf-schema#": "rdfs:",
+        "http://www.w3.org/2002/07/owl#": "owl:",
+        "https://ontology.chalier.fr/flont#": "flont:",
+    }
+    text = str(uri_ref)
+    for full, pref in registry.items():
+        text = text.replace(full, pref)
+    return text
+
+
+class MetaInformation:
+    """Meta information about an IRI.
+    """
+
+    def __init__(self, full_iri):
+        self.full_iri = full_iri
+        self.edges = list()
+
+    def __str__(self):
+        return self.full_iri
+
+    def fetch_triples(self):
+        """Fetch triples where the given IRI occurs.
+        """
+        this = LabeledEntity(self.full_iri, get_iri(self.full_iri))
+        query = """
+        SELECT ?property ?object
+        WHERE {
+            <%s> ?property ?object .
+        }
+        """ % self.full_iri
+        for ppty_node, obj_node in flont.apps.graph.query(query):
+            ppty = LabeledEntity(str(ppty_node), shorten_iri(ppty_node))
+            obj = LabeledEntity(str(obj_node), shorten_iri(obj_node))
+            self.edges.append((this, ppty, obj))
+        for ppty_name in ["subClassOf", "subPropertyOf", "range", "domain"]:
+            query = """SELECT ?subject WHERE { ?subject rdfs:%s <%s> . }"""\
+                % (ppty_name, self.full_iri)
+            for (subj_node,) in flont.apps.graph.query(query):
+                ppty = LabeledEntity(
+                    "http://www.w3.org/2000/01/rdf-schema#%s" % ppty_name,
+                    "rdfs:%s" % ppty_name
+                )
+                subj = LabeledEntity(str(subj_node), shorten_iri(subj_node))
+                self.edges.append((subj, ppty, this))
+
+
+def get_meta_information(full_iri):
+    """Retrieve meta information about an IRI.
+    """
+    meta = MetaInformation(full_iri)
+    meta.fetch_triples()
+    return meta
+
+
 def format_wikilinks(string):
     """Format WikiText links for HTML.
     """
     pattern = re.compile(r"\[\[(.+?)(\#.*?)?(\|.+?)?\]\]")
 
     def replacer(match):
-        base = reverse("flont:search")
-        query = re.sub(" ", "+", match.group(1))
         label = match.group(1)
+        base = reverse("flont:graph", kwargs={"short_iri": "_" + label.replace(" ", "_")})
         if match.group(3) is not None:
             label = match.group(3)[1:]
-        return """<a class="internal" href="%s?q=%s">%s</a>""" % (base, query, label)
+        return """<a class="internal" href="%s">%s</a>""" % (base, label)
     return pattern.sub(replacer, string)
 
 
@@ -200,18 +259,9 @@ def format_wikitemplates(string):
             return """<a class="external" href="https://fr.wikipedia.org/wiki/%s">%s</a>"""\
                 % (url, name)
         if template_name == "lien":
-            base = reverse("flont:search")
             label = arguments[0].strip()
-            query = re.sub(" ", "+", label)
-            return """<a class="internal" href="%s?q=%s">%s</a>""" % (base, query, label)
-        if template_name == "déverbal":
-            for arg in arguments:
-                if arg.startswith("de="):
-                    base = reverse("flont:search")
-                    label = arg.replace("de=", "")
-                    query = re.sub(" ", "+", label)
-                    return """Déverbal de <a class="internal" href="%s?q=%s">%s</a>"""\
-                        % (base, query, label)
+            base = reverse("flont:graph", kwargs={"short_iri": "_" + label.replace(" ", "_")})
+            return """<a class="internal" href="%s">%s</a>""" % (base, label)
         if template_name == "siècle":
             century = arguments[0].strip()
             return "(%s<sup>e</sup> siècle)" % century
@@ -250,6 +300,8 @@ def retrieve_literal_info(node):
 
 
 def retrieve_lexical_entry_info(node):
+    """Retrieve a single lexical entry object.
+    """
     lexical_entry = LexicalEntry(None, node)
     lexical_entry.fetch_gender()
     lexical_entry.fetch_inflections()
@@ -261,8 +313,11 @@ def retrieve_lexical_entry_info(node):
 
 
 def retrieve_lexical_sense_info(node):
+    """Retrieve a single lexical sense object.
+    """
     lexical_sense = LexicalSense(None, node)
     lexical_sense.fetch_definition()
+    lexical_sense.fetch_examples()
     return lexical_sense
 
 
@@ -295,7 +350,7 @@ class Literal:  # pylint: disable=R0902
 
     def __init__(self, node):
         self.node = node
-        self.iri = get_iri(node)
+        self.iri = LabeledEntity(str(node), get_iri(node))
         self.label = None
         self.pronunciation = None
         self.entries = list()
@@ -365,7 +420,7 @@ class Literal:  # pylint: disable=R0902
     def _fetch_inflections(self):
         query = """
         PREFIX flont: <https://ontology.chalier.fr/flont#>
-        SELECT ?relation ?label
+        SELECT ?relation ?literal ?label
         WHERE {
             %s ?relation ?entry .
             ?relation rdfs:subPropertyOf* flont:hasInflection .
@@ -373,33 +428,94 @@ class Literal:  # pylint: disable=R0902
             ?literal flont:label ?label .
         }
         """ % self.node.n3()
-        for relation, label in flont.apps.graph.query(query):
-            relation_label = INFLECTION_LABEL_FR[get_iri(relation).replace("flont:", "")]
-            self.inflections[relation_label] = label
+        for relation_node, literal_node, label in flont.apps.graph.query(query):
+            relation_label = INFLECTION_LABEL_FR[get_iri(relation_node).replace("flont:", "")]
+            relation = LabeledEntity(str(relation_node), relation_label)
+            self.inflections[relation] = LabeledEntity(str(literal_node), label)
 
     def _fetch_anagrams(self):
         query = """
         PREFIX flont: <https://ontology.chalier.fr/flont#>
-        SELECT ?label
+        SELECT ?literal ?label
         WHERE {
             %s flont:isAnagramOf ?literal .
             ?literal flont:label ?label .
         }
         """ % self.node.n3()
-        for (label,) in flont.apps.graph.query(query):
-            self.anagrams.append(label)
+        for literal, label in flont.apps.graph.query(query):
+            self.anagrams.append(LabeledEntity(str(literal), label))
 
     def get_inflections(self):
         """Only return relevant inflections.
         """
-        if len({"féminin pluriel", "masculin pluriel"}.intersection(self.inflections)) == 0:
-            whitelist = {"féminin", "pluriel"}
+        rel_fp = LabeledEntity("https://ontology.chalier.fr/flont#hasFemininePlural", "")
+        rel_mp = LabeledEntity("https://ontology.chalier.fr/flont#hasMasculinePlural", "")
+        rel_p = LabeledEntity("https://ontology.chalier.fr/flont#hasPlural", "")
+        rel_fs = LabeledEntity("https://ontology.chalier.fr/flont#hasFeminine", "")
+        if len({rel_fp, rel_mp}.intersection(self.inflections)) == 0:
+            whitelist = {rel_fs, rel_p}
         else:
-            whitelist = {"féminin", "féminin pluriel", "masculin pluriel"}
+            whitelist = {rel_fs, rel_fp, rel_mp}
         return [
             (relation, self.inflections[relation])
             for relation in sorted(whitelist.intersection(self.inflections))
         ]
+
+
+class LabeledEntity:
+    """IRI with a human-readable label.
+    """
+
+    def __init__(self, full_iri, label):
+        self.full_iri = full_iri
+        self.label = label
+
+    def __hash__(self):
+        return hash(self.full_iri)
+
+    def __eq__(self, other):
+        return self.full_iri == other.full_iri
+
+    def __lt__(self, other):
+        return self.full_iri < other.full_iri
+
+    def short_iri(self):
+        """Remove ontology prefix from full IRI.
+        """
+        return self.full_iri.replace(FLONT_IRI, "")
+
+    def html(self):
+        """Format entity link by guessing the class.
+        """
+        if self.full_iri.startswith(FLONT_IRI):
+            return self.html_internal()
+        if self.full_iri.startswith("http"):
+            return self.html_external()
+        return self.label
+
+    def html_black(self):
+        """Format entity link with the 'black' class.
+        """
+        return """<a class="black" href="%s">%s</a>""" % (
+            reverse("flont:graph", kwargs={"short_iri": self.short_iri()}),
+            self.label
+        )
+
+    def html_internal(self):
+        """Format entity link with the 'internal' class.
+        """
+        return """<a class="internal" href="%s">%s</a>""" % (
+            reverse("flont:graph", kwargs={"short_iri": self.short_iri()}),
+            self.label
+        )
+
+    def html_external(self):
+        """Format entity link with the 'internal' class.
+        """
+        return """<a class="external" href="%s">%s</a>""" % (
+            self.full_iri,
+            self.label
+        )
 
 
 class LexicalEntry:  # pylint: disable=R0902
@@ -409,8 +525,9 @@ class LexicalEntry:  # pylint: disable=R0902
     def __init__(self, literal, node):
         self.literal = literal
         self.node = node
-        self.iri = get_iri(node)
-        self.pos = re.sub(r"\d", "", self.iri.split("_")[-1])
+        self.iri = LabeledEntity(str(node), get_iri(node))
+        self.pos_iri = None
+        self.pos = re.sub(r"\d", "", self.iri.full_iri.split("_")[-1])
         self.gender = None
         self.senses = list()
         self.inflections = list()
@@ -445,6 +562,17 @@ class LexicalEntry:  # pylint: disable=R0902
         results = list(flont.apps.graph.query(query))
         if len(results) == 1:
             self.gender = get_iri(results[0][0])
+        query = """
+        PREFIX flont: <https://ontology.chalier.fr/flont#>
+        SELECT ?cls
+        WHERE {
+            %s rdf:type ?cls .
+            ?cls rdfs:subClassOf* flont:LexicalEntry .
+        }
+        LIMIT 1""" % self.node.n3()
+        results = list(flont.apps.graph.query(query))
+        if len(results) == 1:
+            self.pos_iri = str(results[0][0])
 
     def fetch_senses(self):
         """Fetch the lexical senses from the ontology.
@@ -466,7 +594,7 @@ class LexicalEntry:  # pylint: disable=R0902
         """
         query = """
         PREFIX flont: <https://ontology.chalier.fr/flont#>
-        SELECT ?label ?relation
+        SELECT ?literal ?label ?relation
         WHERE {
             ?literal ?relation %s .
             ?relation rdfs:subPropertyOf* flont:hasInflection .
@@ -475,34 +603,44 @@ class LexicalEntry:  # pylint: disable=R0902
         """ % self.node.n3()
         has_mp_or_fp = set()
         has_p = set()
-        for label, relation in flont.apps.graph.query(query):
+        for literal, label, relation_node in flont.apps.graph.query(query):
             relation_label = INFLECTION_LABEL_FR[get_iri(
-                relation).replace("flont:", "")]
-            self.inflections.append((label, relation_label))
+                relation_node).replace("flont:", "")]
+            relation = LabeledEntity(str(relation_node), relation_label)
+            target = LabeledEntity(str(literal), label)
+            self.inflections.append((target, relation))
             if relation_label in {"féminin pluriel", "masculin pluriel"}:
-                has_mp_or_fp.add(label)
+                has_mp_or_fp.add(target)
             elif relation_label == "pluriel":
-                has_p.add(label)
-        for label in has_p.intersection(has_mp_or_fp):
-            self.inflections.remove((label, "pluriel"))
+                has_p.add(target)
+        for target in has_p.intersection(has_mp_or_fp):
+            self.inflections.remove((
+                target,
+                LabeledEntity(
+                    "https://ontology.chalier.fr/flont#hasPlural",
+                    "pluriel")
+            ))
 
     def fetch_links(self):
         """Fetch the general links (synonymy, etc.).
         """
         query = """
         PREFIX flont: <https://ontology.chalier.fr/flont#>
-        SELECT ?label ?relation
+        SELECT ?literal ?label ?relation
         WHERE {
             %s ?relation ?literal .
             ?relation rdfs:subPropertyOf* flont:isLinkedTo .
             ?literal flont:label ?label .
         }
         """ % self.node.n3()
-        for label, relation in flont.apps.graph.query(query):
+        for literal, label, relation_node in flont.apps.graph.query(query):
             relation_label = LINK_LABEL_FR[get_iri(
-                relation).replace("flont:", "")]
-            self.links.setdefault(relation_label, set())
-            self.links[relation_label].add(label)
+                relation_node).replace("flont:", "")]
+            relation = LabeledEntity(str(relation_node), relation_label)
+            self.links.setdefault(relation, list())
+            self.links[relation].append(LabeledEntity(str(literal), label))
+        for relation in self.links:
+            self.links[relation].sort()
 
     def pos_label(self):
         """Entry POS formatting without indexing.
@@ -517,7 +655,7 @@ class LexicalEntry:  # pylint: disable=R0902
         """
         self_label = self.pos_label()
         if self.literal is None:
-            return self_label
+            return LabeledEntity(self.pos_iri, self_label)
         index, total = None, 0
         for other_entry in self.literal.entries:
             other_entry_label = other_entry.pos_label()
@@ -526,19 +664,23 @@ class LexicalEntry:  # pylint: disable=R0902
             if other_entry.iri == self.iri:
                 index = total
         if total == 1:
-            return self_label
-        return "%s (%s)" % (self_label, roman_numeral(index).lower())
+            return LabeledEntity(self.pos_iri, self_label)
+        return LabeledEntity(
+            self.pos_iri,
+            "%s (%s)" % (self_label, roman_numeral(index).lower())
+        )
 
 
-class LexicalSense:  # pylint: disable=R0903
+class LexicalSense:
     """Representation of a LexicalSense node.
     """
 
     def __init__(self, entry, node):
         self.entry = entry
         self.node = node
-        self.iri = get_iri(node)
+        self.iri = LabeledEntity(str(node), get_iri(node))
         self.definition = None
+        self.examples = list()
 
     def fetch_definition(self):
         """Fetch the definition from the ontology.
@@ -555,3 +697,16 @@ class LexicalSense:  # pylint: disable=R0903
             self.definition = WikiTextString(results[0][0])
         if len(self.definition.html()) == 0:
             self.definition = None
+
+    def fetch_examples(self):
+        """Fetch the examples from the ontology.
+        """
+        query = """
+        PREFIX flont: <https://ontology.chalier.fr/flont#>
+        SELECT ?example
+        WHERE {
+            %s flont:example ?example .
+        }
+        """ % self.node.n3()
+        for (example,) in flont.apps.graph.query(query):
+            self.examples.append(example)

@@ -1,12 +1,12 @@
 <article class="literal__entry">
 
     <div class="literal__entry__header">
-        <span class="literal__entry__header__pos">{{ entry.format_pos }}</span>
+        <span class="literal__entry__header__pos">{{ entry.format_pos.html_black | safe }}</span>
         {% if entry.pronunciation %}
-        <span class="literal__entry__header__pronunciation">/<i>{{ entry.pronunciation }}</i>/</span>
+        <span class="literal__entry__header__pronunciation"><a class="black" href="{% url 'flont:graph' short_iri='pronunciation' %}">/<i>{{ entry.pronunciation }}</i>/</a></span>
         {% endif %}
-        <span class="literal__entry__header__iri iri">{{ entry.iri }}</span>
-        {% if entry.inflections %}<span class="literal__entry__header__flexion">flexion</span>{% endif %}
+        <span class="literal__entry__header__iri iri">{{ entry.iri.html_black | safe }}</span>
+        {% if entry.inflections %}<span class="literal__entry__header__flexion"><a href="{% url 'flont:graph' short_iri='isInflectionOf' %}" class="black">flexion</a></span>{% endif %}
     </div>
 
     {% if entry.inflections %}
@@ -14,7 +14,7 @@
     <ul class="literal__entry__inflections">
         {% for literal, relation in entry.inflections %}
         <li class="literal__entry__inflection">
-            <i>{{ relation | capfirst | safe }}</i> de <a class="internal" href="{% url 'flont:search' %}?q={{ literal }}">{{ literal }}</a>.
+            <i>{{ relation.html_black | safe }}</i> de {{ literal.html_internal | safe }}.
         </li>
         {% endfor %}
     </ul>
@@ -24,18 +24,18 @@
     <ol class="literal__entry__definitions">
         {% for sense in entry.senses %}
         {% if sense.definition %}
-        <li class="literal__entry__definition">{{ sense.definition.html | safe }}</li>
+        <li class="literal__entry__definition">{{ sense.definition.html | safe }} <span class="iri">{{ sense.iri.html_black | safe }}</span></li>
         {% endif %}
         {% endfor %}
     </ol>
 
     {% endif %}
 
-    {% for link, targets in entry.links.items %}
+    {% for relation, targets in entry.links.items %}
     <div class="literal__entry__relation linkbox">
-        <span class="literal__entry__relation__name linkbox__element linkbox__title">{{ link }}</span>
+        <span class="literal__entry__relation__name linkbox__element linkbox__title">{{ relation.html_black | safe }}</span>
         {% for target in targets %}
-        <a class="literal__entry__relation__link linkbox__element linkbox__link" href="{% url 'flont:search' %}?q={{target}}">{{ target }}</a>
+        <span class="literal__entry__relation__link linkbox__element linkbox__link">{{ target.html_black | safe }}</span>
         {% endfor %}
     </div>
     {% endfor %}

@@ -3,17 +3,17 @@
     <div class="literal__header">
         <span class="literal__header__label">{{ literal.label }}</span>
         {% if literal.pronunciation %}
-        <span class="literal__header__pronunciation">/<i>{{ literal.pronunciation }}</i>/</span>
+        <span class="literal__header__pronunciation"><a class="black" href="{% url 'flont:graph' short_iri='pronunciation' %}">/<i>{{ literal.pronunciation }}</i>/</a></span>
         {% endif %}
-        <span class="literal__header__iri iri">{{ literal.iri }}</span>
+        <span class="literal__header__iri iri">{{ literal.iri.html_black | safe }}</span>
     </div>
 
     {% if literal.get_inflections %}
     <div class="literal__inflections linkbox">
         {% for relation, label in literal.get_inflections %}
         <span class="literal__inflection linkbox__element">
-            <span class="literal__inflection__relation linkbox__title">{{ relation | capfirst}}</span> :
-            <a class="literal__inflection__link linkbox__link" href="{% url 'flont:search' %}?q={{label}}">{{ label }}</a>
+            <span class="literal__inflection__relation linkbox__title">{{ relation.html_black | safe }}</span> :
+            <span class="literal__inflection__link linkbox__link">{{ label.html_black | safe }}</span>
         </span>
         {% endfor %}
     </div>
@@ -21,9 +21,9 @@
 
     {% if literal.anagrams %}
     <div class="literal__anagrams linkbox">
-        <span class="linkbox__element linkbox__title">anagramme{{ literal.anagrams|pluralize }}</span>
+        <span class="linkbox__element linkbox__title"><a class="black" href="{% url 'flont:graph' short_iri='isAnagramOf' %}">anagramme{{ literal.anagrams|pluralize }}</a></span>
         {% for label in literal.anagrams %}
-        <a class="linkbox__element linkbox__link" href="{% url 'flont:search' %}?q={{label}}">{{ label }}</a>
+        <span class="linkbox__element linkbox__link">{{ label.html_black | safe }}</span>
         {% endfor %}
     </div>
     {% endif %}

@@ -35,11 +35,3 @@ form {
     display: flex;
     flex-direction: column;
 }
-
-table, th, td {
-    border: 1px solid black;
-}
-
-table {
-    width: 100%;
-}

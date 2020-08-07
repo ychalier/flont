@@ -10,7 +10,6 @@ import os
 import re
 import logging
 import gc
-import urllib.parse
 import sqlite3
 import contextlib
 import enum
@@ -285,7 +284,7 @@ AGREEMENT_INFLECTION_PATTERNS = {
 def format_literal(raw):
     """Format a literal into a safe format.
     """
-    return "_" + urllib.parse.quote(raw)
+    return "_" + raw.replace(" ", "_")
 
 
 def parse_section_title(section):

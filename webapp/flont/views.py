@@ -81,9 +81,10 @@ def graph(request, short_iri):
             entity_data = ontology.retrieve_lexical_entry_info(rdflib.URIRef(full_iri))
     else:
         entity_type = "meta"
+        entity_data = ontology.get_meta_information(full_iri)
     return render(request, "flont/graph.html", {
         "flont_iri": ontology.FLONT_IRI,
         "short_iri": iri_no_prefix,
         "entity_type": entity_type,
-        "entity_data": entity_data
+        "entity_data": entity_data,
     })
