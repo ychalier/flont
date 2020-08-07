@@ -19,10 +19,10 @@ LIMIT 10
 """.strip()
 
 
-def landing_page(request):
+def landing(request):
     """Landing page.
     """
-    return render(request, "flont/landing_page.html", {})
+    return render(request, "flont/landing.html", {})
 
 
 def search(request):

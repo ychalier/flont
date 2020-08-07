@@ -4,7 +4,7 @@ from . import views
 app_name = "flont"
 
 urlpatterns = [
-    path("", views.landing_page, name="landing_page"),
+    path("", views.landing, name="landing"),
     path("search", views.search, name="search"),
     path("endpoint", views.endpoint, name="endpoint"),
 ]
