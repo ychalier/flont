@@ -1,0 +1,57 @@
+.literal__header {
+    margin: 15px 0;
+}
+
+.literal__header__label {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.literal__entry {
+    margin: 15px 0;
+}
+
+.literal__entry__header__pos {
+    text-transform: lowercase;
+    font-weight: 900;
+    font-size: 14px;
+}
+
+.literal__entry__header__flexion {
+    font-size: 11px;
+}
+
+.linkbox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 15px 0;
+    border: 1px solid black;
+    padding: 6px 8px 8px 8px;
+    background: #fdfdfb;
+    line-height: 24px;
+    font-size: 15px;
+}
+
+.linkbox__element {
+    margin-right: 16px;
+}
+
+.linkbox__title {
+    font-weight: bold;
+    text-transform: lowercase;
+}
+
+.linkbox__link {
+    text-decoration: none;
+    color: #555555;
+    transition: .2s ease;
+    font-stretch: ultra-condensed;
+}
+
+.linkbox__link:hover {
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    color: grey;
+}

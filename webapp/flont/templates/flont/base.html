@@ -9,6 +9,8 @@
     <title>FLOnt: the French Lexicon Ontology</title>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Parisienne&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'flont/css/master.css' %}">
+    <link rel="stylesheet" href="{% static 'flont/css/searchbar.css' %}">
+    <link rel="stylesheet" href="{% static 'flont/css/layout.css' %}">
     {% block head %}{% endblock head %}
 </head>
 
@@ -16,10 +18,10 @@
     <div class="hwrapper">
         <div class="main_wrapper">
             <header>
-                <div id="title">
-                    <a href="{% url 'flont:landing' %}"><span id="title__abb"><b>FLO</b>nt</span></a>
+                <div class="title">
+                    <a href="{% url 'flont:landing' %}"><span class="title_first"><b>FLO</b>nt</span></a>
                     <br>
-                    <a href="{% url 'flont:landing' %}"><span id="title__desc">&laquo; <b>F</b>rench <b>L</b>exicon <b>O</b>ntology &raquo;</span></a>
+                    <a href="{% url 'flont:landing' %}"><span class="title_second">&laquo; <b>F</b>rench <b>L</b>exicon <b>O</b>ntology &raquo;</span></a>
                 </div>
             </header>
             {% block body %}{% endblock body %}

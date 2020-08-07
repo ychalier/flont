@@ -1,0 +1,31 @@
+.searchbar__form {
+    display: flex;
+    margin: 24px auto 24px auto;
+}
+
+.searchbar__field {
+    padding: 8px;
+    margin: 0;
+    border: none;
+    background: black;
+    color: white;
+    width: 100%;
+    border: 1px solid black;
+}
+
+.searchbar__button {
+    padding: 8px;
+    margin: 0;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-left: none;
+    color: black;
+    background: white;
+    cursor: pointer;
+    transition: ease;
+}
+
+.searchbar__form:hover .searchbar__button {
+    border-color: grey;
+}

@@ -180,7 +180,7 @@ def format_wikilinks(string):
         label = match.group(1)
         if match.group(3) is not None:
             label = match.group(3)[1:]
-        return """<a href="%s?q=%s">%s</a>""" % (base, query, label)
+        return """<a class="internal" href="%s?q=%s">%s</a>""" % (base, query, label)
     return pattern.sub(replacer, string)
 
 
@@ -190,16 +190,31 @@ def format_wikitemplates(string):
     pattern = re.compile(r"{{(.+?)(\|.+?)?}}")
 
     def replacer(match):
-        if match.group(1).lower() == "w":
-            name = match.group(2)[1:].split("|")[0].strip()
+        template_name = match.group(1).lower()
+        arguments = list()
+        if match.group(2):
+            arguments = match.group(2)[1:].split("|")
+        if template_name == "w":
+            name = arguments[0].strip()
             url = re.sub(" ", "_", name)
             return """<a class="external" href="https://fr.wikipedia.org/wiki/%s">%s</a>"""\
                 % (url, name)
-        if match.group(1).lower() == "lien":
+        if template_name == "lien":
             base = reverse("flont:search")
-            label = match.group(2)[1:].split("|")[0].strip()
+            label = arguments[0].strip()
             query = re.sub(" ", "+", label)
-            return """<a href="%s?q=%s">%s</a>""" % (base, query, label)
+            return """<a class="internal" href="%s?q=%s">%s</a>""" % (base, query, label)
+        if template_name == "déverbal":
+            for arg in arguments:
+                if arg.startswith("de="):
+                    base = reverse("flont:search")
+                    label = arg.replace("de=", "")
+                    query = re.sub(" ", "+", label)
+                    return """Déverbal de <a class="internal" href="%s?q=%s">%s</a>"""\
+                        % (base, query, label)
+        if template_name == "siècle":
+            century = arguments[0].strip()
+            return "(%s<sup>e</sup> siècle)" % century
         return ""
     return pattern.sub(replacer, string)
 
@@ -234,7 +249,31 @@ def retrieve_literal_info(node):
     return literal
 
 
-class Literal:
+
+class WikiTextString:
+    """String of WikiText.
+    """
+
+    def __init__(self, raw):
+        self.raw = raw.strip()
+
+    def __str__(self):
+        return self.raw
+
+    def html(self):
+        """Convert WikiText to HTML code.
+        """
+        base_cleaning = wikitextparser.parse(self.raw).plain_text(
+            replace_wikilinks=False,
+            replace_templates=False
+        )
+        lines_cleaning = re.sub("\n", "<br>", base_cleaning)
+        links_cleaning = format_wikilinks(lines_cleaning)
+        templates_cleaning = format_wikitemplates(links_cleaning)
+        return re.sub("(  +)", "", templates_cleaning).strip()
+
+
+class Literal:  # pylint: disable=R0902
     """Representation of a Literal node.
     """
 
@@ -245,6 +284,8 @@ class Literal:
         self.pronunciation = None
         self.entries = list()
         self.inflections = dict()
+        self.etymology = None
+        self.anagrams = list()
 
     def fetch_data_properties(self):
         """Fetch the label and the pronunciation from the ontology.
@@ -252,6 +293,8 @@ class Literal:
         self._fecth_label()
         self._fecth_pronunciation()
         self._fetch_inflections()
+        # self._fecth_etymology()
+        self._fetch_anagrams()
 
     def fetch_entries(self):
         """Fetch the lexical entries from the ontology.
@@ -268,6 +311,7 @@ class Literal:
             lexical_entry.fetch_gender()
             lexical_entry.fetch_inflections()
             lexical_entry.fetch_links()
+            lexical_entry.fetch_pronunciation()
             if len(lexical_entry.inflections) == 0:
                 lexical_entry.fetch_senses()
             self.entries.append(lexical_entry)
@@ -289,6 +333,19 @@ class Literal:
         if len(results) == 1:
             self.pronunciation = results[0][0]
 
+    def _fecth_etymology(self):
+        query = """
+        PREFIX flont: <https://ontology.chalier.fr/flont#>
+        SELECT ?etymology
+        WHERE {
+            %s flont:etymology ?etymology .
+        }
+        LIMIT 1
+        """ % self.node.n3()
+        results = list(flont.apps.graph.query(query))
+        if len(results) == 1:
+            self.etymology = WikiTextString(results[0][0])
+
     def _fetch_inflections(self):
         query = """
         PREFIX flont: <https://ontology.chalier.fr/flont#>
@@ -303,6 +360,18 @@ class Literal:
         for relation, label in flont.apps.graph.query(query):
             relation_label = INFLECTION_LABEL_FR[get_iri(relation).replace("flont:", "")]
             self.inflections[relation_label] = label
+
+    def _fetch_anagrams(self):
+        query = """
+        PREFIX flont: <https://ontology.chalier.fr/flont#>
+        SELECT ?label
+        WHERE {
+            %s flont:isAnagramOf ?literal .
+            ?literal flont:label ?label .
+        }
+        """ % self.node.n3()
+        for (label,) in flont.apps.graph.query(query):
+            self.anagrams.append(label)
 
     def get_inflections(self):
         """Only return relevant inflections.
@@ -330,6 +399,22 @@ class LexicalEntry:  # pylint: disable=R0902
         self.senses = list()
         self.inflections = list()
         self.links = dict()
+        self.pronunciation = None
+
+    def fetch_pronunciation(self):
+        """Fetch the pronunciation from the ontology.
+        """
+        query = """
+        PREFIX flont: <https://ontology.chalier.fr/flont#>
+        SELECT ?pronunciation
+        WHERE {
+            %s flont:pronunciation ?pronunciation .
+        }
+        LIMIT 1
+        """ % self.node.n3()
+        results = list(flont.apps.graph.query(query))
+        if len(results) == 1:
+            self.pronunciation = results[0][0]
 
     def fetch_gender(self):
         """Fetch the gender from the ontology.
@@ -427,7 +512,7 @@ class LexicalEntry:  # pylint: disable=R0902
         return "%s (%s)" % (self_label, roman_numeral(index).lower())
 
 
-class LexicalSense:
+class LexicalSense:  # pylint: disable=R0903
     """Representation of a LexicalSense node.
     """
 
@@ -449,20 +534,6 @@ class LexicalSense:
         LIMIT 1""" % self.node.n3()
         results = list(flont.apps.graph.query(query))
         if len(results) == 1:
-            if not results[0][0].strip().startswith("#*"):
-                self.definition = re.sub("^#*", "", results[0][0].strip())
-        if len(self.format_definition()) == 0:
+            self.definition = WikiTextString(results[0][0])
+        if len(self.definition.html()) == 0:
             self.definition = None
-
-    def format_definition(self):
-        """Output clean HTML format of the definition.
-        """
-        if self.definition is None:
-            return ""
-        base_cleaning = wikitextparser.parse(self.definition).plain_text(
-            replace_wikilinks=False,
-            replace_templates=False
-        )
-        links_cleaning = format_wikilinks(base_cleaning)
-        templates_cleaning = format_wikitemplates(links_cleaning)
-        return re.sub("(  +)", "", templates_cleaning).strip()

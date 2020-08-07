@@ -1,0 +1,33 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url('../img/noise.png');
+    background-attachment: fixed;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.hwrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.main_wrapper {
+    padding: 24px;
+    width: 800px;
+    background: white;
+    box-shadow: 0 0 2px rgba(0, 0, 0, .5);
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer a {
+    color: #555;
+}

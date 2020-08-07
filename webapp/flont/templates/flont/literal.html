@@ -1,70 +1,41 @@
-<section>
+<section class="literal">
 
-    <div class="literal">
-        <span class="literal__label">{{ literal.label }}</span>
+    <div class="literal__header">
+        <span class="literal__header__label">{{ literal.label }}</span>
         {% if literal.pronunciation %}
-        <span class="literal__pronunciation">/<i>{{ literal.pronunciation }}</i>/</span>
+        <span class="literal__header__pronunciation">/<i>{{ literal.pronunciation }}</i>/</span>
         {% endif %}
-        <span class="iri">{{ literal.iri }}</span>
+        <span class="literal__header__iri iri">{{ literal.iri }}</span>
     </div>
 
     {% if literal.get_inflections %}
-    <div class="linkbox">
+    <div class="literal__inflections linkbox">
         {% for relation, label in literal.get_inflections %}
-        <span class="linkbox__title">{{ relation | capfirst}} :</span>
-        <a class="linkbox__link" href="{% url 'flont:search' %}?q={{label}}">{{ label }}</a>
-        <span class="linkbox__title"></span>
+        <span class="literal__inflection linkbox__element">
+            <span class="literal__inflection__relation linkbox__title">{{ relation | capfirst}}</span> :
+            <a class="literal__inflection__link linkbox__link" href="{% url 'flont:search' %}?q={{label}}">{{ label }}</a>
+        </span>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if literal.anagrams %}
+    <div class="literal__anagrams linkbox">
+        <span class="linkbox__element linkbox__title">anagramme{{ literal.anagrams|pluralize }}</span>
+        {% for label in literal.anagrams %}
+        <a class="linkbox__element linkbox__link" href="{% url 'flont:search' %}?q={{label}}">{{ label }}</a>
         {% endfor %}
     </div>
     {% endif %}
 
     {% if literal.entries %}
-    <div class="lexical_entries">
+    <div class="literal__entries">
 
         {% for entry in literal.entries %}
-        <article>
-
-            <div class="entry">
-                <span class="entry__pos">{{ entry.format_pos }}</span>
-                <span class="iri">{{ entry.iri }}</span>
-                {% if entry.inflections %}<span class="entry__flexion">flexion</span>{% endif %}
-            </div>
-
-            {% if entry.inflections %}
-
-            <ul>
-                {% for literal, relation in entry.inflections %}
-                <li class="inflection">
-                    <i>{{ relation | capfirst | safe }}</i> de <a href="{% url 'flont:search' %}?q={{ literal }}">{{ literal }}</a>.
-                </li>
-                {% endfor %}
-            </ul>
-
-            {% else %}
-
-            <ol class="entry_definitions">
-                {% for sense in entry.senses %}
-                {% if sense.definition %}
-                <li class="definition">{{ sense.format_definition | safe }}</li>
-                {% endif %}
-                {% endfor %}
-            </ol>
-
-            {% endif %}
-
-            {% for link, targets in entry.links.items %}
-            <div class="linkbox">
-                <span class="linkbox__title">{{ link }}</span>
-                {% for target in targets %}
-                <a class="linkbox__link" href="{% url 'flont:search' %}?q={{target}}">{{ target }}</a>
-                {% endfor %}
-            </div>
-            {% endfor %}
-
-        </article>
+        {% include 'flont/lexical_entry.html' %}
         {% endfor %}
 
     </div>
     {% endif %}
-    
+
 </section>

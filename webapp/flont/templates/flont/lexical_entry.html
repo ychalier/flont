@@ -1,0 +1,43 @@
+<article class="literal__entry">
+
+    <div class="literal__entry__header">
+        <span class="literal__entry__header__pos">{{ entry.format_pos }}</span>
+        {% if entry.pronunciation %}
+        <span class="literal__entry__header__pronunciation">/<i>{{ entry.pronunciation }}</i>/</span>
+        {% endif %}
+        <span class="literal__entry__header__iri iri">{{ entry.iri }}</span>
+        {% if entry.inflections %}<span class="literal__entry__header__flexion">flexion</span>{% endif %}
+    </div>
+
+    {% if entry.inflections %}
+
+    <ul class="literal__entry__inflections">
+        {% for literal, relation in entry.inflections %}
+        <li class="literal__entry__inflection">
+            <i>{{ relation | capfirst | safe }}</i> de <a class="internal" href="{% url 'flont:search' %}?q={{ literal }}">{{ literal }}</a>.
+        </li>
+        {% endfor %}
+    </ul>
+
+    {% else %}
+
+    <ol class="literal__entry__definitions">
+        {% for sense in entry.senses %}
+        {% if sense.definition %}
+        <li class="literal__entry__definition">{{ sense.definition.html | safe }}</li>
+        {% endif %}
+        {% endfor %}
+    </ol>
+
+    {% endif %}
+
+    {% for link, targets in entry.links.items %}
+    <div class="literal__entry__relation linkbox">
+        <span class="literal__entry__relation__name linkbox__element linkbox__title">{{ link }}</span>
+        {% for target in targets %}
+        <a class="literal__entry__relation__link linkbox__element linkbox__link" href="{% url 'flont:search' %}?q={{target}}">{{ target }}</a>
+        {% endfor %}
+    </div>
+    {% endfor %}
+
+</article>
