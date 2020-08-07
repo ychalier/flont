@@ -43,7 +43,7 @@ def iter_db_rows(database_filename, max_iters=None):
             yield row
 
 
-DEFINITION_PATTERN = re.compile(r"^ *# *(\*?) *(.*)")
+DEFINITION_PATTERN = re.compile(r"^ *(#+) *(\*?) *(.*)")
 
 
 TEMPLATE_TO_RELATION_MAPPING = {
@@ -528,7 +528,11 @@ class WikitextLexicalEntry:
             match = DEFINITION_PATTERN.search(line)
             if match is None:
                 continue
-            if match.group(1) == "":
+            if len(match.group(1)) > 1:
+                # Here the definition is a sub definition, a precision,
+                # which is outside of our focus.
+                continue
+            if match.group(2) == "":
                 if definition is not None:
                     self.lexical_senses.append(
                         WikitextLexicalSense.from_text(definition, examples))
