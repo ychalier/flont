@@ -373,7 +373,7 @@ class WikitextArticle:
             self.anagrams.append(link.target)
 
     def _parse_etymology(self, section):
-        self.etymology = clear_wikitext(section.contents)
+        self.etymology = section.contents # clear_wikitext(section.contents)
 
     def _parse_lexical_entry(self, section):
         lexical_entry = WikitextLexicalEntry.from_section(self, section)
@@ -635,6 +635,8 @@ class OntologyBuilder:
         literal.label = article.title
         if article.pronunciation is not None:
             literal.pronunciation.append(article.pronunciation)
+        if article.etymology is not None:
+            literal.etymology = article.etymology
         self.memory[article.title] = {
             "literal": literal,
             "entries": list(),
