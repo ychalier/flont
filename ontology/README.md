@@ -57,4 +57,4 @@ I got this plot thanks to the [Memory Profiler](https://pypi.org/project/memory-
 
 ### Disk
 
-The output is a 2.15Gb SQLite file. It can be exported to a 1.65Gb plain text file with the RDF/XML format.
+The output is a 2.67Gb SQLite file. It can be exported to a 1.92Gb plain text file with the RDF/XML format.

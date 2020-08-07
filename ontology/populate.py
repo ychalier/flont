@@ -539,9 +539,9 @@ class WikitextLexicalEntry:
                     self.lexical_senses.append(
                         WikitextLexicalSense.from_text(definition, examples))
                     examples = list()
-                definition = match.group(2)
+                definition = match.group(3)
             else:
-                examples.append(match.group(2))
+                examples.append(match.group(3))
         if definition is not None:
             self.lexical_senses.append(
                 WikitextLexicalSense.from_text(definition, examples))
