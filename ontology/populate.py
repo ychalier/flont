@@ -425,7 +425,9 @@ class WikitextLexicalEntry:
         "remarque",
         "voir",
         "apparentés étymologiques",
-        "traductions"
+        "traductions",
+        "vidéos",
+        "note",
         "anagrammes",  # level error
     }
 
@@ -437,6 +439,7 @@ class WikitextLexicalEntry:
             self.links[folder] = list()
         self.inflections = set()
         self.traits = set()
+        self.pronunciation = None
 
     @classmethod
     def from_section(cls, literal, section):
@@ -454,6 +457,15 @@ class WikitextLexicalEntry:
             "senses": [s.to_dict() for s in self.lexical_senses],
             "links": self.links
         }
+
+    def _parse_pronunciation(self, section):
+        for template in section.templates:
+            if template.name != "pron":
+                continue
+            argument = template.get_arg("1")
+            if argument is not None:
+                self.pronunciation = argument.value
+            break
 
     def _parse_traits(self, head):
         for template in head.templates:
@@ -502,7 +514,6 @@ class WikitextLexicalEntry:
                         elif agreement_inflection == AgreementInflection.PLURAL:
                             self.inflections.add((target, "hasPlural"))
 
-
     def _parse_inflections(self, head):
         if "flexion" not in head.title:
             return
@@ -534,6 +545,7 @@ class WikitextLexicalEntry:
         self._parse_definitions(head)
         self._parse_traits(head)
         self._parse_inflections(head)
+        self._parse_pronunciation(head)
 
     def _parse_links(self, section, folder):
         for link in section.wikilinks:
@@ -553,6 +565,8 @@ class WikitextLexicalEntry:
                 pass
             elif category == "anagrammes":
                 literal.parse_anagrams(subsection)
+            elif category == "prononciation":
+                self._parse_pronunciation(subsection)
             else:
                 logging.warning(
                     "This subsection could not be parsed: %s",
@@ -635,6 +649,8 @@ class OntologyBuilder:
         self.existing[entry_name_radix][entry_name] = 0
         lexical_entry = self.ontology[cls](entry_name)
         lexical_entry.hasLiteral = literal
+        if wikitext_lexical_entry.pronunciation is not None:
+            lexical_entry.pronunciation.append(wikitext_lexical_entry.pronunciation)
         self.memory[title]["entries"].append({
             "wikitext": wikitext_lexical_entry,
             "ontology": lexical_entry
