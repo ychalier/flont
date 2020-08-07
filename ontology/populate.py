@@ -29,7 +29,7 @@ def get_db_cursor(database_filename):
     connection.close()
 
 
-def iter_db_rows(database_filename, max_iters=None):
+def iter_db_rows(database_filename, max_iters=None, desc=None):
     """Iterate over the database rows.
     """
     with get_db_cursor(database_filename) as cursor:
@@ -39,7 +39,7 @@ def iter_db_rows(database_filename, max_iters=None):
         else:
             total = max_iters
             query = "SELECT title, content FROM entries LIMIT %d" % max_iters
-        for row in tqdm.tqdm(cursor.execute(query), total=total):
+        for row in tqdm.tqdm(cursor.execute(query), total=total, desc=desc):
             yield row
 
 
@@ -428,6 +428,8 @@ class WikitextLexicalEntry:
         "traductions",
         "vidéos",
         "note",
+        "références",
+        "liens externes",
         "anagrammes",  # level error
     }
 
@@ -726,22 +728,26 @@ class OntologyBuilder:
         those relationships, linking lexical entries together, or even both
         sides of the relationships by linking lexical senses together.
         """
-        for memory_elt in tqdm.tqdm(self.memory.values(), total=len(self.memory)):
+        for memory_elt in tqdm.tqdm(
+                self.memory.values(), total=len(self.memory),
+                desc="Inserting properties"):
             self.create_anagram_links(memory_elt)
             for entry in memory_elt["entries"]:
                 self.create_property_links(entry)
                 self.create_inflection_links(entry)
                 self.create_trait_links(entry)
 
-
     def save(self, output_filename):
         """Save the ontology to the disk.
         """
+        logging.info("Clearing memory...")
         self.existing.clear()
         self.memory.clear()
         gc.collect()
         if os.path.isfile(output_filename):
+            logging.info("Deleting previous DB file %s", output_filename)
             os.remove(output_filename)
+        logging.info("Saving world...")
         self.world.set_backend(filename=output_filename)
         self.world.save()
 
@@ -753,7 +759,7 @@ def populate_individuals(database_filename, ontology_schema,
     logging.info("Populating ontology with %s", database_filename)
     builder = OntologyBuilder(ontology_schema)
     logging.info("Creating individuals...")
-    for row in iter_db_rows(database_filename, max_iters):
+    for row in iter_db_rows(database_filename, max_iters, "Creating individuals"):
         article = WikitextArticle.from_text(*row)
         literal = builder.create_literal(article)
         for wikitext_lexical_entry in article.lexical_entries:
@@ -772,3 +778,4 @@ def populate_individuals(database_filename, ontology_schema,
     builder.create_links()
     logging.info("Saving ontology to %s", os.path.realpath(output_filename))
     builder.save(output_filename)
+    logging.info("Done populating the ontology!")

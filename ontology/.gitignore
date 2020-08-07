@@ -9,4 +9,5 @@
 *.xml
 *.bz2
 *.zip
+*.old
 !schema.owl
