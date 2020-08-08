@@ -10,8 +10,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 setup(
     name='django-flont',
     version='0.1.0',
-    package_dir={'': 'flont'},
-    packages=find_packages('flont'),
+    packages=find_packages(),
     include_package_data=True,
     license='MIT License',
     description='Web client for FLOnt, the French Lexicon Ontology.',

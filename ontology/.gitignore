@@ -10,4 +10,5 @@
 *.bz2
 *.zip
 *.old
+*.rdf
 !schema.owl
