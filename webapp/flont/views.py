@@ -3,6 +3,7 @@
 
 import re
 import urllib.parse
+import difflib
 from django.shortcuts import render, redirect
 from django.http import Http404
 import flont.apps
@@ -30,11 +31,20 @@ def landing(request):
 def search(request):
     """Label search page.
     """
-    query = urllib.parse.unquote(request.GET.get("q", ""))
+    query_raw = request.GET.get("q", "").strip()
+    query = urllib.parse.unquote(query_raw)
     node = ontology.find_literal_by_label(query)
     if node is not None:
         return redirect("flont:graph", short_iri=str(node).replace(ontology.FLONT_IRI, ""))
-    return render(request, "flont/search.html", {"query": query})
+    top_labels = difflib.get_close_matches(
+        query,
+        flont.apps.labels,
+        n=10, cutoff=0.6
+    )
+    return render(request, "flont/search.html", {
+        "query": query_raw,
+        "top_labels": top_labels
+    })
 
 
 def endpoint(request):

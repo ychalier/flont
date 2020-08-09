@@ -8,12 +8,16 @@
 {% block body %}
 {% include 'flont/searchbar.html' %}
 <section class="fadein">
-    {% if literal %}
-    {% include 'flont/literal.html' %}
-    {% else %}
+    {% if top_labels %}
     <p>
-        Aucun résultat trouvé pour ce mot...
+        Ce mot n'est pas dans le dictionnaire. Voici des résultats proches de votre recherche :
     </p>
+    <ul>
+        {% for label in top_labels %}
+        <li><a class="internal" href="{% url 'flont:search'%}?q={{ label }}">{{ label }}</a></li>
+        {% endfor %}
+    </ul>
+    {% else %}
     {% endif %}
 </section>
 {% endblock body %}
