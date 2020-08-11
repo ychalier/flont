@@ -28,6 +28,27 @@ def landing(request):
     return render(request, "flont/landing.html", {})
 
 
+def iterate_labels():
+    """Query the ontology world SQL database to iterate over all the labels
+    of the ontology.
+    """
+    cursor = flont.apps.ontology.graph.db.cursor()
+    # query = """
+    # SELECT datas.o
+    # FROM datas, resources
+    # WHERE
+    #     datas.p = resources.storid
+    #     AND resources.iri = "https://ontology.chalier.fr/flont#label"
+    # """
+    query = """
+    SELECT datas.o
+    FROM datas
+    WHERE datas.p = 435
+    """
+    for (label,) in cursor.execute(query):
+        yield label
+
+
 def search(request):
     """Label search page.
     """
@@ -36,11 +57,7 @@ def search(request):
     node = ontology.find_literal_by_label(query)
     if node is not None:
         return redirect("flont:graph", short_iri=str(node).replace(ontology.FLONT_IRI, ""))
-    top_labels = difflib.get_close_matches(
-        query,
-        flont.apps.labels,
-        n=10, cutoff=0.6
-    )
+    top_labels = difflib.get_close_matches(query, iterate_labels(), n=10, cutoff=0.6)
     return render(request, "flont/search.html", {
         "query": query_raw,
         "top_labels": top_labels

@@ -18,6 +18,10 @@
         {% endfor %}
     </ul>
     {% else %}
+    <p>
+        Ce mot n'est pas dans le dictionnaire, et aucun mot proche n'a été trouvé.
+        <i>Toutefois, cette fonctionnalité peut avoir être désactivée pour soulager le serveur</i>.
+    </p>
     {% endif %}
 </section>
 {% endblock body %}
