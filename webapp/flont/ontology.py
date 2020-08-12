@@ -681,6 +681,19 @@ class LexicalSense:
         self.iri = LabeledEntity(str(node), get_iri(node))
         self.definition = None
         self.examples = list()
+        self.precisions = set()
+
+    def _fetch_precisions(self):
+        query = """
+        PREFIX flont: <https://ontology.chalier.fr/flont#>
+        SELECT ?precision ?label
+        WHERE {
+            %s flont:hasPrecision ?precision .
+            ?precision rdfs:label ?label .
+        }
+        """ % self.node.n3()
+        for precision, label in flont.apps.graph.query(query):
+            self.precisions.add(LabeledEntity(str(precision), label))
 
     def fetch_definition(self):
         """Fetch the definition from the ontology.
@@ -697,6 +710,8 @@ class LexicalSense:
             self.definition = WikiTextString(results[0][0])
         if len(self.definition.html()) == 0:
             self.definition = None
+        else:
+            self._fetch_precisions()
 
     def fetch_examples(self):
         """Fetch the examples from the ontology.

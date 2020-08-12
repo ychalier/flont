@@ -19,10 +19,17 @@ def main():
         "database", type=str, help="path to the database")
     populate_parser.add_argument(
         "ontology", type=str, help="path to the ontology schema file (*.owl)")
+    populate_parser.add_argument(
+        "definition_templates", type=str,
+        help="path to the CSV with definition templates")
     populate_parser.add_argument("output", type=str, help="output filename")
     populate_parser.add_argument(
         "-mi", "--max-iter", type=int, default=0,
         help="maximum number of iterations")
+    populate_parser.add_argument(
+        "-so", "--save-as-owl", action="store_true",
+        help="output the ontology in OWL format"
+    )
     args = parser.parse_args()
     log_level = logging.INFO
     if args.verbose:
@@ -39,7 +46,8 @@ def main():
         if args.max_iter > 0:
             max_iters = args.max_iter
         populate.populate_individuals(
-            args.database, args.ontology, args.output, max_iters)
+            args.database, args.ontology, args.definition_templates,
+            args.output, max_iters, args.save_as_owl)
 
 
 main()

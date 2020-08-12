@@ -7,10 +7,10 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="https://ontology.chalier.fr/flont">
-        <owl:versionIRI rdf:resource="https://ontology.chalier.fr/flont/0.1.0"/>
+        <owl:versionIRI rdf:resource="https://ontology.chalier.fr/flont/0.2.0"/>
         <rdfs:comment xml:lang="en">FLOnt: French Lexicon Ontology. An ontology for the French lexicon, extracted from the French Wiktionary. Developped by Yohan Chalier (https://yohan.chalier.fr).</rdfs:comment>
         <rdfs:label xml:lang="en">FLOnt</rdfs:label>
-        <owl:versionInfo xml:lang="en">0.1.0</owl:versionInfo>
+        <owl:versionInfo xml:lang="en">0.2.0</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -374,6 +374,15 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasPlural">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasAgreement"/>
         <owl:inverseOf rdf:resource="https://ontology.chalier.fr/flont#isPluralOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#hasPrecision -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasPrecision">
+        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalSense"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#DefinitionPrecision"/>
     </owl:ObjectProperty>
     
 
@@ -1259,6 +1268,14 @@
     
 
 
+    <!-- https://ontology.chalier.fr/flont#Connotation -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#Connotation">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#DefinitionPrecision"/>
+    </owl:Class>
+    
+
+
     <!-- https://ontology.chalier.fr/flont#ContentWord -->
 
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#ContentWord">
@@ -1280,6 +1297,12 @@
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#DefiniteArticle">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Article"/>
     </owl:Class>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#DefinitionPrecision -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#DefinitionPrecision"/>
     
 
 
@@ -1340,10 +1363,35 @@
     
 
 
+    <!-- https://ontology.chalier.fr/flont#GlossaryUseDomain -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#GlossaryUseDomain">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#UseDomain"/>
+        <owl:disjointWith rdf:resource="https://ontology.chalier.fr/flont#LexicalUseDomain"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#GrammaticalConstraint -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#GrammaticalConstraint">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#DefinitionPrecision"/>
+    </owl:Class>
+    
+
+
     <!-- https://ontology.chalier.fr/flont#GrammaticalTrait -->
 
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#GrammaticalTrait">
         <rdfs:comment xml:lang="en">Super class for grammatical traits, such as gender or number.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#Idiomatism -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#Idiomatism">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#DefinitionPrecision"/>
     </owl:Class>
     
 
@@ -1412,6 +1460,14 @@
     
 
 
+    <!-- https://ontology.chalier.fr/flont#LanguageRegister -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#LanguageRegister">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#DefinitionPrecision"/>
+    </owl:Class>
+    
+
+
     <!-- https://ontology.chalier.fr/flont#Letter -->
 
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Letter">
@@ -1432,6 +1488,14 @@
 
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#LexicalSense">
         <rdfs:comment xml:lang="en">Precise meaning of a lexical entry. Has one definition, and some examples.</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#LexicalUseDomain -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#LexicalUseDomain">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#UseDomain"/>
     </owl:Class>
     
 
@@ -1582,6 +1646,14 @@
     
 
 
+    <!-- https://ontology.chalier.fr/flont#RelationshipBetweenDefinition -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#RelationshipBetweenDefinition">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#DefinitionPrecision"/>
+    </owl:Class>
+    
+
+
     <!-- https://ontology.chalier.fr/flont#RelativeAdjective -->
 
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#RelativeAdjective">
@@ -1623,6 +1695,14 @@
     
 
 
+    <!-- https://ontology.chalier.fr/flont#Slang -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#Slang">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#DefinitionPrecision"/>
+    </owl:Class>
+    
+
+
     <!-- https://ontology.chalier.fr/flont#Suffix -->
 
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Suffix">
@@ -1635,6 +1715,118 @@
 
     <owl:Class rdf:about="https://ontology.chalier.fr/flont#Symbol">
         <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#Sign"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#TextualGenre -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#TextualGenre">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#DefinitionPrecision"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#UseDomain -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#UseDomain">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#DefinitionPrecision"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#UseFrequency -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#UseFrequency">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#DefinitionPrecision"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#UseRegion -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#UseRegion">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#DefinitionPrecision"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#UseRegionAfrica -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#UseRegionAfrica">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#UseRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#UseRegionAmerica -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#UseRegionAmerica">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#UseRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#UseRegionAsia -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#UseRegionAsia">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#UseRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#UseRegionCentralAmerica -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#UseRegionCentralAmerica">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#UseRegionAmerica"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#UseRegionEurope -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#UseRegionEurope">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#UseRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#UseRegionFrance -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#UseRegionFrance">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#UseRegionEurope"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#UseRegionNorthAmerica -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#UseRegionNorthAmerica">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#UseRegionAmerica"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#UseRegionOceania -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#UseRegionOceania">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#UseRegion"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#UseRegionSouthAmerica -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#UseRegionSouthAmerica">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#UseRegionAmerica"/>
+    </owl:Class>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#UseTemporality -->
+
+    <owl:Class rdf:about="https://ontology.chalier.fr/flont#UseTemporality">
+        <rdfs:subClassOf rdf:resource="https://ontology.chalier.fr/flont#DefinitionPrecision"/>
     </owl:Class>
     
 
@@ -1688,6 +1880,61 @@
     <!-- https://ontology.chalier.fr/flont#singular -->
 
     <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#singular"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#Connotation"/>
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#GrammaticalConstraint"/>
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#Idiomatism"/>
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#LanguageRegister"/>
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#RelationshipBetweenDefinition"/>
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#Slang"/>
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#TextualGenre"/>
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#UseDomain"/>
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#UseFrequency"/>
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#UseRegion"/>
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#UseTemporality"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#DefinitionPrecision"/>
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#GrammaticalTrait"/>
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#LexicalEntry"/>
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#LexicalSense"/>
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#Literal"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#UseRegionAfrica"/>
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#UseRegionAmerica"/>
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#UseRegionAsia"/>
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#UseRegionEurope"/>
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#UseRegionOceania"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#UseRegionCentralAmerica"/>
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#UseRegionNorthAmerica"/>
+            <rdf:Description rdf:about="https://ontology.chalier.fr/flont#UseRegionSouthAmerica"/>
+        </owl:members>
+    </rdf:Description>
 </rdf:RDF>
 
 

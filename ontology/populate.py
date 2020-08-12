@@ -13,7 +13,9 @@ import gc
 import sqlite3
 import contextlib
 import enum
+import pandas
 import tqdm
+import slugify
 import owlready2
 import wikitextparser
 
@@ -231,6 +233,9 @@ CLASS_ABBREVIATIONS = {
     "Symbol": "sym",
     "Verb": "v",
 }
+
+
+DEFINITION_TEMPLATE_MAPPING = dict()
 
 
 @enum.unique
@@ -584,6 +589,9 @@ class WikitextLexicalEntry:
         return TEMPLATE_TO_CLASS_MAPPING[self.pos]
 
 
+TEMPLATE_PATTERN = re.compile(r"{{(.*?)}}")
+
+
 class WikitextLexicalSense:
     """Object representation for a parsed lexical sense.
     """
@@ -591,6 +599,7 @@ class WikitextLexicalSense:
     def __init__(self):
         self.definition = None
         self.examples = list()
+        self.precisions = set()
 
     @classmethod
     def from_text(cls, definition, examples):
@@ -608,13 +617,27 @@ class WikitextLexicalSense:
             "examples": self.examples
         }
 
+    def _parse_precisions_callback(self, match):
+        split = match.group(1).split("|")
+        if len(split) > 0:
+            template_name = split[0].strip()
+            template_individual = DEFINITION_TEMPLATE_MAPPING.get(template_name)
+            if template_individual is not None:
+                self.precisions.add(template_individual)
+                return ""
+        return match.group(0)
+
+    def _parse_precisions(self):
+        self.definition = TEMPLATE_PATTERN.sub(self._parse_precisions_callback, self.definition)
+        self.definition = re.sub("  +", " ", self.definition).strip()
+
     def parse_text(self, definition, examples):
         """Read some wikitext and set the inner attributes.
         """
         self.definition = definition
         for example in examples:
             self.examples.append(clear_wikitext(example))
-        # IDEA: parse definition templates for more info
+        self._parse_precisions()
 
 
 class OntologyBuilder:
@@ -664,18 +687,20 @@ class OntologyBuilder:
         })
         return lexical_entry
 
-    def create_lexical_sense(self, lexical_entry, definition, examples):
+    def create_lexical_sense(self, ontology_lexical_entry, wikitext_lexical_sense):
         """Append a flont:LexicalSense to the ontology.
         """
-        lexical_entry_name_radix = re.sub(r"\d*$", "", lexical_entry.name)
-        index = self.existing[lexical_entry_name_radix][lexical_entry.name] + 1
-        sense_name = "%s.%d" % (lexical_entry.name, index)
-        self.existing[lexical_entry_name_radix][lexical_entry.name] += 1
-        lexical_sense = self.ontology.LexicalSense(sense_name)
-        lexical_sense.definition = definition
-        lexical_sense.example = examples
-        lexical_sense.isSenseOf = lexical_entry
-        return lexical_sense
+        lexical_entry_name_radix = re.sub(r"\d*$", "", ontology_lexical_entry.name)
+        index = self.existing[lexical_entry_name_radix][ontology_lexical_entry.name] + 1
+        sense_name = "%s.%d" % (ontology_lexical_entry.name, index)
+        self.existing[lexical_entry_name_radix][ontology_lexical_entry.name] += 1
+        ontology_lexical_sense = self.ontology.LexicalSense(sense_name)
+        ontology_lexical_sense.definition = wikitext_lexical_sense.definition
+        ontology_lexical_sense.example = wikitext_lexical_sense.examples[:]
+        ontology_lexical_sense.isSenseOf = ontology_lexical_entry
+        for precision in wikitext_lexical_sense.precisions:
+            ontology_lexical_sense.hasPrecision.append(precision)
+        return ontology_lexical_sense
 
     def create_property_links(self, entry):
         """Create links between nodes, such as synonyms.
@@ -736,7 +761,7 @@ class OntologyBuilder:
                 self.create_inflection_links(entry)
                 self.create_trait_links(entry)
 
-    def save(self, output_filename):
+    def save(self, output_filename, save_as_owl=False):
         """Save the ontology to the disk.
         """
         logging.info("Clearing memory...")
@@ -747,16 +772,34 @@ class OntologyBuilder:
             logging.info("Deleting previous DB file %s", output_filename)
             os.remove(output_filename)
         logging.info("Saving world...")
-        self.world.set_backend(filename=output_filename)
-        self.world.save()
+        if save_as_owl:
+            self.ontology.save(file=output_filename, format="rdfxml")
+        else:
+            self.world.set_backend(filename=output_filename)
+            self.world.save()
 
 
-def populate_individuals(database_filename, ontology_schema,
-                         output_filename, max_iters=None):
+def load_definition_templates(ontology_builder, definition_templates_filename):
+    """Load the definition templates mapping file and populate the ontology
+    with the DefinitionPrecision individuals.
+    """
+    dataframe = pandas.read_csv(definition_templates_filename)
+    for _, row in dataframe.iterrows():
+        name = "defprec_" + slugify.slugify(row["label_fr"]).replace("-", "_")
+        node = ontology_builder.ontology[row["type"]](name)
+        owlready2.label[node].append(owlready2.locstr(row["label_fr"], lang="fr"))
+        for template_name in row["template_names"].split(";"):
+            DEFINITION_TEMPLATE_MAPPING[template_name.strip()] = node
+
+
+def populate_individuals(database_filename, ontology_schema, definition_templates,  # pylint: disable=R0913
+                         output_filename, max_iters=None, save_as_owl=False):
     """Read the database and populate the ontology with individuals.
     """
     logging.info("Populating ontology with %s", database_filename)
     builder = OntologyBuilder(ontology_schema)
+    logging.info("Loading definition templates...")
+    load_definition_templates(builder, definition_templates)
     logging.info("Creating individuals...")
     for row in iter_db_rows(database_filename, max_iters, "Creating individuals"):
         article = WikitextArticle.from_text(*row)
@@ -770,11 +813,10 @@ def populate_individuals(database_filename, ontology_schema,
             for wikitext_lexical_sense in wikitext_lexical_entry.lexical_senses:
                 builder.create_lexical_sense(
                     ontology_lexical_entry,
-                    wikitext_lexical_sense.definition,
-                    wikitext_lexical_sense.examples
+                    wikitext_lexical_sense
                 )
     logging.info("Creating relationships between entries...")
     builder.create_links()
     logging.info("Saving ontology to %s", os.path.realpath(output_filename))
-    builder.save(output_filename)
+    builder.save(output_filename, save_as_owl)
     logging.info("Done populating the ontology!")

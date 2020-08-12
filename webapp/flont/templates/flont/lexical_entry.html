@@ -24,7 +24,7 @@
     <ol class="literal__entry__definitions">
         {% for sense in entry.senses %}
         {% if sense.definition %}
-        <li class="literal__entry__definition">{{ sense.definition.html | safe }} <span class="iri">{{ sense.iri.html_black | safe }}</span></li>
+        <li class="literal__entry__definition">{% if sense.precisions %}{% for precision in sense.precisions %}<i>({{ precision.html_black | safe }})</i> {% endfor %}{% endif %}{{ sense.definition.html | safe }} <span class="iri">{{ sense.iri.html_black | safe }}</span></li>
         {% endif %}
         {% endfor %}
     </ol>

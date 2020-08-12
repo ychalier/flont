@@ -11,4 +11,7 @@
 *.zip
 *.old
 *.rdf
+*.txt
+!requirements.txt
 !schema.owl
+!definition_templates_individuals.csv

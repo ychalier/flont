@@ -1,0 +1,922 @@
+type,template_names,label_fr
+Connotation,affectueux,Affectueux
+Connotation,injurieux,Injurieux
+Connotation,ironique,Ironique
+Connotation,mélioratif,Mélioratif
+Connotation,par dérision,Par dérision
+Connotation,par plaisanterie,Par plaisanterie
+Connotation,péjoratif,Péjoratif
+GlossaryUseDomain,agrumes,Agrumes
+GlossaryUseDomain,alcaloïdes,Alcaloïdes
+GlossaryUseDomain,alcools,Alcools
+GlossaryUseDomain,algues,Algues
+GlossaryUseDomain,aliments,Aliments
+GlossaryUseDomain,alliages,Alliages
+GlossaryUseDomain,anciennes divisions,Anciennes divisions
+GlossaryUseDomain,anciennes localités,Anciennes localités
+GlossaryUseDomain,anglicismes informatiques,Anglicismes informatiques
+GlossaryUseDomain,animaux,Animaux
+GlossaryUseDomain,antilopes,Antilopes
+GlossaryUseDomain,arbres,Arbres
+GlossaryUseDomain,armes,Armes
+GlossaryUseDomain,armures,Armures
+GlossaryUseDomain,aromates,Aromates
+GlossaryUseDomain,arthropodes,Arthropodes
+GlossaryUseDomain,artistes,Artistes
+GlossaryUseDomain,atomes,Atomes
+GlossaryUseDomain,avions,Avions
+GlossaryUseDomain,bactéries,Bactéries
+GlossaryUseDomain,bateaux,Bateaux
+GlossaryUseDomain,bières,Bières
+GlossaryUseDomain,bivalves,Bivalves
+GlossaryUseDomain,boissons,Boissons
+GlossaryUseDomain,bovins,Bovins
+GlossaryUseDomain,cactus,Cactus
+GlossaryUseDomain,camélidés,Camélidés
+GlossaryUseDomain,canards,Canards
+GlossaryUseDomain,caprins,Caprins
+GlossaryUseDomain,carnivores,Carnivores
+GlossaryUseDomain,cépages,Cépages
+GlossaryUseDomain,céphalopodes,Céphalopodes
+GlossaryUseDomain,céréales,Céréales
+GlossaryUseDomain,cervidés,Cervidés
+GlossaryUseDomain,cétacés,Cétacés
+GlossaryUseDomain,chaînes de montagnes,Chaînes de montagnes
+GlossaryUseDomain,chameaux,Chameaux
+GlossaryUseDomain,champignons,Champignons
+GlossaryUseDomain,chats,Chats
+GlossaryUseDomain,chaussures,Chaussures
+GlossaryUseDomain,chauves-souris,Chauves-souris
+GlossaryUseDomain,chênes,Chênes
+GlossaryUseDomain,chevaux,Chevaux
+GlossaryUseDomain,chiens,Chiens
+GlossaryUseDomain,cigognes,Cigognes
+GlossaryUseDomain,cnidaires,Cnidaires
+GlossaryUseDomain,cocktails,Cocktails
+GlossaryUseDomain,coléoptères,Coléoptères
+GlossaryUseDomain,commerces,Commerces
+GlossaryUseDomain,composants électriques,Composants électriques
+GlossaryUseDomain,composants électroniques,Composants électroniques
+GlossaryUseDomain,condiments,Condiments
+GlossaryUseDomain,confiseries,Confiseries
+GlossaryUseDomain,conifères,Conifères
+GlossaryUseDomain,constellations,Constellations
+GlossaryUseDomain,coquillages,Coquillages
+GlossaryUseDomain,cours d’eau,Cours d’eau
+GlossaryUseDomain,couteaux,Couteaux
+GlossaryUseDomain,couvertures,Couvertures
+GlossaryUseDomain,couvre-chefs,Couvre-chefs
+GlossaryUseDomain,crabes,Crabes
+GlossaryUseDomain,crapauds,Crapauds
+GlossaryUseDomain,créatures,Créatures
+GlossaryUseDomain,crimes,Crimes
+GlossaryUseDomain,criminels,Criminels
+GlossaryUseDomain,crustacés,Crustacés
+GlossaryUseDomain,cygnes,Cygnes
+GlossaryUseDomain,danses,Danses
+GlossaryUseDomain,départements,Départements
+GlossaryUseDomain,déserts,Déserts
+GlossaryUseDomain,desserts,Desserts
+GlossaryUseDomain,détroits,Détroits
+GlossaryUseDomain,diacritiques,Diacritiques
+GlossaryUseDomain,dialectes,Dialectes
+GlossaryUseDomain,dindons,Dindons
+GlossaryUseDomain,dinosaures,Dinosaures
+GlossaryUseDomain,distinctions,Distinctions
+GlossaryUseDomain,divinités,Divinités
+GlossaryUseDomain,documents,Documents
+GlossaryUseDomain,drogues,Drogues
+GlossaryUseDomain,échinodermes,Échinodermes
+GlossaryUseDomain,écureuils,Écureuils
+GlossaryUseDomain,édifices,Édifices
+GlossaryUseDomain,éléments,Éléments
+GlossaryUseDomain,enzymes,Enzymes
+GlossaryUseDomain,épices,Épices
+GlossaryUseDomain,équins,Équins
+GlossaryUseDomain,établissements,Établissements
+GlossaryUseDomain,états,États
+GlossaryUseDomain,ethnonymes,Ethnonymes
+GlossaryUseDomain,étoiles,Étoiles
+GlossaryUseDomain,euphorbes,Euphorbes
+GlossaryUseDomain,familles de plantes,Familles de plantes
+GlossaryUseDomain,félins,Félins
+GlossaryUseDomain,figures,Figures
+GlossaryUseDomain,flamants,Flamants
+GlossaryUseDomain,fleurs,Fleurs
+GlossaryUseDomain,fromages,Fromages
+GlossaryUseDomain,fruits,Fruits
+GlossaryUseDomain,gastéropodes,Gastéropodes
+GlossaryUseDomain,gâteaux,Gâteaux
+GlossaryUseDomain,genres littéraires,Genres littéraires
+GlossaryUseDomain,genres musicaux,Genres musicaux
+GlossaryUseDomain,gentilés,Gentilés
+GlossaryUseDomain,giraffidés,Giraffidés
+GlossaryUseDomain,gladiateurs,Gladiateurs
+GlossaryUseDomain,golfes,Golfes
+GlossaryUseDomain,grades,Grades
+GlossaryUseDomain,grenouilles,Grenouilles
+GlossaryUseDomain,grues,Grues
+GlossaryUseDomain,hérons,Hérons
+GlossaryUseDomain,ibis,Ibis
+GlossaryUseDomain,îles,Îles
+GlossaryUseDomain,insectes,Insectes
+GlossaryUseDomain,instruments,Instruments
+GlossaryUseDomain,instruments de mesure,Instruments de mesure
+GlossaryUseDomain,insultes,Insultes
+GlossaryUseDomain,jeux de cartes,Jeux de cartes
+GlossaryUseDomain,jouets,Jouets
+GlossaryUseDomain,lacs,Lacs
+GlossaryUseDomain,langages,Langages
+GlossaryUseDomain,langues,Langues
+GlossaryUseDomain,légumes,Légumes
+GlossaryUseDomain,léporidés,Léporidés
+GlossaryUseDomain,lézards,Lézards
+GlossaryUseDomain,lianes,Lianes
+GlossaryUseDomain,lieux,Lieux
+GlossaryUseDomain,localités,Localités
+GlossaryUseDomain,machines,Machines
+GlossaryUseDomain,maladies,Maladies
+GlossaryUseDomain,mammifères,Mammifères
+GlossaryUseDomain,marsupiaux,Marsupiaux
+GlossaryUseDomain,médicaments,Médicaments
+GlossaryUseDomain,méduses,Méduses
+GlossaryUseDomain,mers,Mers
+GlossaryUseDomain,métaplasmes,Métaplasmes
+GlossaryUseDomain,meubles,Meubles
+GlossaryUseDomain,meubles héraldiques,Meubles héraldiques
+GlossaryUseDomain,minéraux,Minéraux
+GlossaryUseDomain,mollusques,Mollusques
+GlossaryUseDomain,monnaies,Monnaies
+GlossaryUseDomain,montagnes,Montagnes
+GlossaryUseDomain,mouches,Mouches
+GlossaryUseDomain,muscles,Muscles
+GlossaryUseDomain,musiciens,Musiciens
+GlossaryUseDomain,musiques,Musiques
+GlossaryUseDomain,oies,Oies
+GlossaryUseDomain,oiseaux,Oiseaux
+GlossaryUseDomain,outils,Outils
+GlossaryUseDomain,ovins,Ovins
+GlossaryUseDomain,palmiers,Palmiers
+GlossaryUseDomain,palmipèdes,Palmipèdes
+GlossaryUseDomain,papillons,Papillons
+GlossaryUseDomain,particules,Particules
+GlossaryUseDomain,pâtes alimentaires,Pâtes alimentaires
+GlossaryUseDomain,pâtisseries,Pâtisseries
+GlossaryUseDomain,pays,Pays
+GlossaryUseDomain,pêches,Pêches
+GlossaryUseDomain,pélicans,Pélicans
+GlossaryUseDomain,perroquets,Perroquets
+GlossaryUseDomain,personnalités,Personnalités
+GlossaryUseDomain,peupliers,Peupliers
+GlossaryUseDomain,phobies,Phobies
+GlossaryUseDomain,planètes,Planètes
+GlossaryUseDomain,plans d’eau,Plans d’eau
+GlossaryUseDomain,plantes,Plantes
+GlossaryUseDomain,pléonasmes,Pléonasmes
+GlossaryUseDomain,points cardinaux,Points cardinaux
+GlossaryUseDomain,poires,Poires
+GlossaryUseDomain,poissons,Poissons
+GlossaryUseDomain,pommes,Pommes
+GlossaryUseDomain,ponctuations,Ponctuations
+GlossaryUseDomain,porcins,Porcins
+GlossaryUseDomain,positions,Positions
+GlossaryUseDomain,poules,Poules
+GlossaryUseDomain,préparations,Préparations
+GlossaryUseDomain,primates,Primates
+GlossaryUseDomain,protéines,Protéines
+GlossaryUseDomain,protocoles,Protocoles
+GlossaryUseDomain,proverbes,Proverbes
+GlossaryUseDomain,provinces,Provinces
+GlossaryUseDomain,psychotropes,Psychotropes
+GlossaryUseDomain,quartiers,Quartiers
+GlossaryUseDomain,raies,Raies
+GlossaryUseDomain,rapaces,Rapaces
+GlossaryUseDomain,régions,Régions
+GlossaryUseDomain,religieux,Religieux
+GlossaryUseDomain,religions,Religions
+GlossaryUseDomain,reptiles,Reptiles
+GlossaryUseDomain,requins,Requins
+GlossaryUseDomain,roches,Roches
+GlossaryUseDomain,rongeurs,Rongeurs
+GlossaryUseDomain,saisons,Saisons
+GlossaryUseDomain,salades,Salades
+GlossaryUseDomain,sandwichs,Sandwichs
+GlossaryUseDomain,satellites,Satellites
+GlossaryUseDomain,saules,Saules
+GlossaryUseDomain,scientifiques,Scientifiques
+GlossaryUseDomain,seigneuries,Seigneuries
+GlossaryUseDomain,sentiments,Sentiments
+GlossaryUseDomain,serpents,Serpents
+GlossaryUseDomain,singes,Singes
+GlossaryUseDomain,soldats,Soldats
+GlossaryUseDomain,spatules,Spatules
+GlossaryUseDomain,sportifs,Sportifs
+GlossaryUseDomain,sports,Sports
+GlossaryUseDomain,substances,Substances
+GlossaryUseDomain,symboles unités,Symboles unités
+GlossaryUseDomain,temps géologiques,Temps géologiques
+GlossaryUseDomain,territoires,Territoires
+GlossaryUseDomain,textiles,Textiles
+GlossaryUseDomain,thérapies,Thérapies
+GlossaryUseDomain,tissus,Tissus
+GlossaryUseDomain,titres,Titres
+GlossaryUseDomain,toponymes,Toponymes
+GlossaryUseDomain,tortues,Tortues
+GlossaryUseDomain,un os,Un os
+GlossaryUseDomain,unités,Unités
+GlossaryUseDomain,usines,Usines
+GlossaryUseDomain,ustensiles,Ustensiles
+GlossaryUseDomain,véhicules,Véhicules
+GlossaryUseDomain,vents,Vents
+GlossaryUseDomain,vers,Vers
+GlossaryUseDomain,vêtements,Vêtements
+GlossaryUseDomain,viandes,Viandes
+GlossaryUseDomain,vins,Vins
+GlossaryUseDomain,virus,Virus
+GlossaryUseDomain,voitures,Voitures
+GlossaryUseDomain,xénarthres,Xénarthres
+GrammaticalConstraint,absolument,Absolument
+GrammaticalConstraint,apposition,En apposition
+GrammaticalConstraint,au féminin,Au féminin
+GrammaticalConstraint,au masculin,Au masculin
+GrammaticalConstraint,au pluriel,Au pluriel
+GrammaticalConstraint,au singulier,Au singulier
+GrammaticalConstraint,ellipse,Par ellipse
+GrammaticalConstraint,épithète,Employé comme épithète
+Idiomatism,anglicisme,Anglicisme
+Idiomatism,gallicisme,Gallicisme
+Idiomatism,germanisme,Germanisme
+Idiomatism,hispanisme,Hispanisme
+Idiomatism,italianisme,Italianisme
+Idiomatism,latinisme,Latinisme
+Idiomatism,lusitanisme,Lusitanisme
+LanguageRegister,enfantin,Langage enfantin
+LanguageRegister,familier,Familier
+LanguageRegister,informel,Informel
+LanguageRegister,populaire,Populaire
+LanguageRegister,soutenu;formel,Soutenu
+LanguageRegister,très familier,Très familier
+LanguageRegister,vulgaire,Vulgaire
+LexicalUseDomain,acoustique,Acoustique
+LexicalUseDomain,administration,Administration
+LexicalUseDomain,aéronautique,Aéronautique
+LexicalUseDomain,agriculture,Agriculture
+LexicalUseDomain,agronomie,Agronomie
+LexicalUseDomain,aïkido,Aïkido
+LexicalUseDomain,alchimie,Alchimie
+LexicalUseDomain,algèbre,Algèbre
+LexicalUseDomain,alpinisme,Alpinisme
+LexicalUseDomain,analyse,Analyse
+LexicalUseDomain,anatomie,Anatomie
+LexicalUseDomain,anthropologie,Anthropologie
+LexicalUseDomain,antiquité,Antiquité
+LexicalUseDomain,apiculture,Apiculture
+LexicalUseDomain,arboriculture,Arboriculture
+LexicalUseDomain,archéologie,Archéologie
+LexicalUseDomain,architecture,Architecture
+LexicalUseDomain,Argadz,Argadz
+LexicalUseDomain,armement,Armement
+LexicalUseDomain,arts,Arts
+LexicalUseDomain,arts martiaux,Arts martiaux
+LexicalUseDomain,assurance,Assurance
+LexicalUseDomain,astrologie,Astrologie
+LexicalUseDomain,astronautique,Astronautique
+LexicalUseDomain,astronomie,Astronomie
+LexicalUseDomain,astrophysique,Astrophysique
+LexicalUseDomain,athlétisme,Athlétisme
+LexicalUseDomain,audiovisuel,Audiovisuel
+LexicalUseDomain,automatique,Automatique
+LexicalUseDomain,automobile,Automobile
+LexicalUseDomain,aviation,Aviation
+LexicalUseDomain,baby-foot,Baby-foot
+LexicalUseDomain,bactériologie,Bactériologie
+LexicalUseDomain,badminton,Badminton
+LexicalUseDomain,base de données,Base de données
+LexicalUseDomain,baseball,Baseball
+LexicalUseDomain,basket-ball,Basket-ball
+LexicalUseDomain,BD,BD
+LexicalUseDomain,beaux-arts,Beaux-arts
+LexicalUseDomain,bibliothéconomie,Bibliothéconomie
+LexicalUseDomain,bijouterie,Bijouterie
+LexicalUseDomain,billard,Billard
+LexicalUseDomain,biochimie,Biochimie
+LexicalUseDomain,biogéographie,Biogéographie
+LexicalUseDomain,biologie,Biologie
+LexicalUseDomain,biophysique,Biophysique
+LexicalUseDomain,bonsaï,Bonsaï
+LexicalUseDomain,botanique,Botanique
+LexicalUseDomain,boucherie,Boucherie
+LexicalUseDomain,bouddhisme,Bouddhisme
+LexicalUseDomain,bourrellerie,Bourrellerie
+LexicalUseDomain,bowling,Bowling
+LexicalUseDomain,boxe,Boxe
+LexicalUseDomain,bridge,Bridge
+LexicalUseDomain,calendrier,Calendrier
+LexicalUseDomain,calligraphie,Calligraphie
+LexicalUseDomain,canoë-kayak,Canoë-kayak
+LexicalUseDomain,capoeira,Capoeira
+LexicalUseDomain,cartes à jouer,Cartes à jouer
+LexicalUseDomain,cartographie,Cartographie
+LexicalUseDomain,caséologie,Caséologie
+LexicalUseDomain,catch,Catch
+LexicalUseDomain,CB,CB
+LexicalUseDomain,céramique,Céramique
+LexicalUseDomain,charpenterie,Charpenterie
+LexicalUseDomain,charronnerie,Charronnerie
+LexicalUseDomain,chasse,Chasse
+LexicalUseDomain,chimie,Chimie
+LexicalUseDomain,chiromancie,Chiromancie
+LexicalUseDomain,chirurgie,Chirurgie
+LexicalUseDomain,christianisme,Christianisme
+LexicalUseDomain,chronologie,Chronologie
+LexicalUseDomain,cinéma,Cinéma
+LexicalUseDomain,cirque,Cirque
+LexicalUseDomain,climatologie,Climatologie
+LexicalUseDomain,coiffure,Coiffure
+LexicalUseDomain,colorimétrie,Colorimétrie
+LexicalUseDomain,commerce,Commerce
+LexicalUseDomain,comptabilité,Comptabilité
+LexicalUseDomain,construction,Construction
+LexicalUseDomain,copropriété,Copropriété
+LexicalUseDomain,cordonnerie,Cordonnerie
+LexicalUseDomain,cosmétologie,Cosmétologie
+LexicalUseDomain,couche application,Couche application
+LexicalUseDomain,couche liaison,Couche liaison
+LexicalUseDomain,couche physique,Couche physique
+LexicalUseDomain,couche présentation,Couche présentation
+LexicalUseDomain,couche réseau,Couche réseau
+LexicalUseDomain,couche session,Couche session
+LexicalUseDomain,couche transport,Couche transport
+LexicalUseDomain,course à pied,Course à pied
+LexicalUseDomain,couture,Couture
+LexicalUseDomain,cricket,Cricket
+LexicalUseDomain,cryptographie,Cryptographie
+LexicalUseDomain,cryptomonnaie,Cryptomonnaie
+LexicalUseDomain,cuisine,Cuisine
+LexicalUseDomain,cyclisme,Cyclisme
+LexicalUseDomain,dames,Dames
+LexicalUseDomain,danse,Danse
+LexicalUseDomain,dentisterie,Dentisterie
+LexicalUseDomain,dermatologie,Dermatologie
+LexicalUseDomain,dessin,Dessin
+LexicalUseDomain,diplomatie,Diplomatie
+LexicalUseDomain,drogue,Drogue
+LexicalUseDomain,droit,Droit
+LexicalUseDomain,échafaudage,Échafaudage
+LexicalUseDomain,échecs,Échecs
+LexicalUseDomain,écologie,Écologie
+LexicalUseDomain,économie,Économie
+LexicalUseDomain,édition,Édition
+LexicalUseDomain,éducation,Éducation
+LexicalUseDomain,électoraux,Électoraux
+LexicalUseDomain,électricité,Électricité
+LexicalUseDomain,électronique,Électronique
+LexicalUseDomain,électrotechnique,Électrotechnique
+LexicalUseDomain,élevage,Élevage
+LexicalUseDomain,embryologie,Embryologie
+LexicalUseDomain,entomologie,Entomologie
+LexicalUseDomain,équitation,Équitation
+LexicalUseDomain,escrime,Escrime
+LexicalUseDomain,ethnobiologie,Ethnobiologie
+LexicalUseDomain,ethnologie,Ethnologie
+LexicalUseDomain,famille,Famille
+LexicalUseDomain,fantastique,Fantastique
+LexicalUseDomain,fauconnerie,Fauconnerie
+LexicalUseDomain,ferroviaire,Ferroviaire
+LexicalUseDomain,finance,Finance
+LexicalUseDomain,fiscalité,Fiscalité
+LexicalUseDomain,fontainerie,Fontainerie
+LexicalUseDomain,football,Football
+LexicalUseDomain,foresterie,Foresterie
+LexicalUseDomain,franc-maçonnerie,Franc-maçonnerie
+LexicalUseDomain,généalogie,Généalogie
+LexicalUseDomain,génétique,Génétique
+LexicalUseDomain,géographie,Géographie
+LexicalUseDomain,géologie,Géologie
+LexicalUseDomain,géomatique,Géomatique
+LexicalUseDomain,géométrie,Géométrie
+LexicalUseDomain,géophysique,Géophysique
+LexicalUseDomain,géostatistique,Géostatistique
+LexicalUseDomain,glaciologie,Glaciologie
+LexicalUseDomain,golf,Golf
+LexicalUseDomain,grammaire,Grammaire
+LexicalUseDomain,gravure,Gravure
+LexicalUseDomain,gymnastique,Gymnastique
+LexicalUseDomain,handball,Handball
+LexicalUseDomain,handisport,Handisport
+LexicalUseDomain,héraldique,Héraldique
+LexicalUseDomain,hindouisme,Hindouisme
+LexicalUseDomain,hippisme,Hippisme
+LexicalUseDomain,hippologie,Hippologie
+LexicalUseDomain,histoire,Histoire
+LexicalUseDomain,histologie,Histologie
+LexicalUseDomain,hockey,Hockey
+LexicalUseDomain,horlogerie,Horlogerie
+LexicalUseDomain,horticulture,Horticulture
+LexicalUseDomain,hydraulique,Hydraulique
+LexicalUseDomain,hydrobiologie,Hydrobiologie
+LexicalUseDomain,hydrologie,Hydrologie
+LexicalUseDomain,hygiène,Hygiène
+LexicalUseDomain,ichtyologie,Ichtyologie
+LexicalUseDomain,illégalité,Illégalité
+LexicalUseDomain,imprimerie,Imprimerie
+LexicalUseDomain,industrie,Industrie
+LexicalUseDomain,infographie,Infographie
+LexicalUseDomain,informatique,Informatique
+LexicalUseDomain,intelligence artificielle,Intelligence artificielle
+LexicalUseDomain,internet,Internet
+LexicalUseDomain,islam,Islam
+LexicalUseDomain,jardinage,Jardinage
+LexicalUseDomain,jazz,Jazz
+LexicalUseDomain,jeu de go,Jeu de go
+LexicalUseDomain,jeu de paume,Jeu de paume
+LexicalUseDomain,jeux,Jeux
+LexicalUseDomain,jeux vidéo,Jeux vidéo
+LexicalUseDomain,jonglerie,Jonglerie
+LexicalUseDomain,journalisme,Journalisme
+LexicalUseDomain,judaïsme,Judaïsme
+LexicalUseDomain,judo,Judo
+LexicalUseDomain,justice,Justice
+LexicalUseDomain,karaté,Karaté
+LexicalUseDomain,langage Java,Langage Java
+LexicalUseDomain,législation,Législation
+LexicalUseDomain,lexicographie,Lexicographie
+LexicalUseDomain,LGBT,LGBT
+LexicalUseDomain,linguistique,Linguistique
+LexicalUseDomain,littérature,Littérature
+LexicalUseDomain,liturgie,Liturgie
+LexicalUseDomain,livre,Livre
+LexicalUseDomain,logique,Logique
+LexicalUseDomain,logistique,Logistique
+LexicalUseDomain,loisirs,Loisirs
+LexicalUseDomain,lutherie,Lutherie
+LexicalUseDomain,maçonnerie,Maçonnerie
+LexicalUseDomain,magnétisme,Magnétisme
+LexicalUseDomain,mah-jong,Mah-jong
+LexicalUseDomain,maintenance,Maintenance
+LexicalUseDomain,marbrerie,Marbrerie
+LexicalUseDomain,maréchalerie,Maréchalerie
+LexicalUseDomain,marine,Marine
+LexicalUseDomain,maroquinerie,Maroquinerie
+LexicalUseDomain,mathématiques,Mathématiques
+LexicalUseDomain,mécanique,Mécanique
+LexicalUseDomain,médecine,Médecine
+LexicalUseDomain,médecine non conv,Médecine non conv
+LexicalUseDomain,médecine vétérinaire,Médecine vétérinaire
+LexicalUseDomain,média,Média
+LexicalUseDomain,menuiserie,Menuiserie
+LexicalUseDomain,mercatique,Mercatique
+LexicalUseDomain,metal,Metal
+LexicalUseDomain,métallurgie,Métallurgie
+LexicalUseDomain,météorologie,Météorologie
+LexicalUseDomain,métrologie,Métrologie
+LexicalUseDomain,meunerie,Meunerie
+LexicalUseDomain,microbiologie,Microbiologie
+LexicalUseDomain,militaire,Militaire
+LexicalUseDomain,minéralogie,Minéralogie
+LexicalUseDomain,miroiterie,Miroiterie
+LexicalUseDomain,monarchie,Monarchie
+LexicalUseDomain,morphologie végétale,Morphologie végétale
+LexicalUseDomain,motocyclisme,Motocyclisme
+LexicalUseDomain,Moyen Âge,Moyen Âge
+LexicalUseDomain,muscle,Muscle
+LexicalUseDomain,musculation,Musculation
+LexicalUseDomain,muséologie,Muséologie
+LexicalUseDomain,musique,Musique
+LexicalUseDomain,mycologie,Mycologie
+LexicalUseDomain,mythologie,Mythologie
+LexicalUseDomain,narratologie,Narratologie
+LexicalUseDomain,natation,Natation
+LexicalUseDomain,navigation,Navigation
+LexicalUseDomain,neurologie,Neurologie
+LexicalUseDomain,noblesse,Noblesse
+LexicalUseDomain,nosologie,Nosologie
+LexicalUseDomain,novlangue,Novlangue
+LexicalUseDomain,nucléaire,Nucléaire
+LexicalUseDomain,numismatique,Numismatique
+LexicalUseDomain,nutrition,Nutrition
+LexicalUseDomain,occultisme,Occultisme
+LexicalUseDomain,océanographie,Océanographie
+LexicalUseDomain,oenologie;œnologie,Oenologie
+LexicalUseDomain,optimisation,Optimisation
+LexicalUseDomain,optique,Optique
+LexicalUseDomain,orgues,Orgues
+LexicalUseDomain,ornement,Ornement
+LexicalUseDomain,ornithologie,Ornithologie
+LexicalUseDomain,paléographie,Paléographie
+LexicalUseDomain,paléontologie,Paléontologie
+LexicalUseDomain,papeterie,Papeterie
+LexicalUseDomain,patinage,Patinage
+LexicalUseDomain,pâtisserie,Pâtisserie
+LexicalUseDomain,pêche,Pêche
+LexicalUseDomain,pédologie,Pédologie
+LexicalUseDomain,peinture,Peinture
+LexicalUseDomain,pelote basque,Pelote basque
+LexicalUseDomain,pétanque,Pétanque
+LexicalUseDomain,pétrochimie,Pétrochimie
+LexicalUseDomain,pharmacologie,Pharmacologie
+LexicalUseDomain,phénologie,Phénologie
+LexicalUseDomain,phénoménologie,Phénoménologie
+LexicalUseDomain,philatélie,Philatélie
+LexicalUseDomain,philosophie,Philosophie
+LexicalUseDomain,phonétique,Phonétique
+LexicalUseDomain,phonologie,Phonologie
+LexicalUseDomain,photographie,Photographie
+LexicalUseDomain,physiologie,Physiologie
+LexicalUseDomain,physique,Physique
+LexicalUseDomain,phytosociologie,Phytosociologie
+LexicalUseDomain,planche à neige,Planche à neige
+LexicalUseDomain,planche à roulettes,Planche à roulettes
+LexicalUseDomain,plomberie,Plomberie
+LexicalUseDomain,plongée,Plongée
+LexicalUseDomain,poésie,Poésie
+LexicalUseDomain,poker,Poker
+LexicalUseDomain,police,Police
+LexicalUseDomain,politique,Politique
+LexicalUseDomain,préhistoire,Préhistoire
+LexicalUseDomain,prestidigitation,Prestidigitation
+LexicalUseDomain,probabilités,Probabilités
+LexicalUseDomain,programmation informatique,Programmation informatique
+LexicalUseDomain,programmation orientée objet,Programmation orientée objet
+LexicalUseDomain,propriété,Propriété
+LexicalUseDomain,psychanalyse,Psychanalyse
+LexicalUseDomain,psychiatrie,Psychiatrie
+LexicalUseDomain,psychologie,Psychologie
+LexicalUseDomain,pyrotechnie,Pyrotechnie
+LexicalUseDomain,raffinage,Raffinage
+LexicalUseDomain,regex,Regex
+LexicalUseDomain,relations internationales,Relations internationales
+LexicalUseDomain,religion,Religion
+LexicalUseDomain,reliure,Reliure
+LexicalUseDomain,renseignement,Renseignement
+LexicalUseDomain,reproduction,Reproduction
+LexicalUseDomain,réseaux informatiques,Réseaux informatiques
+LexicalUseDomain,rhétorique,Rhétorique
+LexicalUseDomain,robotique,Robotique
+LexicalUseDomain,rugby,Rugby
+LexicalUseDomain,saliculture,Saliculture
+LexicalUseDomain,saut en hauteur,Saut en hauteur
+LexicalUseDomain,science-fiction,Science-fiction
+LexicalUseDomain,sciences,Sciences
+LexicalUseDomain,Scrabble,Scrabble
+LexicalUseDomain,sculpture,Sculpture
+LexicalUseDomain,serrurerie,Serrurerie
+LexicalUseDomain,sexualité,Sexualité
+LexicalUseDomain,sidérurgie,Sidérurgie
+LexicalUseDomain,ski alpin,Ski alpin
+LexicalUseDomain,ski de fond,Ski de fond
+LexicalUseDomain,snowboard,Snowboard
+LexicalUseDomain,socialisme,Socialisme
+LexicalUseDomain,sociolinguistique,Sociolinguistique
+LexicalUseDomain,sociologie,Sociologie
+LexicalUseDomain,sport,Sport
+LexicalUseDomain,squelette,Squelette
+LexicalUseDomain,statistiques,Statistiques
+LexicalUseDomain,stéréochimie,Stéréochimie
+LexicalUseDomain,stéréotomie,Stéréotomie
+LexicalUseDomain,stéréotype,Stéréotype
+LexicalUseDomain,surf,Surf
+LexicalUseDomain,sylviculture,Sylviculture
+LexicalUseDomain,taille de pierre,Taille de pierre
+LexicalUseDomain,tauromachie,Tauromachie
+LexicalUseDomain,technique,Technique
+LexicalUseDomain,technologie,Technologie
+LexicalUseDomain,télécommunications,Télécommunications
+LexicalUseDomain,téléinformatique,Téléinformatique
+LexicalUseDomain,téléphonie,Téléphonie
+LexicalUseDomain,tennis,Tennis
+LexicalUseDomain,tennis de table,Tennis de table
+LexicalUseDomain,tératologie,Tératologie
+LexicalUseDomain,textile,Textile
+LexicalUseDomain,théâtre,Théâtre
+LexicalUseDomain,théologie,Théologie
+LexicalUseDomain,théorie des graphes,Théorie des graphes
+LexicalUseDomain,thermodynamique,Thermodynamique
+LexicalUseDomain,tonnellerie,Tonnellerie
+LexicalUseDomain,topographie,Topographie
+LexicalUseDomain,topologie,Topologie
+LexicalUseDomain,toponymie,Toponymie
+LexicalUseDomain,tourisme,Tourisme
+LexicalUseDomain,transport,Transport
+LexicalUseDomain,travail,Travail
+LexicalUseDomain,triathlon,Triathlon
+LexicalUseDomain,typographie,Typographie
+LexicalUseDomain,ufologie,Ufologie
+LexicalUseDomain,urbanisme,Urbanisme
+LexicalUseDomain,usinage,Usinage
+LexicalUseDomain,vaudou,Vaudou
+LexicalUseDomain,versification,Versification
+LexicalUseDomain,vexillologie,Vexillologie
+LexicalUseDomain,virologie,Virologie
+LexicalUseDomain,viticulture,Viticulture
+LexicalUseDomain,vitrerie,Vitrerie
+LexicalUseDomain,volley-ball,Volley-ball
+LexicalUseDomain,wiki,Wiki
+LexicalUseDomain,yoga,Yoga
+LexicalUseDomain,zoologie,Zoologie
+RelationshipBetweenDefinition,en particulier;particulier;partic;part,En particulier
+RelationshipBetweenDefinition,figuré;idiomatique;au figuré;métaph;métaphore,Figuré
+RelationshipBetweenDefinition,généralement,Généralement
+RelationshipBetweenDefinition,génériquement,Génériquement
+RelationshipBetweenDefinition,par analogie;analogie,Par analogie
+RelationshipBetweenDefinition,par euphémisme;euphémisme;euph;euphém,Par euphémisme
+RelationshipBetweenDefinition,par extension;par ext,Par extension
+RelationshipBetweenDefinition,par hyperbole;hyperbole;hyperb;exag;exagération,Par hyperbole
+RelationshipBetweenDefinition,par litote,Par litote
+RelationshipBetweenDefinition,par métonymie;métonymie;méton,Par métonymie
+RelationshipBetweenDefinition,sens propre;propre,Sens propre
+RelationshipBetweenDefinition,spécialement,Spécialement
+RelationshipBetweenDefinition,spécifiquement,Spécifiquement
+Slang,Argadz,Argot des Gadz’Arts
+Slang,argot,Argot
+Slang,argot internet;argot Internet,Argot Internet
+Slang,argot militaire,Argot militaire
+Slang,argot poilu,Argot poilu
+Slang,argot policier,Argot policier
+Slang,argot polytechnicien,Argot polytechnicien
+Slang,argot scolaire,Argot scolaire
+Slang,argot typographes,Argot des typographes
+Slang,argot voleurs,Argot des voleurs
+Slang,langage SMS,Langage SMS
+TextualGenre,didactique,Didactique
+TextualGenre,littéraire,Littéraire
+TextualGenre,poétique,Poétique
+UseFrequency,beaucoup moins courant,Beaucoup moins courant
+UseFrequency,beaucoup plus courant,Beaucoup plus courant
+UseFrequency,courant,Courant
+UseFrequency,extrêmement rare,Extrêmement rare
+UseFrequency,hapax,Hapax
+UseFrequency,moins courant,Moins courant
+UseFrequency,peu attesté,Peu attesté
+UseFrequency,peu usité,Peu usité
+UseFrequency,plus courant,Plus courant
+UseFrequency,plus rare,Plus rare
+UseFrequency,rare,Rare
+UseFrequency,très rare,Très rare
+UseRegion,Commonwealth,Commonwealth
+UseRegionAfrica,Afrique,Afrique
+UseRegionAfrica,Afrique du Sud,"Afrique du Sud, Afrique"
+UseRegionAfrica,Algérie,"Algérie, Afrique"
+UseRegionAfrica,Angola,"Angola, Afrique"
+UseRegionAfrica,Benguele,"Benguele, Angola, Afrique"
+UseRegionAfrica,Bénin,"Bénin, Afrique"
+UseRegionAfrica,Botswana,"Botswana, Afrique"
+UseRegionAfrica,Burkina Faso,"Burkina Faso, Afrique"
+UseRegionAfrica,Burundi,"Burundi, Afrique"
+UseRegionAfrica,Cameroun,"Cameroun, Afrique"
+UseRegionAfrica,Cap-Vert,"Cap-Vert, Afrique"
+UseRegionAfrica,Centrafrique,"Centrafrique, Afrique"
+UseRegionAfrica,Comores,"Comores, Afrique"
+UseRegionAfrica,Congo-Brazzaville,"Congo-Brazzaville, Afrique"
+UseRegionAfrica,Congo-Kinshasa,"Congo-Kinshasa, Afrique"
+UseRegionAfrica,Côte d’Ivoire,"Côte d’Ivoire, Afrique"
+UseRegionAfrica,Djibouti,"Djibouti, Afrique"
+UseRegionAfrica,Dominique,"Dominique, Afrique"
+UseRegionAfrica,Égypte,"Égypte, Afrique"
+UseRegionAfrica,Érythrée,"Érythrée, Afrique"
+UseRegionAfrica,Éthiopie,"Éthiopie, Afrique"
+UseRegionAfrica,Gabon,"Gabon, Afrique"
+UseRegionAfrica,Gambie,"Gambie, Afrique"
+UseRegionAfrica,Ghana,"Ghana, Afrique"
+UseRegionAfrica,Guinée,"Guinée, Afrique"
+UseRegionAfrica,Guinée équatoriale,"Guinée équatoriale, Afrique"
+UseRegionAfrica,Guinée-Bissau,"Guinée-Bissau, Afrique"
+UseRegionAfrica,Kenya,"Kenya, Afrique"
+UseRegionAfrica,Lesotho,"Lesotho, Afrique"
+UseRegionAfrica,Liberia,"Liberia, Afrique"
+UseRegionAfrica,Libye,"Libye, Afrique"
+UseRegionAfrica,Luanda,"Luanda, Angola, Afrique"
+UseRegionAfrica,Madagascar,"Madagascar, Afrique"
+UseRegionAfrica,Maghreb,"Maghreb, Afrique"
+UseRegionAfrica,Malawi,"Malawi, Afrique"
+UseRegionAfrica,Mali,"Mali, Afrique"
+UseRegionAfrica,Maroc,"Maroc, Afrique"
+UseRegionAfrica,Maurice,"Maurice, Afrique"
+UseRegionAfrica,Mauritanie,"Mauritanie, Afrique"
+UseRegionAfrica,Mozambique,"Mozambique, Afrique"
+UseRegionAfrica,Namibie,"Namibie, Afrique"
+UseRegionAfrica,Niger,"Niger, Afrique"
+UseRegionAfrica,Nigéria,"Nigéria, Afrique"
+UseRegionAfrica,Ouganda,"Ouganda, Afrique"
+UseRegionAfrica,Rwanda,"Rwanda, Afrique"
+UseRegionAfrica,Sao Tomé-et-Principe,"Sao Tomé-et-Principe, Afrique"
+UseRegionAfrica,Sénégal,"Sénégal, Afrique"
+UseRegionAfrica,Seychelles,"Seychelles, Afrique"
+UseRegionAfrica,Sierra Leone,"Sierra Leone, Afrique"
+UseRegionAfrica,Somalie,"Somalie, Afrique"
+UseRegionAfrica,Soudan,"Soudan, Afrique"
+UseRegionAfrica,Soudan du Sud,"Soudan du Sud, Afrique"
+UseRegionAfrica,Swaziland,"Swaziland, Afrique"
+UseRegionAfrica,Tanzanie,"Tanzanie, Afrique"
+UseRegionAfrica,Tchad,"Tchad, Afrique"
+UseRegionAfrica,Togo,"Togo, Afrique"
+UseRegionAfrica,Tunisie,"Tunisie, Afrique"
+UseRegionAfrica,Zambie,"Zambie, Afrique"
+UseRegionAfrica,Zimbabwe,"Zimbabwe, Afrique"
+UseRegionAsia,Afghanistan,"Afghanistan, Asie"
+UseRegionAsia,Arabie saoudite,"Arabie saoudite, Asie"
+UseRegionAsia,Arménie,"Arménie, Asie"
+UseRegionAsia,Azerbaïdjan,"Azerbaïdjan, Asie"
+UseRegionAsia,Bahreïn,"Bahreïn, Asie"
+UseRegionAsia,Bangladesh,"Bangladesh, Asie"
+UseRegionAsia,Bhoutan,"Bhoutan, Asie"
+UseRegionAsia,Birmanie,"Birmanie, Asie"
+UseRegionAsia,Brunei,"Brunei, Asie"
+UseRegionAsia,Cambodge,"Cambodge, Asie"
+UseRegionAsia,Chine,"Chine, Asie"
+UseRegionAsia,Chypre,"Chypre, Asie"
+UseRegionAsia,Corée du Nord,"Corée du Nord, Asie"
+UseRegionAsia,Corée du Sud,"Corée du Sud, Asie"
+UseRegionAsia,Émirats arabes unis,"Émirats arabes unis, Asie"
+UseRegionAsia,Géorgie,"Géorgie, Asie"
+UseRegionAsia,Inde,"Inde, Asie"
+UseRegionAsia,Indonésie,"Indonésie, Asie"
+UseRegionAsia,Iran,"Iran, Asie"
+UseRegionAsia,Iraq,"Iraq, Asie"
+UseRegionAsia,Israël,"Israël, Asie"
+UseRegionAsia,Japon,"Japon, Asie"
+UseRegionAsia,Jordanie,"Jordanie, Asie"
+UseRegionAsia,Kazakhstan,"Kazakhstan, Asie"
+UseRegionAsia,Kirghizistan,"Kirghizistan, Asie"
+UseRegionAsia,Laos,"Laos, Asie"
+UseRegionAsia,Liban,"Liban, Asie"
+UseRegionAsia,Malaisie,"Malaisie, Asie"
+UseRegionAsia,Maldives,"Maldives, Asie"
+UseRegionAsia,Mongolie,"Mongolie, Asie"
+UseRegionAsia,Népal,"Népal, Asie"
+UseRegionAsia,Oman,"Oman, Asie"
+UseRegionAsia,Ouzbékistan,"Ouzbékistan, Asie"
+UseRegionAsia,Pakistan,"Pakistan, Asie"
+UseRegionAsia,Palestine,"Palestine, Asie"
+UseRegionAsia,Philippines,"Philippines, Asie"
+UseRegionAsia,Qatar,"Qatar, Asie"
+UseRegionAsia,Russie,"Russie, Asie"
+UseRegionAsia,Singapour,"Singapour, Asie"
+UseRegionAsia,Sri Lanka,"Sri Lanka, Asie"
+UseRegionAsia,Syrie,"Syrie, Asie"
+UseRegionAsia,Tadjikistan,"Tadjikistan, Asie"
+UseRegionAsia,Taïwan,"Taïwan, Asie"
+UseRegionAsia,Thaïlande,"Thaïlande, Asie"
+UseRegionAsia,Timor oriental,"Timor oriental, Asie"
+UseRegionAsia,Turkménistan,"Turkménistan, Asie"
+UseRegionAsia,Turquie,"Turquie, Asie"
+UseRegionAsia,Viêt Nam,"Viêt Nam, Asie"
+UseRegionAsia,Yémen,"Yémen, Asie"
+UseRegionCentralAmerica,Amérique centrale,Amérique centrale
+UseRegionCentralAmerica,Antilles,"Antilles, France, Amérique centrale"
+UseRegionCentralAmerica,Bélize,"Bélize, Amérique centrale"
+UseRegionCentralAmerica,Costa Rica,"Costa Rica, Amérique centrale"
+UseRegionCentralAmerica,Guatemala,"Guatemala, Amérique centrale"
+UseRegionCentralAmerica,Honduras,"Honduras, Amérique centrale"
+UseRegionCentralAmerica,Nicaragua,"Nicaragua, Amérique centrale"
+UseRegionCentralAmerica,Panama,"Panama, Amérique centrale"
+UseRegionCentralAmerica,Salvador,"Salvador, Amérique centrale"
+UseRegionEurope,Albanie,"Albanie, Europe"
+UseRegionEurope,Allemagne,"Allemagne, Europe"
+UseRegionEurope,Andorre,"Andorre, Europe"
+UseRegionEurope,ARYM,"ARYM, Europe"
+UseRegionEurope,Autriche,"Autriche, Europe"
+UseRegionEurope,Baléares,"Baléares, Espagne, Europe"
+UseRegionEurope,Belgique,"Belgique, Europe"
+UseRegionEurope,Biélorussie,"Biélorussie, Europe"
+UseRegionEurope,Bosnie-Herzégovine,"Bosnie-Herzégovine, Europe"
+UseRegionEurope,Bulgarie,"Bulgarie, Europe"
+UseRegionEurope,Catalogne,"Catalogne, Espagne, Europe"
+UseRegionEurope,Croatie,"Croatie, Europe"
+UseRegionEurope,Danemark,"Danemark, Europe"
+UseRegionEurope,Écosse,"Écosse, Royaume-Uni, Europe"
+UseRegionEurope,Espagne,"Espagne, Europe"
+UseRegionEurope,Estonie,"Estonie, Europe"
+UseRegionEurope,Europe,Europe
+UseRegionEurope,Finlande,"Finlande, Europe"
+UseRegionEurope,Grèce,"Grèce, Europe"
+UseRegionEurope,Hongrie,"Hongrie, Europe"
+UseRegionEurope,Irlande,"Irlande, Europe"
+UseRegionEurope,Islande,"Islande, Europe"
+UseRegionEurope,Italie,"Italie, Europe"
+UseRegionEurope,Lettonie,"Lettonie, Europe"
+UseRegionEurope,Liechtenstein,"Liechtenstein, Europe"
+UseRegionEurope,Lituanie,"Lituanie, Europe"
+UseRegionEurope,Luxembourg,"Luxembourg, Europe"
+UseRegionEurope,Malte,"Malte, Europe"
+UseRegionEurope,Moldavie,"Moldavie, Europe"
+UseRegionEurope,Monaco,"Monaco, Europe"
+UseRegionEurope,Monténégro,"Monténégro, Europe"
+UseRegionEurope,Navarre,"Navarre, Espagne, Europe"
+UseRegionEurope,Norvège,"Norvège, Europe"
+UseRegionEurope,Pays-Bas,"Pays-Bas, Europe"
+UseRegionEurope,Pologne,"Pologne, Europe"
+UseRegionEurope,Portugal,"Portugal, Europe"
+UseRegionEurope,République tchèque,"République tchèque, Europe"
+UseRegionEurope,Roumanie,"Roumanie, Europe"
+UseRegionEurope,Royaume-Uni,"Royaume-Uni, Europe"
+UseRegionEurope,Saint-Marin,"Saint-Marin, Europe"
+UseRegionEurope,Serbie,"Serbie, Europe"
+UseRegionEurope,Slovaquie,"Slovaquie, Europe"
+UseRegionEurope,Slovénie,"Slovénie, Europe"
+UseRegionEurope,Suède,"Suède, Europe"
+UseRegionEurope,Suisse,"Suisse, Europe"
+UseRegionEurope,Transnistrie,"Transnistrie, Moldavie, Europe"
+UseRegionEurope,Transnistrie,"Transnistrie, Ukraine, Europe"
+UseRegionEurope,Ukraine,"Ukraine, Europe"
+UseRegionEurope,Valence,"Valence, Espagne, Europe"
+UseRegionEurope,Vatican,"Vatican, Europe"
+UseRegionFrance,Alsace,"Alsace, France, Europe"
+UseRegionFrance,Anjou,"Anjou, France, Europe"
+UseRegionFrance,Aquitaine,"Aquitaine, France, Europe"
+UseRegionFrance,Auvergne,"Auvergne, France, Europe"
+UseRegionFrance,Berry,"Berry, France, Europe"
+UseRegionFrance,Bordelais,"Bordelais, France, Europe"
+UseRegionFrance,Bourgogne,"Bourgogne, France, Europe"
+UseRegionFrance,Bretagne,"Bretagne, France, Europe"
+UseRegionFrance,Champagne,"Champagne, France, Europe"
+UseRegionFrance,Corse,"Corse, France, Europe"
+UseRegionFrance,France,"France, Europe"
+UseRegionFrance,Franche-Comté,"Franche-Comté, France, Europe"
+UseRegionFrance,Gascogne,"Gascogne, France, Europe"
+UseRegionFrance,Languedoc-Roussillon,"Languedoc-Roussillon, France, Europe"
+UseRegionFrance,Le Mans,"Le Mans, France, Europe"
+UseRegionFrance,Limousin,"Limousin, France, Europe"
+UseRegionFrance,Lorraine,"Lorraine, France, Europe"
+UseRegionFrance,Lyonnais,"Lyonnais, France, Europe"
+UseRegionFrance,Marseille,"Marseille, France, Europe"
+UseRegionFrance,Midi,"Midi, France, Europe"
+UseRegionFrance,Midi toulousain,"Midi toulousain, France, Europe"
+UseRegionFrance,Nantes,"Nantes, France, Europe"
+UseRegionFrance,Normandie,"Normandie, France, Europe"
+UseRegionFrance,Occitanie,"Occitanie, France, Europe"
+UseRegionFrance,Pays basque,"Pays basque, Europe"
+UseRegionFrance,Picardie,"Picardie, France, Europe"
+UseRegionFrance,Poitou,"Poitou, France, Europe"
+UseRegionFrance,Provence,"Provence, France, Europe"
+UseRegionFrance,Quercy,"Quercy, France, Europe"
+UseRegionFrance,Rhône-Alpes,"Rhône-Alpes, France, Europe"
+UseRegionFrance,Var,"Var, France, Europe"
+UseRegionFrance,Velay,"Velay, France, Europe"
+UseRegionFrance,Vosges,"Vosges, France, Europe"
+UseRegionNorthAmerica,Acadie,"Acadie, Canada, Amérique du Nord"
+UseRegionNorthAmerica,Amérique du Nord,Amérique du Nord
+UseRegionNorthAmerica,Antigua-et-Barbuda,"Antigua-et-Barbuda, Amérique du Nord"
+UseRegionNorthAmerica,Bahamas,"Bahamas, Amérique du Nord"
+UseRegionNorthAmerica,Barbade,"Barbade, Amérique du Nord"
+UseRegionNorthAmerica,Canada,"Canada, Amérique du Nord"
+UseRegionNorthAmerica,Cuba,"Cuba, Amérique du Nord"
+UseRegionNorthAmerica,États-Unis,"États-Unis, Amérique du Nord"
+UseRegionNorthAmerica,Gaspésie,"Gaspésie, Amérique du Nord"
+UseRegionNorthAmerica,Grenade,"Grenade, Amérique du Nord"
+UseRegionNorthAmerica,Groenland,"Groenland, Amérique du Nord"
+UseRegionNorthAmerica,Guadeloupe,"Guadeloupe, Amérique du Nord"
+UseRegionNorthAmerica,Haïti,"Haïti, Amérique du Nord"
+UseRegionNorthAmerica,Îles-de-la-Madeleine,"Îles-de-la-Madeleine, Canada, Amérique du Nord"
+UseRegionNorthAmerica,Jamaïque,"Jamaïque, Amérique du Nord"
+UseRegionNorthAmerica,Louisiane,"Louisiane, États-Unis, Amérique du Nord"
+UseRegionNorthAmerica,Martinique,"Martinique, Amérique du Nord"
+UseRegionNorthAmerica,Mexique,"Mexique, Amérique du Nord"
+UseRegionNorthAmerica,Montréal,"Montréal, Canada, Amérique du Nord"
+UseRegionNorthAmerica,Québec,"Québec, Canada, Amérique du Nord"
+UseRegionNorthAmerica,République dominicaine,"République dominicaine, Amérique du Nord"
+UseRegionNorthAmerica,Saint-Christophe-et-Niévès,"Saint-Christophe-et-Niévès, Amérique du Nord"
+UseRegionNorthAmerica,Saint-Vincent-et-les Grenadines,"Saint-Vincent-et-les Grenadines, Amérique du Nord"
+UseRegionNorthAmerica,Sainte-Lucie,"Sainte-Lucie, Amérique du Nord"
+UseRegionNorthAmerica,Trinité-et-Tobago,"Trinité-et-Tobago, Amérique du Nord"
+UseRegionOceania,Australie,"Australie, Océanie"
+UseRegionOceania,Fidji,"Fidji, Océanie"
+UseRegionOceania,Kiribati,"Kiribati, Océanie"
+UseRegionOceania,Marshall,"Marshall, Océanie"
+UseRegionOceania,Mayotte,"Mayotte, Océanie"
+UseRegionOceania,Micronésie,"Micronésie, Océanie"
+UseRegionOceania,Nauru,"Nauru, Océanie"
+UseRegionOceania,Nouvelle-Calédonie,"Nouvelle-Calédonie, Océanie"
+UseRegionOceania,Nouvelle-Zélande,"Nouvelle-Zélande, Océanie"
+UseRegionOceania,Océanie,Océanie
+UseRegionOceania,Palaos,"Palaos, Océanie"
+UseRegionOceania,Papouasie-Nouvelle-Guinée,"Papouasie-Nouvelle-Guinée, Océanie"
+UseRegionOceania,Polynésie française,"Polynésie française, France, Océanie"
+UseRegionOceania,Réunion,"Réunion, France, Océanie"
+UseRegionOceania,Salomon,"Salomon, Océanie"
+UseRegionOceania,Samoa,"Samoa, Océanie"
+UseRegionOceania,Tonga,"Tonga, Océanie"
+UseRegionOceania,Tuvalu,"Tuvalu, Océanie"
+UseRegionOceania,Vanuatu,"Vanuatu, Océanie"
+UseRegionSouthAmerica,Amérique du Sud;Amérique latine,Amérique du Sud
+UseRegionSouthAmerica,Argentine,"Argentine, Amérique du Sud"
+UseRegionSouthAmerica,Bahia,"Bahia, Brésil, Amérique du Sud"
+UseRegionSouthAmerica,Bolivie,"Bolivie, Amérique du Sud"
+UseRegionSouthAmerica,Brésil,"Brésil, Amérique du Sud"
+UseRegionSouthAmerica,Chili,"Chili, Amérique du Sud"
+UseRegionSouthAmerica,Colombie,"Colombie, Amérique du Sud"
+UseRegionSouthAmerica,Équateur,"Équateur, Amérique du Sud"
+UseRegionSouthAmerica,Guyana,"Guyana, Amérique du Sud"
+UseRegionSouthAmerica,Guyane,"Guyane, France, Amérique du Sud"
+UseRegionSouthAmerica,Paraguay,"Paraguay, Amérique du Sud"
+UseRegionSouthAmerica,Pérou,"Pérou, Amérique du Sud"
+UseRegionSouthAmerica,Rio de Janeiro,"Rio de Janeiro, Brésil, Amérique du Sud"
+UseRegionSouthAmerica,Rio de la Plata,"Rio de la Plata, Uruguay, Amérique du Sud"
+UseRegionSouthAmerica,São Paulo,"São Paulo, Brésil, Amérique du Sud"
+UseRegionSouthAmerica,Suriname,"Suriname, Amérique du Sud"
+UseRegionSouthAmerica,Uruguay,"Uruguay, Amérique du Sud"
+UseRegionSouthAmerica,Venezuela,"Venezuela, Amérique du Sud"
+UseTemporality,archaïsme,Archaïsme
+UseTemporality,désuet,Désuet
+UseTemporality,néologisme,Néologisme
+UseTemporality,vieilli,Vieilli
