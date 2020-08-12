@@ -55,3 +55,19 @@
     text-decoration-style: dotted;
     color: grey;
 }
+
+table.conjugation {
+    width: auto;
+    margin-right: 16px;
+    margin-bottom: 16px;
+}
+
+table.conjugation td:first-child {
+    width: 32px;
+}
+
+.literal__conjugations {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

@@ -38,4 +38,22 @@
     </div>
     {% endif %}
 
+    {% if literal.conjugations %}
+    <div class="literal__conjugations">
+        {% for conjugation in literal.conjugations %}
+        <table class="conjugation">
+            <tr>
+                <th colspan="2">{{ conjugation.tense.html_black | safe }}</th>
+            </tr>
+            {% for subjet, target in conjugation %}
+            <tr>
+                <td><i>{{ subjet.html_black | safe}}</i></td>
+                <td>{{ target.html_internal | safe }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endfor %}
+    </div>
+    {% endif %}
+
 </section>

@@ -28,7 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-ONTOLOGY_WORLD_DB = "../ontology/filled.min.db"
+ONTOLOGY_WORLD_DB = "../ontology/filled.db"
 
 
 # Application definition

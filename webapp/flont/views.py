@@ -33,17 +33,12 @@ def iterate_labels():
     of the ontology.
     """
     cursor = flont.apps.ontology.graph.db.cursor()
-    # query = """
-    # SELECT datas.o
-    # FROM datas, resources
-    # WHERE
-    #     datas.p = resources.storid
-    #     AND resources.iri = "https://ontology.chalier.fr/flont#label"
-    # """
     query = """
     SELECT datas.o
-    FROM datas
-    WHERE datas.p = 435
+    FROM datas, resources
+    WHERE
+        datas.p = resources.storid
+        AND resources.iri = "https://ontology.chalier.fr/flont#label"
     """
     for (label,) in cursor.execute(query):
         yield label

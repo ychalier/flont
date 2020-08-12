@@ -55,6 +55,9 @@ POS_LABEL_FR = {
 }
 
 
+
+
+
 INFLECTION_LABEL_FR = {
     "hasFeminine": "féminin",
     "hasPlural": "pluriel",
@@ -344,6 +347,129 @@ class WikiTextString:
         return re.sub("(  +)", "", templates_cleaning).strip()
 
 
+class LabeledEntity:
+    """IRI with a human-readable label.
+    """
+
+    def __init__(self, full_iri, label):
+        self.full_iri = full_iri
+        self.label = label
+
+    def __hash__(self):
+        return hash(self.full_iri)
+
+    def __eq__(self, other):
+        return self.full_iri == other.full_iri
+
+    def __lt__(self, other):
+        return self.full_iri < other.full_iri
+
+    def short_iri(self):
+        """Remove ontology prefix from full IRI.
+        """
+        return self.full_iri.replace(FLONT_IRI, "")
+
+    def html(self):
+        """Format entity link by guessing the class.
+        """
+        if self.full_iri.startswith(FLONT_IRI):
+            return self.html_internal()
+        if self.full_iri.startswith("http"):
+            return self.html_external()
+        return self.label
+
+    def html_black(self):
+        """Format entity link with the 'black' class.
+        """
+        return """<a class="black" href="%s">%s</a>""" % (
+            reverse("flont:graph", kwargs={"short_iri": self.short_iri()}),
+            self.label
+        )
+
+    def html_internal(self):
+        """Format entity link with the 'internal' class.
+        """
+        return """<a class="internal" href="%s">%s</a>""" % (
+            reverse("flont:graph", kwargs={"short_iri": self.short_iri()}),
+            self.label
+        )
+
+    def html_external(self):
+        """Format entity link with the 'internal' class.
+        """
+        return """<a class="external" href="%s">%s</a>""" % (
+            self.full_iri,
+            self.label
+        )
+
+
+CONJUGATION_TENSES = [
+    LabeledEntity(FLONT_IRI + "indicativePresent", "Indicatif présent"),
+    LabeledEntity(FLONT_IRI + "indicativeImperfect", "Indicatif imparfait"),
+    LabeledEntity(FLONT_IRI + "indicativeSimplePast", "Passé simple"),
+    LabeledEntity(FLONT_IRI + "indicativeSimpleFuture", "Future simple"),
+    LabeledEntity(FLONT_IRI + "subjonctivePresent", "Subjonctif présent"),
+    LabeledEntity(FLONT_IRI + "subjonctiveImperfect", "Subjonctif imparfait"),
+    LabeledEntity(FLONT_IRI + "conditionalPresent", "Conditionnel"),
+    LabeledEntity(FLONT_IRI + "imperativePresent", "Impératif")
+]
+
+
+class Conjugation:
+    """Verb conjugation wrapper.
+    """
+
+    def __init__(self, tense):
+        self.tense = tense
+        self.first_singular = None
+        self.second_singular = None
+        self.third_singular = None
+        self.first_plural = None
+        self.second_plural = None
+        self.third_plural = None
+
+    def __iter__(self):
+        prefix = self.tense.full_iri
+        if self.first_singular is not None:
+            yield LabeledEntity(prefix + "1S", "je"), self.first_singular
+        if self.second_singular is not None:
+            yield LabeledEntity(prefix + "2S", "tu"), self.second_singular
+        if self.third_singular is not None:
+            yield LabeledEntity(prefix + "3S", "il"), self.third_singular
+        if self.first_plural is not None:
+            yield LabeledEntity(prefix + "1P", "nous"), self.first_plural
+        if self.second_plural is not None:
+            yield LabeledEntity(prefix + "2P", "vous"), self.second_plural
+        if self.third_plural is not None:
+            yield LabeledEntity(prefix + "3P", "ils"), self.third_plural
+
+    def inflate_from_literal(self, literal):
+        """Fill in the attributes from the inflections of a literal.
+        """
+        prefix = self.tense.full_iri
+        self.first_singular = literal.inflections.get(LabeledEntity(prefix + "1S", ""))
+        self.second_singular = literal.inflections.get(LabeledEntity(prefix + "2S", ""))
+        self.third_singular = literal.inflections.get(LabeledEntity(prefix + "3S", ""))
+        self.first_plural = literal.inflections.get(LabeledEntity(prefix + "1P", ""))
+        self.second_plural = literal.inflections.get(LabeledEntity(prefix + "2P", ""))
+        self.third_plural = literal.inflections.get(LabeledEntity(prefix + "3P", ""))
+
+    def is_filled(self):
+        """Return True if at least one conjugation field is not None.
+        """
+        return any([
+            getattr(self, attr) is not None
+            for attr in [
+                "first_singular",
+                "second_singular",
+                "third_singular",
+                "first_plural",
+                "second_plural",
+                "third_plural"
+            ]
+        ])
+
+
 class Literal:  # pylint: disable=R0902
     """Representation of a Literal node.
     """
@@ -357,6 +483,7 @@ class Literal:  # pylint: disable=R0902
         self.inflections = dict()
         self.etymology = None
         self.anagrams = list()
+        self.conjugations = list()
 
     def fetch_data_properties(self):
         """Fetch the label and the pronunciation from the ontology.
@@ -417,6 +544,13 @@ class Literal:  # pylint: disable=R0902
         if len(results) == 1:
             self.etymology = WikiTextString(results[0][0])
 
+    def _inflate_conjugations(self):
+        for tense in CONJUGATION_TENSES:
+            conjugation = Conjugation(tense)
+            conjugation.inflate_from_literal(self)
+            if conjugation.is_filled():
+                self.conjugations.append(conjugation)
+
     def _fetch_inflections(self):
         query = """
         PREFIX flont: <https://ontology.chalier.fr/flont#>
@@ -432,6 +566,7 @@ class Literal:  # pylint: disable=R0902
             relation_label = INFLECTION_LABEL_FR[get_iri(relation_node).replace("flont:", "")]
             relation = LabeledEntity(str(relation_node), relation_label)
             self.inflections[relation] = LabeledEntity(str(literal_node), label)
+        self._inflate_conjugations()
 
     def _fetch_anagrams(self):
         query = """
@@ -460,62 +595,6 @@ class Literal:  # pylint: disable=R0902
             (relation, self.inflections[relation])
             for relation in sorted(whitelist.intersection(self.inflections))
         ]
-
-
-class LabeledEntity:
-    """IRI with a human-readable label.
-    """
-
-    def __init__(self, full_iri, label):
-        self.full_iri = full_iri
-        self.label = label
-
-    def __hash__(self):
-        return hash(self.full_iri)
-
-    def __eq__(self, other):
-        return self.full_iri == other.full_iri
-
-    def __lt__(self, other):
-        return self.full_iri < other.full_iri
-
-    def short_iri(self):
-        """Remove ontology prefix from full IRI.
-        """
-        return self.full_iri.replace(FLONT_IRI, "")
-
-    def html(self):
-        """Format entity link by guessing the class.
-        """
-        if self.full_iri.startswith(FLONT_IRI):
-            return self.html_internal()
-        if self.full_iri.startswith("http"):
-            return self.html_external()
-        return self.label
-
-    def html_black(self):
-        """Format entity link with the 'black' class.
-        """
-        return """<a class="black" href="%s">%s</a>""" % (
-            reverse("flont:graph", kwargs={"short_iri": self.short_iri()}),
-            self.label
-        )
-
-    def html_internal(self):
-        """Format entity link with the 'internal' class.
-        """
-        return """<a class="internal" href="%s">%s</a>""" % (
-            reverse("flont:graph", kwargs={"short_iri": self.short_iri()}),
-            self.label
-        )
-
-    def html_external(self):
-        """Format entity link with the 'internal' class.
-        """
-        return """<a class="external" href="%s">%s</a>""" % (
-            self.full_iri,
-            self.label
-        )
 
 
 class LexicalEntry:  # pylint: disable=R0902
