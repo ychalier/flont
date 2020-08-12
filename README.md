@@ -1,6 +1,6 @@
 # FLOnt: French Lexicon Ontology
 
-This project aims at casting the French lexicon data from Wiktionary into an OWL ontology.
+This project aims at casting the French lexicon data from Wiktionary into an OWL ontology. Check it out at [chalier.fr/flont](https://chalier.fr/flont)!
 
 ## Abstract
 
@@ -13,6 +13,10 @@ The [French Wiktionary](https://fr.wiktionary.org/wiki/Wiktionnaire:Page_d%E2%80
 - Python OWL interface: [Owlready](https://pythonhosted.org/Owlready/)
 - Ontology crafting: [Protégé](https://protege.stanford.edu/)
 - Web application framework: [Django](https://www.djangoproject.com/)
+
+## Contributing
+
+Contributions are welcomed. See the readmes in subdirectories for documentation on how to get started with the code. See the [to-do list](TODO.md) for inputs on what you can do. Write clean code (use a linter). Then send a pull request with your changes.
 
 ## References
 
