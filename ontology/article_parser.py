@@ -355,8 +355,10 @@ class WikitextEntry(SectionParser, OntologyIndividual):
         if definition is not None:
             senses.append((definition, examples[:]))
         for definition, examples in senses:
-            self.senses.append(
-                WikitextSense.from_definition(self, definition, examples))
+            sense = WikitextSense.from_definition(self, definition, examples)
+            if sense.has_dependency and len(self.senses) > 0:
+                sense.depends_on = self.senses[-1]
+            self.senses.append(sense)
 
     def _parse_sense_inflections(self):
         for sense in self.senses[:]:
@@ -397,6 +399,8 @@ class WikitextSense(OntologyIndividual):
         OntologyIndividual.__init__(self, entry.rscmgr, "LexicalSense")
         self.entry = entry
         self.definition = None
+        self.has_dependency = False
+        self.depends_on = None
 
     def set_iri(self, i):
         """Set the sense IRI and link it to its entry. The entry IRI must have
@@ -407,6 +411,8 @@ class WikitextSense(OntologyIndividual):
             i + 1
         )
         self.entry.add_object_property("hasSense", self.iri)
+        if self.depends_on is not None:
+            self.add_object_property("dependsOn", self.depends_on.iri)
 
     def _parse_precisions_callback(self, match):
         split = match.group(1).split("|")
@@ -414,6 +420,9 @@ class WikitextSense(OntologyIndividual):
             template_name = split[0].strip()
             precision = self.rscmgr.definitions.get(template_name)
             if precision is not None:
+                if self.rscmgr.definitions_type[precision]\
+                    == "RelationshipBetweenDefinition":
+                    self.has_dependency = True
                 self.add_object_property("hasPrecision", precision)
                 return ""
         return match.group(0)

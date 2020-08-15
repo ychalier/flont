@@ -17,6 +17,7 @@ class ResourceManager:
         self.conjugation = None
         self.links = None
         self.definitions = None
+        self.definitions_type = None
 
     def load_mapping(self,  # pylint: disable=R0913
                      filename,
@@ -49,3 +50,5 @@ class ResourceManager:
         self.conjugation = self.load_mapping("templates_conjugation.csv")
         self.links = self.load_mapping("templates_links.csv")
         self.definitions = self.load_mapping("templates_definitions.csv")
+        self.definitions_type = self.load_mapping(
+            "templates_definitions.csv", key_col="iri", val_col="type")
