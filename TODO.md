@@ -6,7 +6,7 @@
 - [ ] **[ontology]** Insert labels (relation names, POS names, etc.) as annotations within the ontology, through the `rdfs:label` property.
 - [ ] **[ontology]** Clearly state the grammatical gender and number of adjectives, pronouns, etc., to allow for gender selection queries.
 - [ ] **[ontology]** Express definition dependency (characterized by precisions of type `flont:RelationshipBetweenDefinition`) through a new relation between lexical senses.
-- [ ] **[ontology]** When a definition is parsed as an inflection description, do not output a lexical sense for it.
+- [x] **[ontology]** When a definition is parsed as an inflection description, do not output a lexical sense for it.
 - [ ] **[ontology]** When a level 3 section contains pronunciation information, associate it to entries without pronunciation information instead of the literal (for consistency).
 - [ ] **[webapp]** Support symmetric relationships (such as synonymy).
 - [ ] **[webapp]** Template parsing for clean etymology display.

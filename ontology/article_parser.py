@@ -359,11 +359,13 @@ class WikitextEntry(SectionParser, OntologyIndividual):
                 WikitextSense.from_definition(self, definition, examples))
 
     def _parse_sense_inflections(self):
-        for sense in self.senses:
+        for sense in self.senses[:]:
+            is_inflection = False
             for inflection, patterns in AGREEMENT_INFLECTION_PATTERNS.items():
                 for pattern in patterns:
                     match = pattern.search(sense.definition)
                     if match is not None:
+                        is_inflection = True
                         if match.group(1) is not None:
                             target = match.group(1).strip()
                         else:
@@ -373,6 +375,8 @@ class WikitextEntry(SectionParser, OntologyIndividual):
                             inflection,
                             format_literal(target)
                         )
+            if is_inflection:
+                self.senses.remove(sense)
 
     def _parse_subsection(self, subtitle, subsection):
         link = self.rscmgr.links.get(subtitle)
