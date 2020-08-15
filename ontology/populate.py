@@ -86,6 +86,11 @@ class OntologyManager:
             if obj is None:
                 continue
             self._add_property(node, ppty, obj)
+        for ppty, value in individual.get_reversed_object_properties():
+            subj = self.ontology[value]
+            if subj is None:
+                continue
+            self._add_property(subj, ppty, node)
 
     def save(self, output_filename, save_as_owl=False):
         """Save the ontology to the disk.

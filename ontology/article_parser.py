@@ -94,6 +94,7 @@ class OntologyIndividual:
         self.iri = None
         self._data_properties = set()
         self._object_properties = set()
+        self._reversed_object_properties = set()
 
     def get_data_properties(self):
         """Getter for the data properties.
@@ -104,6 +105,11 @@ class OntologyIndividual:
         """Getter for the object properties.
         """
         return self._object_properties
+
+    def get_reversed_object_properties(self):
+        """Getter for the reversed object properties.
+        """
+        return self._reversed_object_properties
 
     def add_data_property(self, ppty, value):
         """Add a data property to the individual. The value will be inserted
@@ -116,6 +122,12 @@ class OntologyIndividual:
         (i.e. without prefix) to another object.
         """
         self._object_properties.add((ppty, value))
+
+    def add_reversed_object_property(self, ppty, value):
+        """Add an object property to the individual where the individual is
+        the object of the triple.
+        """
+        self._reversed_object_properties.add((ppty, value))
 
     def _parse_links(self, ppty, section):
         """Parse wikilinks from a wikitext section and add them as object for
@@ -358,7 +370,7 @@ class WikitextEntry(SectionParser, OntologyIndividual):
         for i in range(1, len(verb_template)):
             inflection = self.rscmgr.conjugation.get(verb_template[i].name)
             if inflection is not None:
-                self.add_object_property(inflection, literal)
+                self.add_reversed_object_property(inflection, literal)
 
     def _parse_senses(self, head):
         senses = list()
