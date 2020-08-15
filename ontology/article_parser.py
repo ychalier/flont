@@ -71,6 +71,19 @@ def parse_section_title(section):
     return split[0].strip()
 
 
+def extract_pronunciation(section):
+    """Extract a word pronunciation from the {{pron}} template within a section.
+    """
+    for template in section.templates:
+        if template.name != "pron":
+            continue
+        argument = template.get_arg("1")
+        if argument is not None:
+            return argument.value
+        break
+    return None
+
+
 class OntologyIndividual:
     """Python representation of an individual in the ontology.
     """
@@ -195,6 +208,7 @@ class WikitextLiteral(SectionParser, OntologyIndividual):
         SectionParser.__init__(self, 2, 3)
         OntologyIndividual.__init__(self, rscmgr, "Literal")
         self.entries = list()
+        self.pronunciation = None
 
     def _parse_head(self, title, head):
         pass
@@ -204,6 +218,8 @@ class WikitextLiteral(SectionParser, OntologyIndividual):
             self._parse_etymology(subsection)
         elif subtitle == "anagrammes":
             self._parse_links("isAnagramOf", subsection)
+        elif subtitle == "pronunciation":
+            self._parse_pronunciation(subsection)
         elif subtitle in self.rscmgr.pos_templates:
             self._parse_lexical_entry(subtitle, subsection)
         else:
@@ -216,6 +232,9 @@ class WikitextLiteral(SectionParser, OntologyIndividual):
 
     def _parse_etymology(self, section):
         self.add_data_property("etymology", section.contents.strip())
+
+    def _parse_pronunciation(self, section):
+        self.pronunciation = extract_pronunciation(section)
 
     def set_iri(self, title):
         """Set the literal IRI from the article title.
@@ -231,6 +250,7 @@ class WikitextLiteral(SectionParser, OntologyIndividual):
         literal.set_iri(article_title)
         literal.parse_wikitext(article_content)
         for entry in literal.entries:
+            entry.check_for_pronunciation()
             entry.set_iri()
         return literal
 
@@ -263,6 +283,7 @@ class WikitextEntry(SectionParser, OntologyIndividual):
         OntologyIndividual.__init__(self, literal.rscmgr, "LexicalEntry")
         self.literal = literal
         self.senses = list()
+        self._known_pronunciation = False
 
     def set_iri(self):
         """Set the entry IRI and link it to its literal. The literal IRI must
@@ -290,6 +311,13 @@ class WikitextEntry(SectionParser, OntologyIndividual):
         entry.parse_section(section)
         return entry
 
+    def check_for_pronunciation(self):
+        """Set the pronunciation from the literal if it is missing for the entry.
+        """
+        if not self._known_pronunciation and self.literal.pronunciation is not None:
+            self._known_pronunciation = True
+            self.add_data_property("pronunciation", self.literal.pronunciation)
+
     def _parse_head(self, title, head):
         self.cls = self.rscmgr.pos_templates[title]
         self._parse_pronunciation(head)
@@ -299,13 +327,10 @@ class WikitextEntry(SectionParser, OntologyIndividual):
         self._parse_sense_inflections()
 
     def _parse_pronunciation(self, section):
-        for template in section.templates:
-            if template.name != "pron":
-                continue
-            argument = template.get_arg("1")
-            if argument is not None:
-                self.add_data_property("pronunciation", argument.value)
-            break
+        pronunciation = extract_pronunciation(section)
+        if pronunciation is not None:
+            self._known_pronunciation = True
+            self.add_data_property("pronunciation", pronunciation)
 
     def _parse_traits(self, section):
         for template in section.templates:

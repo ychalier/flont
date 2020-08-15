@@ -1209,6 +1209,7 @@
     <!-- https://ontology.chalier.fr/flont#pronunciation -->
 
     <owl:DatatypeProperty rdf:about="https://ontology.chalier.fr/flont#pronunciation">
+        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <rdfs:comment xml:lang="en">Pronunciation of a word, writtern in phonetic alphabet.</rdfs:comment>
     </owl:DatatypeProperty>
@@ -1924,43 +1925,6 @@
 
     
 
-
-    <!-- https://ontology.chalier.fr/flont#feminine -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#feminine">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Gender"/>
-        <rdfs:label xml:lang="fr">Féminin</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#masculine -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#masculine">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Gender"/>
-        <rdfs:label xml:lang="fr">Masculin</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#plural -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#plural">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Number"/>
-        <rdfs:label xml:lang="fr">Pluriel</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#singular -->
-
-    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#singular">
-        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Number"/>
-        <rdfs:label xml:lang="fr">Singulier</rdfs:label>
-    </owl:NamedIndividual>
-    
-    
-    
 
     <!-- https://ontology.chalier.fr/flont#defprec_absolument -->
 
@@ -10249,6 +10213,41 @@
         <rdfs:label xml:lang="fr">Zoologie</rdfs:label>
     </owl:NamedIndividual>
     
+
+
+    <!-- https://ontology.chalier.fr/flont#feminine -->
+
+    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#feminine">
+        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Gender"/>
+        <rdfs:label xml:lang="fr">Féminin</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#masculine -->
+
+    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#masculine">
+        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Gender"/>
+        <rdfs:label xml:lang="fr">Masculin</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#plural -->
+
+    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#plural">
+        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Number"/>
+        <rdfs:label xml:lang="fr">Pluriel</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#singular -->
+
+    <owl:NamedIndividual rdf:about="https://ontology.chalier.fr/flont#singular">
+        <rdf:type rdf:resource="https://ontology.chalier.fr/flont#Number"/>
+        <rdfs:label xml:lang="fr">Singulier</rdfs:label>
+    </owl:NamedIndividual>
     
 
 
