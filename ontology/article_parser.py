@@ -366,11 +366,19 @@ class WikitextEntry(SectionParser, OntologyIndividual):
         verb_template = templates.get("fr-verbe-flexion")
         if verb_template is None:
             return
-        literal = format_literal(verb_template[0].value)
-        for i in range(1, len(verb_template)):
-            inflection = self.rscmgr.conjugation.get(verb_template[i].name)
-            if inflection is not None:
-                self.add_reversed_object_property(inflection, literal)
+        literal = None
+        inflections = set()
+        for argument in verb_template:
+            if argument.name == "1":
+                literal = format_literal(argument.value)
+            else:
+                inflection = self.rscmgr.conjugation.get(argument.name)
+                if inflection is not None:
+                    inflections.add(inflection)
+        if literal is None:
+            return
+        for inflection in inflections:
+            self.add_reversed_object_property(inflection, literal)
 
     def _parse_senses(self, head):
         senses = list()
