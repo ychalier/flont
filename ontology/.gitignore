@@ -3,7 +3,6 @@
 *.backup
 *.db-journal
 *.owl
-*.csv
 *.tsv
 *.json
 *.xml
@@ -14,4 +13,5 @@
 *.txt
 !requirements.txt
 !schema.owl
-!definition_templates_individuals.csv
+flexion.csv
+.~lock*

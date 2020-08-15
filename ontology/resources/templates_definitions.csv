@@ -1,0 +1,922 @@
+type,template_names,label_fr,iri
+flont:Connotation,affectueux,Affectueux,flont:defprec_affectueux
+flont:Connotation,injurieux,Injurieux,flont:defprec_injurieux
+flont:Connotation,ironique,Ironique,flont:defprec_ironique
+flont:Connotation,mélioratif,Mélioratif,flont:defprec_melioratif
+flont:Connotation,par dérision,Par dérision,flont:defprec_par_derision
+flont:Connotation,par plaisanterie,Par plaisanterie,flont:defprec_par_plaisanterie
+flont:Connotation,péjoratif,Péjoratif,flont:defprec_pejoratif
+flont:GlossaryUseDomain,agrumes,Agrumes,flont:defprec_agrumes
+flont:GlossaryUseDomain,alcaloïdes,Alcaloïdes,flont:defprec_alcaloides
+flont:GlossaryUseDomain,alcools,Alcools,flont:defprec_alcools
+flont:GlossaryUseDomain,algues,Algues,flont:defprec_algues
+flont:GlossaryUseDomain,aliments,Aliments,flont:defprec_aliments
+flont:GlossaryUseDomain,alliages,Alliages,flont:defprec_alliages
+flont:GlossaryUseDomain,anciennes divisions,Anciennes divisions,flont:defprec_anciennes_divisions
+flont:GlossaryUseDomain,anciennes localités,Anciennes localités,flont:defprec_anciennes_localites
+flont:GlossaryUseDomain,anglicismes informatiques,Anglicismes informatiques,flont:defprec_anglicismes_informatiques
+flont:GlossaryUseDomain,animaux,Animaux,flont:defprec_animaux
+flont:GlossaryUseDomain,antilopes,Antilopes,flont:defprec_antilopes
+flont:GlossaryUseDomain,arbres,Arbres,flont:defprec_arbres
+flont:GlossaryUseDomain,armes,Armes,flont:defprec_armes
+flont:GlossaryUseDomain,armures,Armures,flont:defprec_armures
+flont:GlossaryUseDomain,aromates,Aromates,flont:defprec_aromates
+flont:GlossaryUseDomain,arthropodes,Arthropodes,flont:defprec_arthropodes
+flont:GlossaryUseDomain,artistes,Artistes,flont:defprec_artistes
+flont:GlossaryUseDomain,atomes,Atomes,flont:defprec_atomes
+flont:GlossaryUseDomain,avions,Avions,flont:defprec_avions
+flont:GlossaryUseDomain,bactéries,Bactéries,flont:defprec_bacteries
+flont:GlossaryUseDomain,bateaux,Bateaux,flont:defprec_bateaux
+flont:GlossaryUseDomain,bières,Bières,flont:defprec_bieres
+flont:GlossaryUseDomain,bivalves,Bivalves,flont:defprec_bivalves
+flont:GlossaryUseDomain,boissons,Boissons,flont:defprec_boissons
+flont:GlossaryUseDomain,bovins,Bovins,flont:defprec_bovins
+flont:GlossaryUseDomain,cactus,Cactus,flont:defprec_cactus
+flont:GlossaryUseDomain,camélidés,Camélidés,flont:defprec_camelides
+flont:GlossaryUseDomain,canards,Canards,flont:defprec_canards
+flont:GlossaryUseDomain,caprins,Caprins,flont:defprec_caprins
+flont:GlossaryUseDomain,carnivores,Carnivores,flont:defprec_carnivores
+flont:GlossaryUseDomain,cépages,Cépages,flont:defprec_cepages
+flont:GlossaryUseDomain,céphalopodes,Céphalopodes,flont:defprec_cephalopodes
+flont:GlossaryUseDomain,céréales,Céréales,flont:defprec_cereales
+flont:GlossaryUseDomain,cervidés,Cervidés,flont:defprec_cervides
+flont:GlossaryUseDomain,cétacés,Cétacés,flont:defprec_cetaces
+flont:GlossaryUseDomain,chaînes de montagnes,Chaînes de montagnes,flont:defprec_chaines_de_montagnes
+flont:GlossaryUseDomain,chameaux,Chameaux,flont:defprec_chameaux
+flont:GlossaryUseDomain,champignons,Champignons,flont:defprec_champignons
+flont:GlossaryUseDomain,chats,Chats,flont:defprec_chats
+flont:GlossaryUseDomain,chaussures,Chaussures,flont:defprec_chaussures
+flont:GlossaryUseDomain,chauves-souris,Chauves-souris,flont:defprec_chauves_souris
+flont:GlossaryUseDomain,chênes,Chênes,flont:defprec_chenes
+flont:GlossaryUseDomain,chevaux,Chevaux,flont:defprec_chevaux
+flont:GlossaryUseDomain,chiens,Chiens,flont:defprec_chiens
+flont:GlossaryUseDomain,cigognes,Cigognes,flont:defprec_cigognes
+flont:GlossaryUseDomain,cnidaires,Cnidaires,flont:defprec_cnidaires
+flont:GlossaryUseDomain,cocktails,Cocktails,flont:defprec_cocktails
+flont:GlossaryUseDomain,coléoptères,Coléoptères,flont:defprec_coleopteres
+flont:GlossaryUseDomain,commerces,Commerces,flont:defprec_commerces
+flont:GlossaryUseDomain,composants électriques,Composants électriques,flont:defprec_composants_electriques
+flont:GlossaryUseDomain,composants électroniques,Composants électroniques,flont:defprec_composants_electroniques
+flont:GlossaryUseDomain,condiments,Condiments,flont:defprec_condiments
+flont:GlossaryUseDomain,confiseries,Confiseries,flont:defprec_confiseries
+flont:GlossaryUseDomain,conifères,Conifères,flont:defprec_coniferes
+flont:GlossaryUseDomain,constellations,Constellations,flont:defprec_constellations
+flont:GlossaryUseDomain,coquillages,Coquillages,flont:defprec_coquillages
+flont:GlossaryUseDomain,cours d’eau,Cours d’eau,flont:defprec_cours_deau
+flont:GlossaryUseDomain,couteaux,Couteaux,flont:defprec_couteaux
+flont:GlossaryUseDomain,couvertures,Couvertures,flont:defprec_couvertures
+flont:GlossaryUseDomain,couvre-chefs,Couvre-chefs,flont:defprec_couvre_chefs
+flont:GlossaryUseDomain,crabes,Crabes,flont:defprec_crabes
+flont:GlossaryUseDomain,crapauds,Crapauds,flont:defprec_crapauds
+flont:GlossaryUseDomain,créatures,Créatures,flont:defprec_creatures
+flont:GlossaryUseDomain,crimes,Crimes,flont:defprec_crimes
+flont:GlossaryUseDomain,criminels,Criminels,flont:defprec_criminels
+flont:GlossaryUseDomain,crustacés,Crustacés,flont:defprec_crustaces
+flont:GlossaryUseDomain,cygnes,Cygnes,flont:defprec_cygnes
+flont:GlossaryUseDomain,danses,Danses,flont:defprec_danses
+flont:GlossaryUseDomain,départements,Départements,flont:defprec_departements
+flont:GlossaryUseDomain,déserts,Déserts,flont:defprec_deserts
+flont:GlossaryUseDomain,desserts,Desserts,flont:defprec_desserts
+flont:GlossaryUseDomain,détroits,Détroits,flont:defprec_detroits
+flont:GlossaryUseDomain,diacritiques,Diacritiques,flont:defprec_diacritiques
+flont:GlossaryUseDomain,dialectes,Dialectes,flont:defprec_dialectes
+flont:GlossaryUseDomain,dindons,Dindons,flont:defprec_dindons
+flont:GlossaryUseDomain,dinosaures,Dinosaures,flont:defprec_dinosaures
+flont:GlossaryUseDomain,distinctions,Distinctions,flont:defprec_distinctions
+flont:GlossaryUseDomain,divinités,Divinités,flont:defprec_divinites
+flont:GlossaryUseDomain,documents,Documents,flont:defprec_documents
+flont:GlossaryUseDomain,drogues,Drogues,flont:defprec_drogues
+flont:GlossaryUseDomain,échinodermes,Échinodermes,flont:defprec_echinodermes
+flont:GlossaryUseDomain,écureuils,Écureuils,flont:defprec_ecureuils
+flont:GlossaryUseDomain,édifices,Édifices,flont:defprec_edifices
+flont:GlossaryUseDomain,éléments,Éléments,flont:defprec_elements
+flont:GlossaryUseDomain,enzymes,Enzymes,flont:defprec_enzymes
+flont:GlossaryUseDomain,épices,Épices,flont:defprec_epices
+flont:GlossaryUseDomain,équins,Équins,flont:defprec_equins
+flont:GlossaryUseDomain,établissements,Établissements,flont:defprec_etablissements
+flont:GlossaryUseDomain,états,États,flont:defprec_etats
+flont:GlossaryUseDomain,ethnonymes,Ethnonymes,flont:defprec_ethnonymes
+flont:GlossaryUseDomain,étoiles,Étoiles,flont:defprec_etoiles
+flont:GlossaryUseDomain,euphorbes,Euphorbes,flont:defprec_euphorbes
+flont:GlossaryUseDomain,familles de plantes,Familles de plantes,flont:defprec_familles_de_plantes
+flont:GlossaryUseDomain,félins,Félins,flont:defprec_felins
+flont:GlossaryUseDomain,figures,Figures,flont:defprec_figures
+flont:GlossaryUseDomain,flamants,Flamants,flont:defprec_flamants
+flont:GlossaryUseDomain,fleurs,Fleurs,flont:defprec_fleurs
+flont:GlossaryUseDomain,fromages,Fromages,flont:defprec_fromages
+flont:GlossaryUseDomain,fruits,Fruits,flont:defprec_fruits
+flont:GlossaryUseDomain,gastéropodes,Gastéropodes,flont:defprec_gasteropodes
+flont:GlossaryUseDomain,gâteaux,Gâteaux,flont:defprec_gateaux
+flont:GlossaryUseDomain,genres littéraires,Genres littéraires,flont:defprec_genres_litteraires
+flont:GlossaryUseDomain,genres musicaux,Genres musicaux,flont:defprec_genres_musicaux
+flont:GlossaryUseDomain,gentilés,Gentilés,flont:defprec_gentiles
+flont:GlossaryUseDomain,giraffidés,Giraffidés,flont:defprec_giraffides
+flont:GlossaryUseDomain,gladiateurs,Gladiateurs,flont:defprec_gladiateurs
+flont:GlossaryUseDomain,golfes,Golfes,flont:defprec_golfes
+flont:GlossaryUseDomain,grades,Grades,flont:defprec_grades
+flont:GlossaryUseDomain,grenouilles,Grenouilles,flont:defprec_grenouilles
+flont:GlossaryUseDomain,grues,Grues,flont:defprec_grues
+flont:GlossaryUseDomain,hérons,Hérons,flont:defprec_herons
+flont:GlossaryUseDomain,ibis,Ibis,flont:defprec_ibis
+flont:GlossaryUseDomain,îles,Îles,flont:defprec_iles
+flont:GlossaryUseDomain,insectes,Insectes,flont:defprec_insectes
+flont:GlossaryUseDomain,instruments,Instruments,flont:defprec_instruments
+flont:GlossaryUseDomain,instruments de mesure,Instruments de mesure,flont:defprec_instruments_de_mesure
+flont:GlossaryUseDomain,insultes,Insultes,flont:defprec_insultes
+flont:GlossaryUseDomain,jeux de cartes,Jeux de cartes,flont:defprec_jeux_de_cartes
+flont:GlossaryUseDomain,jouets,Jouets,flont:defprec_jouets
+flont:GlossaryUseDomain,lacs,Lacs,flont:defprec_lacs
+flont:GlossaryUseDomain,langages,Langages,flont:defprec_langages
+flont:GlossaryUseDomain,langues,Langues,flont:defprec_langues
+flont:GlossaryUseDomain,légumes,Légumes,flont:defprec_legumes
+flont:GlossaryUseDomain,léporidés,Léporidés,flont:defprec_leporides
+flont:GlossaryUseDomain,lézards,Lézards,flont:defprec_lezards
+flont:GlossaryUseDomain,lianes,Lianes,flont:defprec_lianes
+flont:GlossaryUseDomain,lieux,Lieux,flont:defprec_lieux
+flont:GlossaryUseDomain,localités,Localités,flont:defprec_localites
+flont:GlossaryUseDomain,machines,Machines,flont:defprec_machines
+flont:GlossaryUseDomain,maladies,Maladies,flont:defprec_maladies
+flont:GlossaryUseDomain,mammifères,Mammifères,flont:defprec_mammiferes
+flont:GlossaryUseDomain,marsupiaux,Marsupiaux,flont:defprec_marsupiaux
+flont:GlossaryUseDomain,médicaments,Médicaments,flont:defprec_medicaments
+flont:GlossaryUseDomain,méduses,Méduses,flont:defprec_meduses
+flont:GlossaryUseDomain,mers,Mers,flont:defprec_mers
+flont:GlossaryUseDomain,métaplasmes,Métaplasmes,flont:defprec_metaplasmes
+flont:GlossaryUseDomain,meubles,Meubles,flont:defprec_meubles
+flont:GlossaryUseDomain,meubles héraldiques,Meubles héraldiques,flont:defprec_meubles_heraldiques
+flont:GlossaryUseDomain,minéraux,Minéraux,flont:defprec_mineraux
+flont:GlossaryUseDomain,mollusques,Mollusques,flont:defprec_mollusques
+flont:GlossaryUseDomain,monnaies,Monnaies,flont:defprec_monnaies
+flont:GlossaryUseDomain,montagnes,Montagnes,flont:defprec_montagnes
+flont:GlossaryUseDomain,mouches,Mouches,flont:defprec_mouches
+flont:GlossaryUseDomain,muscles,Muscles,flont:defprec_muscles
+flont:GlossaryUseDomain,musiciens,Musiciens,flont:defprec_musiciens
+flont:GlossaryUseDomain,musiques,Musiques,flont:defprec_musiques
+flont:GlossaryUseDomain,oies,Oies,flont:defprec_oies
+flont:GlossaryUseDomain,oiseaux,Oiseaux,flont:defprec_oiseaux
+flont:GlossaryUseDomain,outils,Outils,flont:defprec_outils
+flont:GlossaryUseDomain,ovins,Ovins,flont:defprec_ovins
+flont:GlossaryUseDomain,palmiers,Palmiers,flont:defprec_palmiers
+flont:GlossaryUseDomain,palmipèdes,Palmipèdes,flont:defprec_palmipedes
+flont:GlossaryUseDomain,papillons,Papillons,flont:defprec_papillons
+flont:GlossaryUseDomain,particules,Particules,flont:defprec_particules
+flont:GlossaryUseDomain,pâtes alimentaires,Pâtes alimentaires,flont:defprec_pates_alimentaires
+flont:GlossaryUseDomain,pâtisseries,Pâtisseries,flont:defprec_patisseries
+flont:GlossaryUseDomain,pays,Pays,flont:defprec_pays
+flont:GlossaryUseDomain,pêches,Pêches,flont:defprec_peches
+flont:GlossaryUseDomain,pélicans,Pélicans,flont:defprec_pelicans
+flont:GlossaryUseDomain,perroquets,Perroquets,flont:defprec_perroquets
+flont:GlossaryUseDomain,personnalités,Personnalités,flont:defprec_personnalites
+flont:GlossaryUseDomain,peupliers,Peupliers,flont:defprec_peupliers
+flont:GlossaryUseDomain,phobies,Phobies,flont:defprec_phobies
+flont:GlossaryUseDomain,planètes,Planètes,flont:defprec_planetes
+flont:GlossaryUseDomain,plans d’eau,Plans d’eau,flont:defprec_plans_deau
+flont:GlossaryUseDomain,plantes,Plantes,flont:defprec_plantes
+flont:GlossaryUseDomain,pléonasmes,Pléonasmes,flont:defprec_pleonasmes
+flont:GlossaryUseDomain,points cardinaux,Points cardinaux,flont:defprec_points_cardinaux
+flont:GlossaryUseDomain,poires,Poires,flont:defprec_poires
+flont:GlossaryUseDomain,poissons,Poissons,flont:defprec_poissons
+flont:GlossaryUseDomain,pommes,Pommes,flont:defprec_pommes
+flont:GlossaryUseDomain,ponctuations,Ponctuations,flont:defprec_ponctuations
+flont:GlossaryUseDomain,porcins,Porcins,flont:defprec_porcins
+flont:GlossaryUseDomain,positions,Positions,flont:defprec_positions
+flont:GlossaryUseDomain,poules,Poules,flont:defprec_poules
+flont:GlossaryUseDomain,préparations,Préparations,flont:defprec_preparations
+flont:GlossaryUseDomain,primates,Primates,flont:defprec_primates
+flont:GlossaryUseDomain,protéines,Protéines,flont:defprec_proteines
+flont:GlossaryUseDomain,protocoles,Protocoles,flont:defprec_protocoles
+flont:GlossaryUseDomain,proverbes,Proverbes,flont:defprec_proverbes
+flont:GlossaryUseDomain,provinces,Provinces,flont:defprec_provinces
+flont:GlossaryUseDomain,psychotropes,Psychotropes,flont:defprec_psychotropes
+flont:GlossaryUseDomain,quartiers,Quartiers,flont:defprec_quartiers
+flont:GlossaryUseDomain,raies,Raies,flont:defprec_raies
+flont:GlossaryUseDomain,rapaces,Rapaces,flont:defprec_rapaces
+flont:GlossaryUseDomain,régions,Régions,flont:defprec_regions
+flont:GlossaryUseDomain,religieux,Religieux,flont:defprec_religieux
+flont:GlossaryUseDomain,religions,Religions,flont:defprec_religions
+flont:GlossaryUseDomain,reptiles,Reptiles,flont:defprec_reptiles
+flont:GlossaryUseDomain,requins,Requins,flont:defprec_requins
+flont:GlossaryUseDomain,roches,Roches,flont:defprec_roches
+flont:GlossaryUseDomain,rongeurs,Rongeurs,flont:defprec_rongeurs
+flont:GlossaryUseDomain,saisons,Saisons,flont:defprec_saisons
+flont:GlossaryUseDomain,salades,Salades,flont:defprec_salades
+flont:GlossaryUseDomain,sandwichs,Sandwichs,flont:defprec_sandwichs
+flont:GlossaryUseDomain,satellites,Satellites,flont:defprec_satellites
+flont:GlossaryUseDomain,saules,Saules,flont:defprec_saules
+flont:GlossaryUseDomain,scientifiques,Scientifiques,flont:defprec_scientifiques
+flont:GlossaryUseDomain,seigneuries,Seigneuries,flont:defprec_seigneuries
+flont:GlossaryUseDomain,sentiments,Sentiments,flont:defprec_sentiments
+flont:GlossaryUseDomain,serpents,Serpents,flont:defprec_serpents
+flont:GlossaryUseDomain,singes,Singes,flont:defprec_singes
+flont:GlossaryUseDomain,soldats,Soldats,flont:defprec_soldats
+flont:GlossaryUseDomain,spatules,Spatules,flont:defprec_spatules
+flont:GlossaryUseDomain,sportifs,Sportifs,flont:defprec_sportifs
+flont:GlossaryUseDomain,sports,Sports,flont:defprec_sports
+flont:GlossaryUseDomain,substances,Substances,flont:defprec_substances
+flont:GlossaryUseDomain,symboles unités,Symboles unités,flont:defprec_symboles_unites
+flont:GlossaryUseDomain,temps géologiques,Temps géologiques,flont:defprec_temps_geologiques
+flont:GlossaryUseDomain,territoires,Territoires,flont:defprec_territoires
+flont:GlossaryUseDomain,textiles,Textiles,flont:defprec_textiles
+flont:GlossaryUseDomain,thérapies,Thérapies,flont:defprec_therapies
+flont:GlossaryUseDomain,tissus,Tissus,flont:defprec_tissus
+flont:GlossaryUseDomain,titres,Titres,flont:defprec_titres
+flont:GlossaryUseDomain,toponymes,Toponymes,flont:defprec_toponymes
+flont:GlossaryUseDomain,tortues,Tortues,flont:defprec_tortues
+flont:GlossaryUseDomain,un os,Un os,flont:defprec_un_os
+flont:GlossaryUseDomain,unités,Unités,flont:defprec_unites
+flont:GlossaryUseDomain,usines,Usines,flont:defprec_usines
+flont:GlossaryUseDomain,ustensiles,Ustensiles,flont:defprec_ustensiles
+flont:GlossaryUseDomain,véhicules,Véhicules,flont:defprec_vehicules
+flont:GlossaryUseDomain,vents,Vents,flont:defprec_vents
+flont:GlossaryUseDomain,vers,Vers,flont:defprec_vers
+flont:GlossaryUseDomain,vêtements,Vêtements,flont:defprec_vetements
+flont:GlossaryUseDomain,viandes,Viandes,flont:defprec_viandes
+flont:GlossaryUseDomain,vins,Vins,flont:defprec_vins
+flont:GlossaryUseDomain,virus,Virus,flont:defprec_virus
+flont:GlossaryUseDomain,voitures,Voitures,flont:defprec_voitures
+flont:GlossaryUseDomain,xénarthres,Xénarthres,flont:defprec_xenarthres
+flont:GrammaticalConstraint,absolument,Absolument,flont:defprec_absolument
+flont:GrammaticalConstraint,apposition,En apposition,flont:defprec_en_apposition
+flont:GrammaticalConstraint,au féminin,Au féminin,flont:defprec_au_feminin
+flont:GrammaticalConstraint,au masculin,Au masculin,flont:defprec_au_masculin
+flont:GrammaticalConstraint,au pluriel,Au pluriel,flont:defprec_au_pluriel
+flont:GrammaticalConstraint,au singulier,Au singulier,flont:defprec_au_singulier
+flont:GrammaticalConstraint,ellipse,Par ellipse,flont:defprec_par_ellipse
+flont:GrammaticalConstraint,épithète,Employé comme épithète,flont:defprec_employe_comme_epithete
+flont:Idiomatism,anglicisme,Anglicisme,flont:defprec_anglicisme
+flont:Idiomatism,gallicisme,Gallicisme,flont:defprec_gallicisme
+flont:Idiomatism,germanisme,Germanisme,flont:defprec_germanisme
+flont:Idiomatism,hispanisme,Hispanisme,flont:defprec_hispanisme
+flont:Idiomatism,italianisme,Italianisme,flont:defprec_italianisme
+flont:Idiomatism,latinisme,Latinisme,flont:defprec_latinisme
+flont:Idiomatism,lusitanisme,Lusitanisme,flont:defprec_lusitanisme
+flont:LanguageRegister,enfantin,Langage enfantin,flont:defprec_langage_enfantin
+flont:LanguageRegister,familier,Familier,flont:defprec_familier
+flont:LanguageRegister,informel,Informel,flont:defprec_informel
+flont:LanguageRegister,populaire,Populaire,flont:defprec_populaire
+flont:LanguageRegister,soutenu;formel,Soutenu,flont:defprec_soutenu
+flont:LanguageRegister,très familier,Très familier,flont:defprec_tres_familier
+flont:LanguageRegister,vulgaire,Vulgaire,flont:defprec_vulgaire
+flont:LexicalUseDomain,acoustique,Acoustique,flont:defprec_acoustique
+flont:LexicalUseDomain,administration,Administration,flont:defprec_administration
+flont:LexicalUseDomain,aéronautique,Aéronautique,flont:defprec_aeronautique
+flont:LexicalUseDomain,agriculture,Agriculture,flont:defprec_agriculture
+flont:LexicalUseDomain,agronomie,Agronomie,flont:defprec_agronomie
+flont:LexicalUseDomain,aïkido,Aïkido,flont:defprec_aikido
+flont:LexicalUseDomain,alchimie,Alchimie,flont:defprec_alchimie
+flont:LexicalUseDomain,algèbre,Algèbre,flont:defprec_algebre
+flont:LexicalUseDomain,alpinisme,Alpinisme,flont:defprec_alpinisme
+flont:LexicalUseDomain,analyse,Analyse,flont:defprec_analyse
+flont:LexicalUseDomain,anatomie,Anatomie,flont:defprec_anatomie
+flont:LexicalUseDomain,anthropologie,Anthropologie,flont:defprec_anthropologie
+flont:LexicalUseDomain,antiquité,Antiquité,flont:defprec_antiquite
+flont:LexicalUseDomain,apiculture,Apiculture,flont:defprec_apiculture
+flont:LexicalUseDomain,arboriculture,Arboriculture,flont:defprec_arboriculture
+flont:LexicalUseDomain,archéologie,Archéologie,flont:defprec_archeologie
+flont:LexicalUseDomain,architecture,Architecture,flont:defprec_architecture
+flont:LexicalUseDomain,Argadz,Argadz,flont:defprec_argadz
+flont:LexicalUseDomain,armement,Armement,flont:defprec_armement
+flont:LexicalUseDomain,arts,Arts,flont:defprec_arts
+flont:LexicalUseDomain,arts martiaux,Arts martiaux,flont:defprec_arts_martiaux
+flont:LexicalUseDomain,assurance,Assurance,flont:defprec_assurance
+flont:LexicalUseDomain,astrologie,Astrologie,flont:defprec_astrologie
+flont:LexicalUseDomain,astronautique,Astronautique,flont:defprec_astronautique
+flont:LexicalUseDomain,astronomie,Astronomie,flont:defprec_astronomie
+flont:LexicalUseDomain,astrophysique,Astrophysique,flont:defprec_astrophysique
+flont:LexicalUseDomain,athlétisme,Athlétisme,flont:defprec_athletisme
+flont:LexicalUseDomain,audiovisuel,Audiovisuel,flont:defprec_audiovisuel
+flont:LexicalUseDomain,automatique,Automatique,flont:defprec_automatique
+flont:LexicalUseDomain,automobile,Automobile,flont:defprec_automobile
+flont:LexicalUseDomain,aviation,Aviation,flont:defprec_aviation
+flont:LexicalUseDomain,baby-foot,Baby-foot,flont:defprec_baby_foot
+flont:LexicalUseDomain,bactériologie,Bactériologie,flont:defprec_bacteriologie
+flont:LexicalUseDomain,badminton,Badminton,flont:defprec_badminton
+flont:LexicalUseDomain,base de données,Base de données,flont:defprec_base_de_donnees
+flont:LexicalUseDomain,baseball,Baseball,flont:defprec_baseball
+flont:LexicalUseDomain,basket-ball,Basket-ball,flont:defprec_basket_ball
+flont:LexicalUseDomain,BD,BD,flont:defprec_bd
+flont:LexicalUseDomain,beaux-arts,Beaux-arts,flont:defprec_beaux_arts
+flont:LexicalUseDomain,bibliothéconomie,Bibliothéconomie,flont:defprec_bibliotheconomie
+flont:LexicalUseDomain,bijouterie,Bijouterie,flont:defprec_bijouterie
+flont:LexicalUseDomain,billard,Billard,flont:defprec_billard
+flont:LexicalUseDomain,biochimie,Biochimie,flont:defprec_biochimie
+flont:LexicalUseDomain,biogéographie,Biogéographie,flont:defprec_biogeographie
+flont:LexicalUseDomain,biologie,Biologie,flont:defprec_biologie
+flont:LexicalUseDomain,biophysique,Biophysique,flont:defprec_biophysique
+flont:LexicalUseDomain,bonsaï,Bonsaï,flont:defprec_bonsai
+flont:LexicalUseDomain,botanique,Botanique,flont:defprec_botanique
+flont:LexicalUseDomain,boucherie,Boucherie,flont:defprec_boucherie
+flont:LexicalUseDomain,bouddhisme,Bouddhisme,flont:defprec_bouddhisme
+flont:LexicalUseDomain,bourrellerie,Bourrellerie,flont:defprec_bourrellerie
+flont:LexicalUseDomain,bowling,Bowling,flont:defprec_bowling
+flont:LexicalUseDomain,boxe,Boxe,flont:defprec_boxe
+flont:LexicalUseDomain,bridge,Bridge,flont:defprec_bridge
+flont:LexicalUseDomain,calendrier,Calendrier,flont:defprec_calendrier
+flont:LexicalUseDomain,calligraphie,Calligraphie,flont:defprec_calligraphie
+flont:LexicalUseDomain,canoë-kayak,Canoë-kayak,flont:defprec_canoe_kayak
+flont:LexicalUseDomain,capoeira,Capoeira,flont:defprec_capoeira
+flont:LexicalUseDomain,cartes à jouer,Cartes à jouer,flont:defprec_cartes_a_jouer
+flont:LexicalUseDomain,cartographie,Cartographie,flont:defprec_cartographie
+flont:LexicalUseDomain,caséologie,Caséologie,flont:defprec_caseologie
+flont:LexicalUseDomain,catch,Catch,flont:defprec_catch
+flont:LexicalUseDomain,CB,CB,flont:defprec_cb
+flont:LexicalUseDomain,céramique,Céramique,flont:defprec_ceramique
+flont:LexicalUseDomain,charpenterie,Charpenterie,flont:defprec_charpenterie
+flont:LexicalUseDomain,charronnerie,Charronnerie,flont:defprec_charronnerie
+flont:LexicalUseDomain,chasse,Chasse,flont:defprec_chasse
+flont:LexicalUseDomain,chimie,Chimie,flont:defprec_chimie
+flont:LexicalUseDomain,chiromancie,Chiromancie,flont:defprec_chiromancie
+flont:LexicalUseDomain,chirurgie,Chirurgie,flont:defprec_chirurgie
+flont:LexicalUseDomain,christianisme,Christianisme,flont:defprec_christianisme
+flont:LexicalUseDomain,chronologie,Chronologie,flont:defprec_chronologie
+flont:LexicalUseDomain,cinéma,Cinéma,flont:defprec_cinema
+flont:LexicalUseDomain,cirque,Cirque,flont:defprec_cirque
+flont:LexicalUseDomain,climatologie,Climatologie,flont:defprec_climatologie
+flont:LexicalUseDomain,coiffure,Coiffure,flont:defprec_coiffure
+flont:LexicalUseDomain,colorimétrie,Colorimétrie,flont:defprec_colorimetrie
+flont:LexicalUseDomain,commerce,Commerce,flont:defprec_commerce
+flont:LexicalUseDomain,comptabilité,Comptabilité,flont:defprec_comptabilite
+flont:LexicalUseDomain,construction,Construction,flont:defprec_construction
+flont:LexicalUseDomain,copropriété,Copropriété,flont:defprec_copropriete
+flont:LexicalUseDomain,cordonnerie,Cordonnerie,flont:defprec_cordonnerie
+flont:LexicalUseDomain,cosmétologie,Cosmétologie,flont:defprec_cosmetologie
+flont:LexicalUseDomain,couche application,Couche application,flont:defprec_couche_application
+flont:LexicalUseDomain,couche liaison,Couche liaison,flont:defprec_couche_liaison
+flont:LexicalUseDomain,couche physique,Couche physique,flont:defprec_couche_physique
+flont:LexicalUseDomain,couche présentation,Couche présentation,flont:defprec_couche_presentation
+flont:LexicalUseDomain,couche réseau,Couche réseau,flont:defprec_couche_reseau
+flont:LexicalUseDomain,couche session,Couche session,flont:defprec_couche_session
+flont:LexicalUseDomain,couche transport,Couche transport,flont:defprec_couche_transport
+flont:LexicalUseDomain,course à pied,Course à pied,flont:defprec_course_a_pied
+flont:LexicalUseDomain,couture,Couture,flont:defprec_couture
+flont:LexicalUseDomain,cricket,Cricket,flont:defprec_cricket
+flont:LexicalUseDomain,cryptographie,Cryptographie,flont:defprec_cryptographie
+flont:LexicalUseDomain,cryptomonnaie,Cryptomonnaie,flont:defprec_cryptomonnaie
+flont:LexicalUseDomain,cuisine,Cuisine,flont:defprec_cuisine
+flont:LexicalUseDomain,cyclisme,Cyclisme,flont:defprec_cyclisme
+flont:LexicalUseDomain,dames,Dames,flont:defprec_dames
+flont:LexicalUseDomain,danse,Danse,flont:defprec_danse
+flont:LexicalUseDomain,dentisterie,Dentisterie,flont:defprec_dentisterie
+flont:LexicalUseDomain,dermatologie,Dermatologie,flont:defprec_dermatologie
+flont:LexicalUseDomain,dessin,Dessin,flont:defprec_dessin
+flont:LexicalUseDomain,diplomatie,Diplomatie,flont:defprec_diplomatie
+flont:LexicalUseDomain,drogue,Drogue,flont:defprec_drogue
+flont:LexicalUseDomain,droit,Droit,flont:defprec_droit
+flont:LexicalUseDomain,échafaudage,Échafaudage,flont:defprec_echafaudage
+flont:LexicalUseDomain,échecs,Échecs,flont:defprec_echecs
+flont:LexicalUseDomain,écologie,Écologie,flont:defprec_ecologie
+flont:LexicalUseDomain,économie,Économie,flont:defprec_economie
+flont:LexicalUseDomain,édition,Édition,flont:defprec_edition
+flont:LexicalUseDomain,éducation,Éducation,flont:defprec_education
+flont:LexicalUseDomain,électoraux,Électoraux,flont:defprec_electoraux
+flont:LexicalUseDomain,électricité,Électricité,flont:defprec_electricite
+flont:LexicalUseDomain,électronique,Électronique,flont:defprec_electronique
+flont:LexicalUseDomain,électrotechnique,Électrotechnique,flont:defprec_electrotechnique
+flont:LexicalUseDomain,élevage,Élevage,flont:defprec_elevage
+flont:LexicalUseDomain,embryologie,Embryologie,flont:defprec_embryologie
+flont:LexicalUseDomain,entomologie,Entomologie,flont:defprec_entomologie
+flont:LexicalUseDomain,équitation,Équitation,flont:defprec_equitation
+flont:LexicalUseDomain,escrime,Escrime,flont:defprec_escrime
+flont:LexicalUseDomain,ethnobiologie,Ethnobiologie,flont:defprec_ethnobiologie
+flont:LexicalUseDomain,ethnologie,Ethnologie,flont:defprec_ethnologie
+flont:LexicalUseDomain,famille,Famille,flont:defprec_famille
+flont:LexicalUseDomain,fantastique,Fantastique,flont:defprec_fantastique
+flont:LexicalUseDomain,fauconnerie,Fauconnerie,flont:defprec_fauconnerie
+flont:LexicalUseDomain,ferroviaire,Ferroviaire,flont:defprec_ferroviaire
+flont:LexicalUseDomain,finance,Finance,flont:defprec_finance
+flont:LexicalUseDomain,fiscalité,Fiscalité,flont:defprec_fiscalite
+flont:LexicalUseDomain,fontainerie,Fontainerie,flont:defprec_fontainerie
+flont:LexicalUseDomain,football,Football,flont:defprec_football
+flont:LexicalUseDomain,foresterie,Foresterie,flont:defprec_foresterie
+flont:LexicalUseDomain,franc-maçonnerie,Franc-maçonnerie,flont:defprec_franc_maconnerie
+flont:LexicalUseDomain,généalogie,Généalogie,flont:defprec_genealogie
+flont:LexicalUseDomain,génétique,Génétique,flont:defprec_genetique
+flont:LexicalUseDomain,géographie,Géographie,flont:defprec_geographie
+flont:LexicalUseDomain,géologie,Géologie,flont:defprec_geologie
+flont:LexicalUseDomain,géomatique,Géomatique,flont:defprec_geomatique
+flont:LexicalUseDomain,géométrie,Géométrie,flont:defprec_geometrie
+flont:LexicalUseDomain,géophysique,Géophysique,flont:defprec_geophysique
+flont:LexicalUseDomain,géostatistique,Géostatistique,flont:defprec_geostatistique
+flont:LexicalUseDomain,glaciologie,Glaciologie,flont:defprec_glaciologie
+flont:LexicalUseDomain,golf,Golf,flont:defprec_golf
+flont:LexicalUseDomain,grammaire,Grammaire,flont:defprec_grammaire
+flont:LexicalUseDomain,gravure,Gravure,flont:defprec_gravure
+flont:LexicalUseDomain,gymnastique,Gymnastique,flont:defprec_gymnastique
+flont:LexicalUseDomain,handball,Handball,flont:defprec_handball
+flont:LexicalUseDomain,handisport,Handisport,flont:defprec_handisport
+flont:LexicalUseDomain,héraldique,Héraldique,flont:defprec_heraldique
+flont:LexicalUseDomain,hindouisme,Hindouisme,flont:defprec_hindouisme
+flont:LexicalUseDomain,hippisme,Hippisme,flont:defprec_hippisme
+flont:LexicalUseDomain,hippologie,Hippologie,flont:defprec_hippologie
+flont:LexicalUseDomain,histoire,Histoire,flont:defprec_histoire
+flont:LexicalUseDomain,histologie,Histologie,flont:defprec_histologie
+flont:LexicalUseDomain,hockey,Hockey,flont:defprec_hockey
+flont:LexicalUseDomain,horlogerie,Horlogerie,flont:defprec_horlogerie
+flont:LexicalUseDomain,horticulture,Horticulture,flont:defprec_horticulture
+flont:LexicalUseDomain,hydraulique,Hydraulique,flont:defprec_hydraulique
+flont:LexicalUseDomain,hydrobiologie,Hydrobiologie,flont:defprec_hydrobiologie
+flont:LexicalUseDomain,hydrologie,Hydrologie,flont:defprec_hydrologie
+flont:LexicalUseDomain,hygiène,Hygiène,flont:defprec_hygiene
+flont:LexicalUseDomain,ichtyologie,Ichtyologie,flont:defprec_ichtyologie
+flont:LexicalUseDomain,illégalité,Illégalité,flont:defprec_illegalite
+flont:LexicalUseDomain,imprimerie,Imprimerie,flont:defprec_imprimerie
+flont:LexicalUseDomain,industrie,Industrie,flont:defprec_industrie
+flont:LexicalUseDomain,infographie,Infographie,flont:defprec_infographie
+flont:LexicalUseDomain,informatique,Informatique,flont:defprec_informatique
+flont:LexicalUseDomain,intelligence artificielle,Intelligence artificielle,flont:defprec_intelligence_artificielle
+flont:LexicalUseDomain,internet,Internet,flont:defprec_internet
+flont:LexicalUseDomain,islam,Islam,flont:defprec_islam
+flont:LexicalUseDomain,jardinage,Jardinage,flont:defprec_jardinage
+flont:LexicalUseDomain,jazz,Jazz,flont:defprec_jazz
+flont:LexicalUseDomain,jeu de go,Jeu de go,flont:defprec_jeu_de_go
+flont:LexicalUseDomain,jeu de paume,Jeu de paume,flont:defprec_jeu_de_paume
+flont:LexicalUseDomain,jeux,Jeux,flont:defprec_jeux
+flont:LexicalUseDomain,jeux vidéo,Jeux vidéo,flont:defprec_jeux_video
+flont:LexicalUseDomain,jonglerie,Jonglerie,flont:defprec_jonglerie
+flont:LexicalUseDomain,journalisme,Journalisme,flont:defprec_journalisme
+flont:LexicalUseDomain,judaïsme,Judaïsme,flont:defprec_judaisme
+flont:LexicalUseDomain,judo,Judo,flont:defprec_judo
+flont:LexicalUseDomain,justice,Justice,flont:defprec_justice
+flont:LexicalUseDomain,karaté,Karaté,flont:defprec_karate
+flont:LexicalUseDomain,langage Java,Langage Java,flont:defprec_langage_java
+flont:LexicalUseDomain,législation,Législation,flont:defprec_legislation
+flont:LexicalUseDomain,lexicographie,Lexicographie,flont:defprec_lexicographie
+flont:LexicalUseDomain,LGBT,LGBT,flont:defprec_lgbt
+flont:LexicalUseDomain,linguistique,Linguistique,flont:defprec_linguistique
+flont:LexicalUseDomain,littérature,Littérature,flont:defprec_litterature
+flont:LexicalUseDomain,liturgie,Liturgie,flont:defprec_liturgie
+flont:LexicalUseDomain,livre,Livre,flont:defprec_livre
+flont:LexicalUseDomain,logique,Logique,flont:defprec_logique
+flont:LexicalUseDomain,logistique,Logistique,flont:defprec_logistique
+flont:LexicalUseDomain,loisirs,Loisirs,flont:defprec_loisirs
+flont:LexicalUseDomain,lutherie,Lutherie,flont:defprec_lutherie
+flont:LexicalUseDomain,maçonnerie,Maçonnerie,flont:defprec_maconnerie
+flont:LexicalUseDomain,magnétisme,Magnétisme,flont:defprec_magnetisme
+flont:LexicalUseDomain,mah-jong,Mah-jong,flont:defprec_mah_jong
+flont:LexicalUseDomain,maintenance,Maintenance,flont:defprec_maintenance
+flont:LexicalUseDomain,marbrerie,Marbrerie,flont:defprec_marbrerie
+flont:LexicalUseDomain,maréchalerie,Maréchalerie,flont:defprec_marechalerie
+flont:LexicalUseDomain,marine,Marine,flont:defprec_marine
+flont:LexicalUseDomain,maroquinerie,Maroquinerie,flont:defprec_maroquinerie
+flont:LexicalUseDomain,mathématiques,Mathématiques,flont:defprec_mathematiques
+flont:LexicalUseDomain,mécanique,Mécanique,flont:defprec_mecanique
+flont:LexicalUseDomain,médecine,Médecine,flont:defprec_medecine
+flont:LexicalUseDomain,médecine non conv,Médecine non conv,flont:defprec_medecine_non_conv
+flont:LexicalUseDomain,médecine vétérinaire,Médecine vétérinaire,flont:defprec_medecine_veterinaire
+flont:LexicalUseDomain,média,Média,flont:defprec_media
+flont:LexicalUseDomain,menuiserie,Menuiserie,flont:defprec_menuiserie
+flont:LexicalUseDomain,mercatique,Mercatique,flont:defprec_mercatique
+flont:LexicalUseDomain,metal,Metal,flont:defprec_metal
+flont:LexicalUseDomain,métallurgie,Métallurgie,flont:defprec_metallurgie
+flont:LexicalUseDomain,météorologie,Météorologie,flont:defprec_meteorologie
+flont:LexicalUseDomain,métrologie,Métrologie,flont:defprec_metrologie
+flont:LexicalUseDomain,meunerie,Meunerie,flont:defprec_meunerie
+flont:LexicalUseDomain,microbiologie,Microbiologie,flont:defprec_microbiologie
+flont:LexicalUseDomain,militaire,Militaire,flont:defprec_militaire
+flont:LexicalUseDomain,minéralogie,Minéralogie,flont:defprec_mineralogie
+flont:LexicalUseDomain,miroiterie,Miroiterie,flont:defprec_miroiterie
+flont:LexicalUseDomain,monarchie,Monarchie,flont:defprec_monarchie
+flont:LexicalUseDomain,morphologie végétale,Morphologie végétale,flont:defprec_morphologie_vegetale
+flont:LexicalUseDomain,motocyclisme,Motocyclisme,flont:defprec_motocyclisme
+flont:LexicalUseDomain,Moyen Âge,Moyen Âge,flont:defprec_moyen_age
+flont:LexicalUseDomain,muscle,Muscle,flont:defprec_muscle
+flont:LexicalUseDomain,musculation,Musculation,flont:defprec_musculation
+flont:LexicalUseDomain,muséologie,Muséologie,flont:defprec_museologie
+flont:LexicalUseDomain,musique,Musique,flont:defprec_musique
+flont:LexicalUseDomain,mycologie,Mycologie,flont:defprec_mycologie
+flont:LexicalUseDomain,mythologie,Mythologie,flont:defprec_mythologie
+flont:LexicalUseDomain,narratologie,Narratologie,flont:defprec_narratologie
+flont:LexicalUseDomain,natation,Natation,flont:defprec_natation
+flont:LexicalUseDomain,navigation,Navigation,flont:defprec_navigation
+flont:LexicalUseDomain,neurologie,Neurologie,flont:defprec_neurologie
+flont:LexicalUseDomain,noblesse,Noblesse,flont:defprec_noblesse
+flont:LexicalUseDomain,nosologie,Nosologie,flont:defprec_nosologie
+flont:LexicalUseDomain,novlangue,Novlangue,flont:defprec_novlangue
+flont:LexicalUseDomain,nucléaire,Nucléaire,flont:defprec_nucleaire
+flont:LexicalUseDomain,numismatique,Numismatique,flont:defprec_numismatique
+flont:LexicalUseDomain,nutrition,Nutrition,flont:defprec_nutrition
+flont:LexicalUseDomain,occultisme,Occultisme,flont:defprec_occultisme
+flont:LexicalUseDomain,océanographie,Océanographie,flont:defprec_oceanographie
+flont:LexicalUseDomain,oenologie;œnologie,Oenologie,flont:defprec_oenologie
+flont:LexicalUseDomain,optimisation,Optimisation,flont:defprec_optimisation
+flont:LexicalUseDomain,optique,Optique,flont:defprec_optique
+flont:LexicalUseDomain,orgues,Orgues,flont:defprec_orgues
+flont:LexicalUseDomain,ornement,Ornement,flont:defprec_ornement
+flont:LexicalUseDomain,ornithologie,Ornithologie,flont:defprec_ornithologie
+flont:LexicalUseDomain,paléographie,Paléographie,flont:defprec_paleographie
+flont:LexicalUseDomain,paléontologie,Paléontologie,flont:defprec_paleontologie
+flont:LexicalUseDomain,papeterie,Papeterie,flont:defprec_papeterie
+flont:LexicalUseDomain,patinage,Patinage,flont:defprec_patinage
+flont:LexicalUseDomain,pâtisserie,Pâtisserie,flont:defprec_patisserie
+flont:LexicalUseDomain,pêche,Pêche,flont:defprec_peche
+flont:LexicalUseDomain,pédologie,Pédologie,flont:defprec_pedologie
+flont:LexicalUseDomain,peinture,Peinture,flont:defprec_peinture
+flont:LexicalUseDomain,pelote basque,Pelote basque,flont:defprec_pelote_basque
+flont:LexicalUseDomain,pétanque,Pétanque,flont:defprec_petanque
+flont:LexicalUseDomain,pétrochimie,Pétrochimie,flont:defprec_petrochimie
+flont:LexicalUseDomain,pharmacologie,Pharmacologie,flont:defprec_pharmacologie
+flont:LexicalUseDomain,phénologie,Phénologie,flont:defprec_phenologie
+flont:LexicalUseDomain,phénoménologie,Phénoménologie,flont:defprec_phenomenologie
+flont:LexicalUseDomain,philatélie,Philatélie,flont:defprec_philatelie
+flont:LexicalUseDomain,philosophie,Philosophie,flont:defprec_philosophie
+flont:LexicalUseDomain,phonétique,Phonétique,flont:defprec_phonetique
+flont:LexicalUseDomain,phonologie,Phonologie,flont:defprec_phonologie
+flont:LexicalUseDomain,photographie,Photographie,flont:defprec_photographie
+flont:LexicalUseDomain,physiologie,Physiologie,flont:defprec_physiologie
+flont:LexicalUseDomain,physique,Physique,flont:defprec_physique
+flont:LexicalUseDomain,phytosociologie,Phytosociologie,flont:defprec_phytosociologie
+flont:LexicalUseDomain,planche à neige,Planche à neige,flont:defprec_planche_a_neige
+flont:LexicalUseDomain,planche à roulettes,Planche à roulettes,flont:defprec_planche_a_roulettes
+flont:LexicalUseDomain,plomberie,Plomberie,flont:defprec_plomberie
+flont:LexicalUseDomain,plongée,Plongée,flont:defprec_plongee
+flont:LexicalUseDomain,poésie,Poésie,flont:defprec_poesie
+flont:LexicalUseDomain,poker,Poker,flont:defprec_poker
+flont:LexicalUseDomain,police,Police,flont:defprec_police
+flont:LexicalUseDomain,politique,Politique,flont:defprec_politique
+flont:LexicalUseDomain,préhistoire,Préhistoire,flont:defprec_prehistoire
+flont:LexicalUseDomain,prestidigitation,Prestidigitation,flont:defprec_prestidigitation
+flont:LexicalUseDomain,probabilités,Probabilités,flont:defprec_probabilites
+flont:LexicalUseDomain,programmation informatique,Programmation informatique,flont:defprec_programmation_informatique
+flont:LexicalUseDomain,programmation orientée objet,Programmation orientée objet,flont:defprec_programmation_orientee_objet
+flont:LexicalUseDomain,propriété,Propriété,flont:defprec_propriete
+flont:LexicalUseDomain,psychanalyse,Psychanalyse,flont:defprec_psychanalyse
+flont:LexicalUseDomain,psychiatrie,Psychiatrie,flont:defprec_psychiatrie
+flont:LexicalUseDomain,psychologie,Psychologie,flont:defprec_psychologie
+flont:LexicalUseDomain,pyrotechnie,Pyrotechnie,flont:defprec_pyrotechnie
+flont:LexicalUseDomain,raffinage,Raffinage,flont:defprec_raffinage
+flont:LexicalUseDomain,regex,Regex,flont:defprec_regex
+flont:LexicalUseDomain,relations internationales,Relations internationales,flont:defprec_relations_internationales
+flont:LexicalUseDomain,religion,Religion,flont:defprec_religion
+flont:LexicalUseDomain,reliure,Reliure,flont:defprec_reliure
+flont:LexicalUseDomain,renseignement,Renseignement,flont:defprec_renseignement
+flont:LexicalUseDomain,reproduction,Reproduction,flont:defprec_reproduction
+flont:LexicalUseDomain,réseaux informatiques,Réseaux informatiques,flont:defprec_reseaux_informatiques
+flont:LexicalUseDomain,rhétorique,Rhétorique,flont:defprec_rhetorique
+flont:LexicalUseDomain,robotique,Robotique,flont:defprec_robotique
+flont:LexicalUseDomain,rugby,Rugby,flont:defprec_rugby
+flont:LexicalUseDomain,saliculture,Saliculture,flont:defprec_saliculture
+flont:LexicalUseDomain,saut en hauteur,Saut en hauteur,flont:defprec_saut_en_hauteur
+flont:LexicalUseDomain,science-fiction,Science-fiction,flont:defprec_science_fiction
+flont:LexicalUseDomain,sciences,Sciences,flont:defprec_sciences
+flont:LexicalUseDomain,Scrabble,Scrabble,flont:defprec_scrabble
+flont:LexicalUseDomain,sculpture,Sculpture,flont:defprec_sculpture
+flont:LexicalUseDomain,serrurerie,Serrurerie,flont:defprec_serrurerie
+flont:LexicalUseDomain,sexualité,Sexualité,flont:defprec_sexualite
+flont:LexicalUseDomain,sidérurgie,Sidérurgie,flont:defprec_siderurgie
+flont:LexicalUseDomain,ski alpin,Ski alpin,flont:defprec_ski_alpin
+flont:LexicalUseDomain,ski de fond,Ski de fond,flont:defprec_ski_de_fond
+flont:LexicalUseDomain,snowboard,Snowboard,flont:defprec_snowboard
+flont:LexicalUseDomain,socialisme,Socialisme,flont:defprec_socialisme
+flont:LexicalUseDomain,sociolinguistique,Sociolinguistique,flont:defprec_sociolinguistique
+flont:LexicalUseDomain,sociologie,Sociologie,flont:defprec_sociologie
+flont:LexicalUseDomain,sport,Sport,flont:defprec_sport
+flont:LexicalUseDomain,squelette,Squelette,flont:defprec_squelette
+flont:LexicalUseDomain,statistiques,Statistiques,flont:defprec_statistiques
+flont:LexicalUseDomain,stéréochimie,Stéréochimie,flont:defprec_stereochimie
+flont:LexicalUseDomain,stéréotomie,Stéréotomie,flont:defprec_stereotomie
+flont:LexicalUseDomain,stéréotype,Stéréotype,flont:defprec_stereotype
+flont:LexicalUseDomain,surf,Surf,flont:defprec_surf
+flont:LexicalUseDomain,sylviculture,Sylviculture,flont:defprec_sylviculture
+flont:LexicalUseDomain,taille de pierre,Taille de pierre,flont:defprec_taille_de_pierre
+flont:LexicalUseDomain,tauromachie,Tauromachie,flont:defprec_tauromachie
+flont:LexicalUseDomain,technique,Technique,flont:defprec_technique
+flont:LexicalUseDomain,technologie,Technologie,flont:defprec_technologie
+flont:LexicalUseDomain,télécommunications,Télécommunications,flont:defprec_telecommunications
+flont:LexicalUseDomain,téléinformatique,Téléinformatique,flont:defprec_teleinformatique
+flont:LexicalUseDomain,téléphonie,Téléphonie,flont:defprec_telephonie
+flont:LexicalUseDomain,tennis,Tennis,flont:defprec_tennis
+flont:LexicalUseDomain,tennis de table,Tennis de table,flont:defprec_tennis_de_table
+flont:LexicalUseDomain,tératologie,Tératologie,flont:defprec_teratologie
+flont:LexicalUseDomain,textile,Textile,flont:defprec_textile
+flont:LexicalUseDomain,théâtre,Théâtre,flont:defprec_theatre
+flont:LexicalUseDomain,théologie,Théologie,flont:defprec_theologie
+flont:LexicalUseDomain,théorie des graphes,Théorie des graphes,flont:defprec_theorie_des_graphes
+flont:LexicalUseDomain,thermodynamique,Thermodynamique,flont:defprec_thermodynamique
+flont:LexicalUseDomain,tonnellerie,Tonnellerie,flont:defprec_tonnellerie
+flont:LexicalUseDomain,topographie,Topographie,flont:defprec_topographie
+flont:LexicalUseDomain,topologie,Topologie,flont:defprec_topologie
+flont:LexicalUseDomain,toponymie,Toponymie,flont:defprec_toponymie
+flont:LexicalUseDomain,tourisme,Tourisme,flont:defprec_tourisme
+flont:LexicalUseDomain,transport,Transport,flont:defprec_transport
+flont:LexicalUseDomain,travail,Travail,flont:defprec_travail
+flont:LexicalUseDomain,triathlon,Triathlon,flont:defprec_triathlon
+flont:LexicalUseDomain,typographie,Typographie,flont:defprec_typographie
+flont:LexicalUseDomain,ufologie,Ufologie,flont:defprec_ufologie
+flont:LexicalUseDomain,urbanisme,Urbanisme,flont:defprec_urbanisme
+flont:LexicalUseDomain,usinage,Usinage,flont:defprec_usinage
+flont:LexicalUseDomain,vaudou,Vaudou,flont:defprec_vaudou
+flont:LexicalUseDomain,versification,Versification,flont:defprec_versification
+flont:LexicalUseDomain,vexillologie,Vexillologie,flont:defprec_vexillologie
+flont:LexicalUseDomain,virologie,Virologie,flont:defprec_virologie
+flont:LexicalUseDomain,viticulture,Viticulture,flont:defprec_viticulture
+flont:LexicalUseDomain,vitrerie,Vitrerie,flont:defprec_vitrerie
+flont:LexicalUseDomain,volley-ball,Volley-ball,flont:defprec_volley_ball
+flont:LexicalUseDomain,wiki,Wiki,flont:defprec_wiki
+flont:LexicalUseDomain,yoga,Yoga,flont:defprec_yoga
+flont:LexicalUseDomain,zoologie,Zoologie,flont:defprec_zoologie
+flont:RelationshipBetweenDefinition,en particulier;particulier;partic;part,En particulier,flont:defprec_en_particulier
+flont:RelationshipBetweenDefinition,figuré;idiomatique;au figuré;métaph;métaphore,Figuré,flont:defprec_figure
+flont:RelationshipBetweenDefinition,généralement,Généralement,flont:defprec_generalement
+flont:RelationshipBetweenDefinition,génériquement,Génériquement,flont:defprec_generiquement
+flont:RelationshipBetweenDefinition,par analogie;analogie,Par analogie,flont:defprec_par_analogie
+flont:RelationshipBetweenDefinition,par euphémisme;euphémisme;euph;euphém,Par euphémisme,flont:defprec_par_euphemisme
+flont:RelationshipBetweenDefinition,par extension;par ext,Par extension,flont:defprec_par_extension
+flont:RelationshipBetweenDefinition,par hyperbole;hyperbole;hyperb;exag;exagération,Par hyperbole,flont:defprec_par_hyperbole
+flont:RelationshipBetweenDefinition,par litote,Par litote,flont:defprec_par_litote
+flont:RelationshipBetweenDefinition,par métonymie;métonymie;méton,Par métonymie,flont:defprec_par_metonymie
+flont:RelationshipBetweenDefinition,sens propre;propre,Sens propre,flont:defprec_sens_propre
+flont:RelationshipBetweenDefinition,spécialement,Spécialement,flont:defprec_specialement
+flont:RelationshipBetweenDefinition,spécifiquement,Spécifiquement,flont:defprec_specifiquement
+flont:Slang,Argadz,Argot des Gadz’Arts,flont:defprec_argot_des_gadzarts
+flont:Slang,argot,Argot,flont:defprec_argot
+flont:Slang,argot internet;argot Internet,Argot Internet,flont:defprec_argot_internet
+flont:Slang,argot militaire,Argot militaire,flont:defprec_argot_militaire
+flont:Slang,argot poilu,Argot poilu,flont:defprec_argot_poilu
+flont:Slang,argot policier,Argot policier,flont:defprec_argot_policier
+flont:Slang,argot polytechnicien,Argot polytechnicien,flont:defprec_argot_polytechnicien
+flont:Slang,argot scolaire,Argot scolaire,flont:defprec_argot_scolaire
+flont:Slang,argot typographes,Argot des typographes,flont:defprec_argot_des_typographes
+flont:Slang,argot voleurs,Argot des voleurs,flont:defprec_argot_des_voleurs
+flont:Slang,langage SMS,Langage SMS,flont:defprec_langage_sms
+flont:TextualGenre,didactique,Didactique,flont:defprec_didactique
+flont:TextualGenre,littéraire,Littéraire,flont:defprec_litteraire
+flont:TextualGenre,poétique,Poétique,flont:defprec_poetique
+flont:UseFrequency,beaucoup moins courant,Beaucoup moins courant,flont:defprec_beaucoup_moins_courant
+flont:UseFrequency,beaucoup plus courant,Beaucoup plus courant,flont:defprec_beaucoup_plus_courant
+flont:UseFrequency,courant,Courant,flont:defprec_courant
+flont:UseFrequency,extrêmement rare,Extrêmement rare,flont:defprec_extremement_rare
+flont:UseFrequency,hapax,Hapax,flont:defprec_hapax
+flont:UseFrequency,moins courant,Moins courant,flont:defprec_moins_courant
+flont:UseFrequency,peu attesté,Peu attesté,flont:defprec_peu_atteste
+flont:UseFrequency,peu usité,Peu usité,flont:defprec_peu_usite
+flont:UseFrequency,plus courant,Plus courant,flont:defprec_plus_courant
+flont:UseFrequency,plus rare,Plus rare,flont:defprec_plus_rare
+flont:UseFrequency,rare,Rare,flont:defprec_rare
+flont:UseFrequency,très rare,Très rare,flont:defprec_tres_rare
+flont:UseRegion,Commonwealth,Commonwealth,flont:defprec_commonwealth
+flont:UseRegionAfrica,Afrique,Afrique,flont:defprec_afrique
+flont:UseRegionAfrica,Afrique du Sud,"Afrique du Sud, Afrique",flont:defprec_afrique_du_sud_afrique
+flont:UseRegionAfrica,Algérie,"Algérie, Afrique",flont:defprec_algerie_afrique
+flont:UseRegionAfrica,Angola,"Angola, Afrique",flont:defprec_angola_afrique
+flont:UseRegionAfrica,Benguele,"Benguele, Angola, Afrique",flont:defprec_benguele_angola_afrique
+flont:UseRegionAfrica,Bénin,"Bénin, Afrique",flont:defprec_benin_afrique
+flont:UseRegionAfrica,Botswana,"Botswana, Afrique",flont:defprec_botswana_afrique
+flont:UseRegionAfrica,Burkina Faso,"Burkina Faso, Afrique",flont:defprec_burkina_faso_afrique
+flont:UseRegionAfrica,Burundi,"Burundi, Afrique",flont:defprec_burundi_afrique
+flont:UseRegionAfrica,Cameroun,"Cameroun, Afrique",flont:defprec_cameroun_afrique
+flont:UseRegionAfrica,Cap-Vert,"Cap-Vert, Afrique",flont:defprec_cap_vert_afrique
+flont:UseRegionAfrica,Centrafrique,"Centrafrique, Afrique",flont:defprec_centrafrique_afrique
+flont:UseRegionAfrica,Comores,"Comores, Afrique",flont:defprec_comores_afrique
+flont:UseRegionAfrica,Congo-Brazzaville,"Congo-Brazzaville, Afrique",flont:defprec_congo_brazzaville_afrique
+flont:UseRegionAfrica,Congo-Kinshasa,"Congo-Kinshasa, Afrique",flont:defprec_congo_kinshasa_afrique
+flont:UseRegionAfrica,Côte d’Ivoire,"Côte d’Ivoire, Afrique",flont:defprec_cote_divoire_afrique
+flont:UseRegionAfrica,Djibouti,"Djibouti, Afrique",flont:defprec_djibouti_afrique
+flont:UseRegionAfrica,Dominique,"Dominique, Afrique",flont:defprec_dominique_afrique
+flont:UseRegionAfrica,Égypte,"Égypte, Afrique",flont:defprec_egypte_afrique
+flont:UseRegionAfrica,Érythrée,"Érythrée, Afrique",flont:defprec_erythree_afrique
+flont:UseRegionAfrica,Éthiopie,"Éthiopie, Afrique",flont:defprec_ethiopie_afrique
+flont:UseRegionAfrica,Gabon,"Gabon, Afrique",flont:defprec_gabon_afrique
+flont:UseRegionAfrica,Gambie,"Gambie, Afrique",flont:defprec_gambie_afrique
+flont:UseRegionAfrica,Ghana,"Ghana, Afrique",flont:defprec_ghana_afrique
+flont:UseRegionAfrica,Guinée,"Guinée, Afrique",flont:defprec_guinee_afrique
+flont:UseRegionAfrica,Guinée équatoriale,"Guinée équatoriale, Afrique",flont:defprec_guinee_equatoriale_afrique
+flont:UseRegionAfrica,Guinée-Bissau,"Guinée-Bissau, Afrique",flont:defprec_guinee_bissau_afrique
+flont:UseRegionAfrica,Kenya,"Kenya, Afrique",flont:defprec_kenya_afrique
+flont:UseRegionAfrica,Lesotho,"Lesotho, Afrique",flont:defprec_lesotho_afrique
+flont:UseRegionAfrica,Liberia,"Liberia, Afrique",flont:defprec_liberia_afrique
+flont:UseRegionAfrica,Libye,"Libye, Afrique",flont:defprec_libye_afrique
+flont:UseRegionAfrica,Luanda,"Luanda, Angola, Afrique",flont:defprec_luanda_angola_afrique
+flont:UseRegionAfrica,Madagascar,"Madagascar, Afrique",flont:defprec_madagascar_afrique
+flont:UseRegionAfrica,Maghreb,"Maghreb, Afrique",flont:defprec_maghreb_afrique
+flont:UseRegionAfrica,Malawi,"Malawi, Afrique",flont:defprec_malawi_afrique
+flont:UseRegionAfrica,Mali,"Mali, Afrique",flont:defprec_mali_afrique
+flont:UseRegionAfrica,Maroc,"Maroc, Afrique",flont:defprec_maroc_afrique
+flont:UseRegionAfrica,Maurice,"Maurice, Afrique",flont:defprec_maurice_afrique
+flont:UseRegionAfrica,Mauritanie,"Mauritanie, Afrique",flont:defprec_mauritanie_afrique
+flont:UseRegionAfrica,Mozambique,"Mozambique, Afrique",flont:defprec_mozambique_afrique
+flont:UseRegionAfrica,Namibie,"Namibie, Afrique",flont:defprec_namibie_afrique
+flont:UseRegionAfrica,Niger,"Niger, Afrique",flont:defprec_niger_afrique
+flont:UseRegionAfrica,Nigéria,"Nigéria, Afrique",flont:defprec_nigeria_afrique
+flont:UseRegionAfrica,Ouganda,"Ouganda, Afrique",flont:defprec_ouganda_afrique
+flont:UseRegionAfrica,Rwanda,"Rwanda, Afrique",flont:defprec_rwanda_afrique
+flont:UseRegionAfrica,Sao Tomé-et-Principe,"Sao Tomé-et-Principe, Afrique",flont:defprec_sao_tome_et_principe_afrique
+flont:UseRegionAfrica,Sénégal,"Sénégal, Afrique",flont:defprec_senegal_afrique
+flont:UseRegionAfrica,Seychelles,"Seychelles, Afrique",flont:defprec_seychelles_afrique
+flont:UseRegionAfrica,Sierra Leone,"Sierra Leone, Afrique",flont:defprec_sierra_leone_afrique
+flont:UseRegionAfrica,Somalie,"Somalie, Afrique",flont:defprec_somalie_afrique
+flont:UseRegionAfrica,Soudan,"Soudan, Afrique",flont:defprec_soudan_afrique
+flont:UseRegionAfrica,Soudan du Sud,"Soudan du Sud, Afrique",flont:defprec_soudan_du_sud_afrique
+flont:UseRegionAfrica,Swaziland,"Swaziland, Afrique",flont:defprec_swaziland_afrique
+flont:UseRegionAfrica,Tanzanie,"Tanzanie, Afrique",flont:defprec_tanzanie_afrique
+flont:UseRegionAfrica,Tchad,"Tchad, Afrique",flont:defprec_tchad_afrique
+flont:UseRegionAfrica,Togo,"Togo, Afrique",flont:defprec_togo_afrique
+flont:UseRegionAfrica,Tunisie,"Tunisie, Afrique",flont:defprec_tunisie_afrique
+flont:UseRegionAfrica,Zambie,"Zambie, Afrique",flont:defprec_zambie_afrique
+flont:UseRegionAfrica,Zimbabwe,"Zimbabwe, Afrique",flont:defprec_zimbabwe_afrique
+flont:UseRegionAsia,Afghanistan,"Afghanistan, Asie",flont:defprec_afghanistan_asie
+flont:UseRegionAsia,Arabie saoudite,"Arabie saoudite, Asie",flont:defprec_arabie_saoudite_asie
+flont:UseRegionAsia,Arménie,"Arménie, Asie",flont:defprec_armenie_asie
+flont:UseRegionAsia,Azerbaïdjan,"Azerbaïdjan, Asie",flont:defprec_azerbaidjan_asie
+flont:UseRegionAsia,Bahreïn,"Bahreïn, Asie",flont:defprec_bahrein_asie
+flont:UseRegionAsia,Bangladesh,"Bangladesh, Asie",flont:defprec_bangladesh_asie
+flont:UseRegionAsia,Bhoutan,"Bhoutan, Asie",flont:defprec_bhoutan_asie
+flont:UseRegionAsia,Birmanie,"Birmanie, Asie",flont:defprec_birmanie_asie
+flont:UseRegionAsia,Brunei,"Brunei, Asie",flont:defprec_brunei_asie
+flont:UseRegionAsia,Cambodge,"Cambodge, Asie",flont:defprec_cambodge_asie
+flont:UseRegionAsia,Chine,"Chine, Asie",flont:defprec_chine_asie
+flont:UseRegionAsia,Chypre,"Chypre, Asie",flont:defprec_chypre_asie
+flont:UseRegionAsia,Corée du Nord,"Corée du Nord, Asie",flont:defprec_coree_du_nord_asie
+flont:UseRegionAsia,Corée du Sud,"Corée du Sud, Asie",flont:defprec_coree_du_sud_asie
+flont:UseRegionAsia,Émirats arabes unis,"Émirats arabes unis, Asie",flont:defprec_emirats_arabes_unis_asie
+flont:UseRegionAsia,Géorgie,"Géorgie, Asie",flont:defprec_georgie_asie
+flont:UseRegionAsia,Inde,"Inde, Asie",flont:defprec_inde_asie
+flont:UseRegionAsia,Indonésie,"Indonésie, Asie",flont:defprec_indonesie_asie
+flont:UseRegionAsia,Iran,"Iran, Asie",flont:defprec_iran_asie
+flont:UseRegionAsia,Iraq,"Iraq, Asie",flont:defprec_iraq_asie
+flont:UseRegionAsia,Israël,"Israël, Asie",flont:defprec_israel_asie
+flont:UseRegionAsia,Japon,"Japon, Asie",flont:defprec_japon_asie
+flont:UseRegionAsia,Jordanie,"Jordanie, Asie",flont:defprec_jordanie_asie
+flont:UseRegionAsia,Kazakhstan,"Kazakhstan, Asie",flont:defprec_kazakhstan_asie
+flont:UseRegionAsia,Kirghizistan,"Kirghizistan, Asie",flont:defprec_kirghizistan_asie
+flont:UseRegionAsia,Laos,"Laos, Asie",flont:defprec_laos_asie
+flont:UseRegionAsia,Liban,"Liban, Asie",flont:defprec_liban_asie
+flont:UseRegionAsia,Malaisie,"Malaisie, Asie",flont:defprec_malaisie_asie
+flont:UseRegionAsia,Maldives,"Maldives, Asie",flont:defprec_maldives_asie
+flont:UseRegionAsia,Mongolie,"Mongolie, Asie",flont:defprec_mongolie_asie
+flont:UseRegionAsia,Népal,"Népal, Asie",flont:defprec_nepal_asie
+flont:UseRegionAsia,Oman,"Oman, Asie",flont:defprec_oman_asie
+flont:UseRegionAsia,Ouzbékistan,"Ouzbékistan, Asie",flont:defprec_ouzbekistan_asie
+flont:UseRegionAsia,Pakistan,"Pakistan, Asie",flont:defprec_pakistan_asie
+flont:UseRegionAsia,Palestine,"Palestine, Asie",flont:defprec_palestine_asie
+flont:UseRegionAsia,Philippines,"Philippines, Asie",flont:defprec_philippines_asie
+flont:UseRegionAsia,Qatar,"Qatar, Asie",flont:defprec_qatar_asie
+flont:UseRegionAsia,Russie,"Russie, Asie",flont:defprec_russie_asie
+flont:UseRegionAsia,Singapour,"Singapour, Asie",flont:defprec_singapour_asie
+flont:UseRegionAsia,Sri Lanka,"Sri Lanka, Asie",flont:defprec_sri_lanka_asie
+flont:UseRegionAsia,Syrie,"Syrie, Asie",flont:defprec_syrie_asie
+flont:UseRegionAsia,Tadjikistan,"Tadjikistan, Asie",flont:defprec_tadjikistan_asie
+flont:UseRegionAsia,Taïwan,"Taïwan, Asie",flont:defprec_taiwan_asie
+flont:UseRegionAsia,Thaïlande,"Thaïlande, Asie",flont:defprec_thailande_asie
+flont:UseRegionAsia,Timor oriental,"Timor oriental, Asie",flont:defprec_timor_oriental_asie
+flont:UseRegionAsia,Turkménistan,"Turkménistan, Asie",flont:defprec_turkmenistan_asie
+flont:UseRegionAsia,Turquie,"Turquie, Asie",flont:defprec_turquie_asie
+flont:UseRegionAsia,Viêt Nam,"Viêt Nam, Asie",flont:defprec_viet_nam_asie
+flont:UseRegionAsia,Yémen,"Yémen, Asie",flont:defprec_yemen_asie
+flont:UseRegionCentralAmerica,Amérique centrale,Amérique centrale,flont:defprec_amerique_centrale
+flont:UseRegionCentralAmerica,Antilles,"Antilles, France, Amérique centrale",flont:defprec_antilles_france_amerique_centrale
+flont:UseRegionCentralAmerica,Bélize,"Bélize, Amérique centrale",flont:defprec_belize_amerique_centrale
+flont:UseRegionCentralAmerica,Costa Rica,"Costa Rica, Amérique centrale",flont:defprec_costa_rica_amerique_centrale
+flont:UseRegionCentralAmerica,Guatemala,"Guatemala, Amérique centrale",flont:defprec_guatemala_amerique_centrale
+flont:UseRegionCentralAmerica,Honduras,"Honduras, Amérique centrale",flont:defprec_honduras_amerique_centrale
+flont:UseRegionCentralAmerica,Nicaragua,"Nicaragua, Amérique centrale",flont:defprec_nicaragua_amerique_centrale
+flont:UseRegionCentralAmerica,Panama,"Panama, Amérique centrale",flont:defprec_panama_amerique_centrale
+flont:UseRegionCentralAmerica,Salvador,"Salvador, Amérique centrale",flont:defprec_salvador_amerique_centrale
+flont:UseRegionEurope,Albanie,"Albanie, Europe",flont:defprec_albanie_europe
+flont:UseRegionEurope,Allemagne,"Allemagne, Europe",flont:defprec_allemagne_europe
+flont:UseRegionEurope,Andorre,"Andorre, Europe",flont:defprec_andorre_europe
+flont:UseRegionEurope,ARYM,"ARYM, Europe",flont:defprec_arym_europe
+flont:UseRegionEurope,Autriche,"Autriche, Europe",flont:defprec_autriche_europe
+flont:UseRegionEurope,Baléares,"Baléares, Espagne, Europe",flont:defprec_baleares_espagne_europe
+flont:UseRegionEurope,Belgique,"Belgique, Europe",flont:defprec_belgique_europe
+flont:UseRegionEurope,Biélorussie,"Biélorussie, Europe",flont:defprec_bielorussie_europe
+flont:UseRegionEurope,Bosnie-Herzégovine,"Bosnie-Herzégovine, Europe",flont:defprec_bosnie_herzegovine_europe
+flont:UseRegionEurope,Bulgarie,"Bulgarie, Europe",flont:defprec_bulgarie_europe
+flont:UseRegionEurope,Catalogne,"Catalogne, Espagne, Europe",flont:defprec_catalogne_espagne_europe
+flont:UseRegionEurope,Croatie,"Croatie, Europe",flont:defprec_croatie_europe
+flont:UseRegionEurope,Danemark,"Danemark, Europe",flont:defprec_danemark_europe
+flont:UseRegionEurope,Écosse,"Écosse, Royaume-Uni, Europe",flont:defprec_ecosse_royaume_uni_europe
+flont:UseRegionEurope,Espagne,"Espagne, Europe",flont:defprec_espagne_europe
+flont:UseRegionEurope,Estonie,"Estonie, Europe",flont:defprec_estonie_europe
+flont:UseRegionEurope,Europe,Europe,flont:defprec_europe
+flont:UseRegionEurope,Finlande,"Finlande, Europe",flont:defprec_finlande_europe
+flont:UseRegionEurope,Grèce,"Grèce, Europe",flont:defprec_grece_europe
+flont:UseRegionEurope,Hongrie,"Hongrie, Europe",flont:defprec_hongrie_europe
+flont:UseRegionEurope,Irlande,"Irlande, Europe",flont:defprec_irlande_europe
+flont:UseRegionEurope,Islande,"Islande, Europe",flont:defprec_islande_europe
+flont:UseRegionEurope,Italie,"Italie, Europe",flont:defprec_italie_europe
+flont:UseRegionEurope,Lettonie,"Lettonie, Europe",flont:defprec_lettonie_europe
+flont:UseRegionEurope,Liechtenstein,"Liechtenstein, Europe",flont:defprec_liechtenstein_europe
+flont:UseRegionEurope,Lituanie,"Lituanie, Europe",flont:defprec_lituanie_europe
+flont:UseRegionEurope,Luxembourg,"Luxembourg, Europe",flont:defprec_luxembourg_europe
+flont:UseRegionEurope,Malte,"Malte, Europe",flont:defprec_malte_europe
+flont:UseRegionEurope,Moldavie,"Moldavie, Europe",flont:defprec_moldavie_europe
+flont:UseRegionEurope,Monaco,"Monaco, Europe",flont:defprec_monaco_europe
+flont:UseRegionEurope,Monténégro,"Monténégro, Europe",flont:defprec_montenegro_europe
+flont:UseRegionEurope,Navarre,"Navarre, Espagne, Europe",flont:defprec_navarre_espagne_europe
+flont:UseRegionEurope,Norvège,"Norvège, Europe",flont:defprec_norvege_europe
+flont:UseRegionEurope,Pays-Bas,"Pays-Bas, Europe",flont:defprec_pays_bas_europe
+flont:UseRegionEurope,Pologne,"Pologne, Europe",flont:defprec_pologne_europe
+flont:UseRegionEurope,Portugal,"Portugal, Europe",flont:defprec_portugal_europe
+flont:UseRegionEurope,République tchèque,"République tchèque, Europe",flont:defprec_republique_tcheque_europe
+flont:UseRegionEurope,Roumanie,"Roumanie, Europe",flont:defprec_roumanie_europe
+flont:UseRegionEurope,Royaume-Uni,"Royaume-Uni, Europe",flont:defprec_royaume_uni_europe
+flont:UseRegionEurope,Saint-Marin,"Saint-Marin, Europe",flont:defprec_saint_marin_europe
+flont:UseRegionEurope,Serbie,"Serbie, Europe",flont:defprec_serbie_europe
+flont:UseRegionEurope,Slovaquie,"Slovaquie, Europe",flont:defprec_slovaquie_europe
+flont:UseRegionEurope,Slovénie,"Slovénie, Europe",flont:defprec_slovenie_europe
+flont:UseRegionEurope,Suède,"Suède, Europe",flont:defprec_suede_europe
+flont:UseRegionEurope,Suisse,"Suisse, Europe",flont:defprec_suisse_europe
+flont:UseRegionEurope,Transnistrie,"Transnistrie, Moldavie, Europe",flont:defprec_transnistrie_moldavie_europe
+flont:UseRegionEurope,Transnistrie,"Transnistrie, Ukraine, Europe",flont:defprec_transnistrie_ukraine_europe
+flont:UseRegionEurope,Ukraine,"Ukraine, Europe",flont:defprec_ukraine_europe
+flont:UseRegionEurope,Valence,"Valence, Espagne, Europe",flont:defprec_valence_espagne_europe
+flont:UseRegionEurope,Vatican,"Vatican, Europe",flont:defprec_vatican_europe
+flont:UseRegionFrance,Alsace,"Alsace, France, Europe",flont:defprec_alsace_france_europe
+flont:UseRegionFrance,Anjou,"Anjou, France, Europe",flont:defprec_anjou_france_europe
+flont:UseRegionFrance,Aquitaine,"Aquitaine, France, Europe",flont:defprec_aquitaine_france_europe
+flont:UseRegionFrance,Auvergne,"Auvergne, France, Europe",flont:defprec_auvergne_france_europe
+flont:UseRegionFrance,Berry,"Berry, France, Europe",flont:defprec_berry_france_europe
+flont:UseRegionFrance,Bordelais,"Bordelais, France, Europe",flont:defprec_bordelais_france_europe
+flont:UseRegionFrance,Bourgogne,"Bourgogne, France, Europe",flont:defprec_bourgogne_france_europe
+flont:UseRegionFrance,Bretagne,"Bretagne, France, Europe",flont:defprec_bretagne_france_europe
+flont:UseRegionFrance,Champagne,"Champagne, France, Europe",flont:defprec_champagne_france_europe
+flont:UseRegionFrance,Corse,"Corse, France, Europe",flont:defprec_corse_france_europe
+flont:UseRegionFrance,France,"France, Europe",flont:defprec_france_europe
+flont:UseRegionFrance,Franche-Comté,"Franche-Comté, France, Europe",flont:defprec_franche_comte_france_europe
+flont:UseRegionFrance,Gascogne,"Gascogne, France, Europe",flont:defprec_gascogne_france_europe
+flont:UseRegionFrance,Languedoc-Roussillon,"Languedoc-Roussillon, France, Europe",flont:defprec_languedoc_roussillon_france_europe
+flont:UseRegionFrance,Le Mans,"Le Mans, France, Europe",flont:defprec_le_mans_france_europe
+flont:UseRegionFrance,Limousin,"Limousin, France, Europe",flont:defprec_limousin_france_europe
+flont:UseRegionFrance,Lorraine,"Lorraine, France, Europe",flont:defprec_lorraine_france_europe
+flont:UseRegionFrance,Lyonnais,"Lyonnais, France, Europe",flont:defprec_lyonnais_france_europe
+flont:UseRegionFrance,Marseille,"Marseille, France, Europe",flont:defprec_marseille_france_europe
+flont:UseRegionFrance,Midi,"Midi, France, Europe",flont:defprec_midi_france_europe
+flont:UseRegionFrance,Midi toulousain,"Midi toulousain, France, Europe",flont:defprec_midi_toulousain_france_europe
+flont:UseRegionFrance,Nantes,"Nantes, France, Europe",flont:defprec_nantes_france_europe
+flont:UseRegionFrance,Normandie,"Normandie, France, Europe",flont:defprec_normandie_france_europe
+flont:UseRegionFrance,Occitanie,"Occitanie, France, Europe",flont:defprec_occitanie_france_europe
+flont:UseRegionFrance,Pays basque,"Pays basque, Europe",flont:defprec_pays_basque_europe
+flont:UseRegionFrance,Picardie,"Picardie, France, Europe",flont:defprec_picardie_france_europe
+flont:UseRegionFrance,Poitou,"Poitou, France, Europe",flont:defprec_poitou_france_europe
+flont:UseRegionFrance,Provence,"Provence, France, Europe",flont:defprec_provence_france_europe
+flont:UseRegionFrance,Quercy,"Quercy, France, Europe",flont:defprec_quercy_france_europe
+flont:UseRegionFrance,Rhône-Alpes,"Rhône-Alpes, France, Europe",flont:defprec_rhone_alpes_france_europe
+flont:UseRegionFrance,Var,"Var, France, Europe",flont:defprec_var_france_europe
+flont:UseRegionFrance,Velay,"Velay, France, Europe",flont:defprec_velay_france_europe
+flont:UseRegionFrance,Vosges,"Vosges, France, Europe",flont:defprec_vosges_france_europe
+flont:UseRegionNorthAmerica,Acadie,"Acadie, Canada, Amérique du Nord",flont:defprec_acadie_canada_amerique_du_nord
+flont:UseRegionNorthAmerica,Amérique du Nord,Amérique du Nord,flont:defprec_amerique_du_nord
+flont:UseRegionNorthAmerica,Antigua-et-Barbuda,"Antigua-et-Barbuda, Amérique du Nord",flont:defprec_antigua_et_barbuda_amerique_du_nord
+flont:UseRegionNorthAmerica,Bahamas,"Bahamas, Amérique du Nord",flont:defprec_bahamas_amerique_du_nord
+flont:UseRegionNorthAmerica,Barbade,"Barbade, Amérique du Nord",flont:defprec_barbade_amerique_du_nord
+flont:UseRegionNorthAmerica,Canada,"Canada, Amérique du Nord",flont:defprec_canada_amerique_du_nord
+flont:UseRegionNorthAmerica,Cuba,"Cuba, Amérique du Nord",flont:defprec_cuba_amerique_du_nord
+flont:UseRegionNorthAmerica,États-Unis,"États-Unis, Amérique du Nord",flont:defprec_etats_unis_amerique_du_nord
+flont:UseRegionNorthAmerica,Gaspésie,"Gaspésie, Amérique du Nord",flont:defprec_gaspesie_amerique_du_nord
+flont:UseRegionNorthAmerica,Grenade,"Grenade, Amérique du Nord",flont:defprec_grenade_amerique_du_nord
+flont:UseRegionNorthAmerica,Groenland,"Groenland, Amérique du Nord",flont:defprec_groenland_amerique_du_nord
+flont:UseRegionNorthAmerica,Guadeloupe,"Guadeloupe, Amérique du Nord",flont:defprec_guadeloupe_amerique_du_nord
+flont:UseRegionNorthAmerica,Haïti,"Haïti, Amérique du Nord",flont:defprec_haiti_amerique_du_nord
+flont:UseRegionNorthAmerica,Îles-de-la-Madeleine,"Îles-de-la-Madeleine, Canada, Amérique du Nord",flont:defprec_iles_de_la_madeleine_canada_amerique_du_nord
+flont:UseRegionNorthAmerica,Jamaïque,"Jamaïque, Amérique du Nord",flont:defprec_jamaique_amerique_du_nord
+flont:UseRegionNorthAmerica,Louisiane,"Louisiane, États-Unis, Amérique du Nord",flont:defprec_louisiane_etats_unis_amerique_du_nord
+flont:UseRegionNorthAmerica,Martinique,"Martinique, Amérique du Nord",flont:defprec_martinique_amerique_du_nord
+flont:UseRegionNorthAmerica,Mexique,"Mexique, Amérique du Nord",flont:defprec_mexique_amerique_du_nord
+flont:UseRegionNorthAmerica,Montréal,"Montréal, Canada, Amérique du Nord",flont:defprec_montreal_canada_amerique_du_nord
+flont:UseRegionNorthAmerica,Québec,"Québec, Canada, Amérique du Nord",flont:defprec_quebec_canada_amerique_du_nord
+flont:UseRegionNorthAmerica,République dominicaine,"République dominicaine, Amérique du Nord",flont:defprec_republique_dominicaine_amerique_du_nord
+flont:UseRegionNorthAmerica,Saint-Christophe-et-Niévès,"Saint-Christophe-et-Niévès, Amérique du Nord",flont:defprec_saint_christophe_et_nieves_amerique_du_nord
+flont:UseRegionNorthAmerica,Saint-Vincent-et-les Grenadines,"Saint-Vincent-et-les Grenadines, Amérique du Nord",flont:defprec_saint_vincent_et_les_grenadines_amerique_du_nord
+flont:UseRegionNorthAmerica,Sainte-Lucie,"Sainte-Lucie, Amérique du Nord",flont:defprec_sainte_lucie_amerique_du_nord
+flont:UseRegionNorthAmerica,Trinité-et-Tobago,"Trinité-et-Tobago, Amérique du Nord",flont:defprec_trinite_et_tobago_amerique_du_nord
+flont:UseRegionOceania,Australie,"Australie, Océanie",flont:defprec_australie_oceanie
+flont:UseRegionOceania,Fidji,"Fidji, Océanie",flont:defprec_fidji_oceanie
+flont:UseRegionOceania,Kiribati,"Kiribati, Océanie",flont:defprec_kiribati_oceanie
+flont:UseRegionOceania,Marshall,"Marshall, Océanie",flont:defprec_marshall_oceanie
+flont:UseRegionOceania,Mayotte,"Mayotte, Océanie",flont:defprec_mayotte_oceanie
+flont:UseRegionOceania,Micronésie,"Micronésie, Océanie",flont:defprec_micronesie_oceanie
+flont:UseRegionOceania,Nauru,"Nauru, Océanie",flont:defprec_nauru_oceanie
+flont:UseRegionOceania,Nouvelle-Calédonie,"Nouvelle-Calédonie, Océanie",flont:defprec_nouvelle_caledonie_oceanie
+flont:UseRegionOceania,Nouvelle-Zélande,"Nouvelle-Zélande, Océanie",flont:defprec_nouvelle_zelande_oceanie
+flont:UseRegionOceania,Océanie,Océanie,flont:defprec_oceanie
+flont:UseRegionOceania,Palaos,"Palaos, Océanie",flont:defprec_palaos_oceanie
+flont:UseRegionOceania,Papouasie-Nouvelle-Guinée,"Papouasie-Nouvelle-Guinée, Océanie",flont:defprec_papouasie_nouvelle_guinee_oceanie
+flont:UseRegionOceania,Polynésie française,"Polynésie française, France, Océanie",flont:defprec_polynesie_francaise_france_oceanie
+flont:UseRegionOceania,Réunion,"Réunion, France, Océanie",flont:defprec_reunion_france_oceanie
+flont:UseRegionOceania,Salomon,"Salomon, Océanie",flont:defprec_salomon_oceanie
+flont:UseRegionOceania,Samoa,"Samoa, Océanie",flont:defprec_samoa_oceanie
+flont:UseRegionOceania,Tonga,"Tonga, Océanie",flont:defprec_tonga_oceanie
+flont:UseRegionOceania,Tuvalu,"Tuvalu, Océanie",flont:defprec_tuvalu_oceanie
+flont:UseRegionOceania,Vanuatu,"Vanuatu, Océanie",flont:defprec_vanuatu_oceanie
+flont:UseRegionSouthAmerica,Amérique du Sud;Amérique latine,Amérique du Sud,flont:defprec_amerique_du_sud
+flont:UseRegionSouthAmerica,Argentine,"Argentine, Amérique du Sud",flont:defprec_argentine_amerique_du_sud
+flont:UseRegionSouthAmerica,Bahia,"Bahia, Brésil, Amérique du Sud",flont:defprec_bahia_bresil_amerique_du_sud
+flont:UseRegionSouthAmerica,Bolivie,"Bolivie, Amérique du Sud",flont:defprec_bolivie_amerique_du_sud
+flont:UseRegionSouthAmerica,Brésil,"Brésil, Amérique du Sud",flont:defprec_bresil_amerique_du_sud
+flont:UseRegionSouthAmerica,Chili,"Chili, Amérique du Sud",flont:defprec_chili_amerique_du_sud
+flont:UseRegionSouthAmerica,Colombie,"Colombie, Amérique du Sud",flont:defprec_colombie_amerique_du_sud
+flont:UseRegionSouthAmerica,Équateur,"Équateur, Amérique du Sud",flont:defprec_equateur_amerique_du_sud
+flont:UseRegionSouthAmerica,Guyana,"Guyana, Amérique du Sud",flont:defprec_guyana_amerique_du_sud
+flont:UseRegionSouthAmerica,Guyane,"Guyane, France, Amérique du Sud",flont:defprec_guyane_france_amerique_du_sud
+flont:UseRegionSouthAmerica,Paraguay,"Paraguay, Amérique du Sud",flont:defprec_paraguay_amerique_du_sud
+flont:UseRegionSouthAmerica,Pérou,"Pérou, Amérique du Sud",flont:defprec_perou_amerique_du_sud
+flont:UseRegionSouthAmerica,Rio de Janeiro,"Rio de Janeiro, Brésil, Amérique du Sud",flont:defprec_rio_de_janeiro_bresil_amerique_du_sud
+flont:UseRegionSouthAmerica,Rio de la Plata,"Rio de la Plata, Uruguay, Amérique du Sud",flont:defprec_rio_de_la_plata_uruguay_amerique_du_sud
+flont:UseRegionSouthAmerica,São Paulo,"São Paulo, Brésil, Amérique du Sud",flont:defprec_sao_paulo_bresil_amerique_du_sud
+flont:UseRegionSouthAmerica,Suriname,"Suriname, Amérique du Sud",flont:defprec_suriname_amerique_du_sud
+flont:UseRegionSouthAmerica,Uruguay,"Uruguay, Amérique du Sud",flont:defprec_uruguay_amerique_du_sud
+flont:UseRegionSouthAmerica,Venezuela,"Venezuela, Amérique du Sud",flont:defprec_venezuela_amerique_du_sud
+flont:UseTemporality,archaïsme,Archaïsme,flont:defprec_archaisme
+flont:UseTemporality,désuet,Désuet,flont:defprec_desuet
+flont:UseTemporality,néologisme,Néologisme,flont:defprec_neologisme
+flont:UseTemporality,vieilli,Vieilli,flont:defprec_vieilli
