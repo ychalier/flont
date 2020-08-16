@@ -2,15 +2,17 @@
 
 ## Simple Additions
 
-- [ ] **[ontology]** Parse definitions for verbal inflections, to make up for missing `{{fr-verbe-flexion}}` templates and incomplete conjugation tables.
+- [x] **[ontology]** ~~Parse definitions for verbal inflections, to make up for missing `{{fr-verbe-flexion}}` templates and incomplete conjugation tables.~~ (note: most of the missing conjugation came from a (now fixed) bug in the template parsing, linking a lots of verbs to the literal `flont:oui`)
 - [ ] **[ontology]** Insert labels (relation names, POS names, etc.) as annotations within the ontology, through the `rdfs:label` property.
 - [ ] **[ontology]** Clearly state the grammatical gender and number of adjectives, pronouns, etc., to allow for gender selection queries.
 - [x] **[ontology]** ~~Express definition dependency (characterized by precisions of type `flont:RelationshipBetweenDefinition`) through a new relation between lexical senses.~~
 - [x] **[ontology]** ~~When a definition is parsed as an inflection description, do not output a lexical sense for it.~~
 - [x] **[ontology]** ~~When a level 3 section contains pronunciation information, associate it to entries without pronunciation information instead of the literal (for consistency).~~
+- [ ] **[ontology]** Parse verb group (1st, 2nd or 3rd).
 - [ ] **[webapp]** Support symmetric relationships (such as synonymy).
 - [ ] **[webapp]** Template parsing for clean etymology display.
 - [ ] **[webapp]** Link WordReference to translate French literals into English.
+- [ ] **[webapp]** Add present and past participle displays.
 
 ## Ideas
 

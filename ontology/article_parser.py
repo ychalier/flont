@@ -11,6 +11,10 @@ SECTION_TITLE_PATTERN = re.compile(r"=|{|}")
 DEFINITION_PATTERN = re.compile(r"^ *(#+) *(\*?) *(.*)")
 MULTIPLE_SPACES_PATTERN = re.compile("  +")
 TEMPLATE_PATTERN = re.compile(r"{{(.*?)}}")
+VERBAL_INFLECTION_PATTERN = re.compile(
+    r"^ *(première|deuxième|troisième) personne du (singulier|pluriel) d[ue’'](?: l[’'])? ?(.*?) (?:d[e’']|du verbe)",  # pylint: disable=C0301
+    re.IGNORECASE
+)
 INFLECTION_LINK_REGEX = r"(?:(?:{l(?:ien)?\|(.*?)[\|}])|(?:\[\[(.*?)\]\]))"
 AGREEMENT_INFLECTION_PATTERNS = {
     "isFeminineOf": [
@@ -48,6 +52,64 @@ AGREEMENT_INFLECTION_PATTERNS = {
             r"Un des(?: deux)? pluriels d[e’'].*"
             + INFLECTION_LINK_REGEX)
     ]
+}
+VERBAL_INFLECTION_PATTERN = re.compile(
+    r"(première|deuxième|troisième) personne du (singulier|pluriel) d[ue’'](?: l[’'])? ?(.*?) (?:d[e’']|du verbe)",  # pylint: disable=C0301
+    re.IGNORECASE
+)
+PARTICIPLE_INFLECTION_PATTERN = re.compile(
+    r"participe (passé|présent)(?: au)?( masculin singulier| féminin singulier| masculin pluriel| féminin pluriel| masculin| féminin| masculin \(singulier ou pluriel\))? (?:d[e’']|du verbe)",  # pylint: disable=C0301
+    re.IGNORECASE
+)
+TENSE_MAPPING = {
+    "conditionnel": "conditionalPresent",
+    "conditionnel présent": "conditionalPresent",
+    "futur": "indicativeSimpleFuture",
+    "futur simple": "indicativeSimpleFuture",
+    "imparfait": "indicativeImperfect",
+    "imparfait (ancienne manière)": "indicativeImperfect",
+    "imparfait d subjonctif": "subjonctiveImperfect",
+    "imparfait du subjonctif": "subjonctiveImperfect",
+    "imparfait su subjonctif": "subjonctiveImperfect",
+    "impératif": "imperativePresent",
+    "impératif présent": "imperativePresent",
+    "indicatif futur": "indicativeSimpleFuture",
+    "indicatif futur simple": "indicativeSimpleFuture",
+    "indicatif imparfait": "indicativeImperfect",
+    "indicatif imparfait (ancienne manière)": "indicativeImperfect",
+    "indicatif imparfait (manière moderne)": "indicativeImperfect",
+    "indicatif passé simple": "indicativeSimplePast",
+    "indicatif présent": "indicativePresent",
+    "indicatif présent présent": "indicativePresent",
+    "passé simple": "indicativeSimplePast",
+    "passés simple": "indicativeSimplePast",
+    "présent": "indicativePresent",
+    "présent du conditionnel": "conditionalPresent",
+    "présent du subjonctif": "subjonctivePresent",
+    "présent indicatif": "indicativePresent",
+    "subjonctif": "subjonctivePresent",
+    "subjonctif imparfait": "subjonctiveImperfect",
+    "subjonctif imparfait (manière moderne)": "subjonctiveImperfect",
+    "subjonctif présent": "subjonctivePresent",
+    "subjonctif présent (ancienne manière)": "subjonctivePresent",
+}
+PERSON_MAPPING = {
+    "première": "1",
+    "deuxième": "2",
+    "troisième": "3"
+}
+NUMBER_MAPPING = {
+    "singulier": "S",
+    "pluriel": "P"
+}
+PARTICIPLE_MAPPING = {
+    " masculin singulier": ["pastParticipleMS"],
+    " féminin singulier": ["pastParticipleFS"],
+    " masculin pluriel": ["pastParticipleMP"],
+    " féminin pluriel": ["pastParticipleFP"],
+    " masculin": ["pastParticipleMS"],
+    " féminin": ["pastParticipleFS"],
+    " masculin (singulier ou pluriel)": ["pastParticipleMS", "pastParticipleMP"]
 }
 
 
@@ -332,11 +394,16 @@ class WikitextEntry(SectionParser, OntologyIndividual):
 
     def _parse_head(self, title, head):
         self.cls = self.rscmgr.pos_templates[title]
+        _is_verb = self.cls == "Verb"
         self._parse_pronunciation(head)
         self._parse_traits(head)
-        self._parse_verbal_inflections(head)
+        if _is_verb:
+            self._parse_head_verbal_inflections(head)
         self._parse_senses(head)
-        self._parse_sense_inflections()
+        if _is_verb:
+            self._parse_sense_verbal_inflections()
+        else:
+            self._parse_sense_inflections()
 
     def _parse_pronunciation(self, section):
         pronunciation = extract_pronunciation(section)
@@ -358,7 +425,7 @@ class WikitextEntry(SectionParser, OntologyIndividual):
             elif template.name == "s":
                 self.add_object_property("hasNumber", "singular")
 
-    def _parse_verbal_inflections(self, head):
+    def _parse_head_verbal_inflections(self, head):
         templates = {
             t.name: t.arguments
             for t in head.templates
@@ -379,6 +446,37 @@ class WikitextEntry(SectionParser, OntologyIndividual):
             return
         for inflection in inflections:
             self.add_reversed_object_property(inflection, literal)
+
+    def _parse_sense_verbal_inflections(self):
+        for sense in self.senses[:]:
+            ppties = set()
+            match = VERBAL_INFLECTION_PATTERN.search(sense.definition)
+            if match is None:
+                match = PARTICIPLE_INFLECTION_PATTERN.search(sense.definition)
+                if match is None:
+                    continue
+                if match.group(1) == "présent":
+                    ppties.add("presentParticiple")
+                elif match.group(2) in PARTICIPLE_MAPPING:
+                    for ppty in PARTICIPLE_MAPPING[match.group(2)]:
+                        ppties.add(ppty)
+            else:
+                tense_raw = match.group(3).lower().strip()
+                tense = TENSE_MAPPING.get(tense_raw)
+                if tense is None:
+                    continue
+                ppties.add(
+                    tense
+                    + PERSON_MAPPING[match.group(1).lower()]
+                    + NUMBER_MAPPING[match.group(2).lower()]
+                )
+            if len(ppties) > 0:
+                parsed = wikitextparser.parse(sense.definition[match.end():])
+                for link in parsed.wikilinks:
+                    tgt = format_literal(link.target.split("#")[0])
+                    for ppty in ppties:
+                        self.add_reversed_object_property(ppty, tgt)
+                self.senses.remove(sense)
 
     def _parse_senses(self, head):
         senses = list()
