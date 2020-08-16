@@ -3,7 +3,7 @@
 ## Simple Additions
 
 - [x] **[ontology]** ~~Parse definitions for verbal inflections, to make up for missing `{{fr-verbe-flexion}}` templates and incomplete conjugation tables.~~ (note: most of the missing conjugation came from a (now fixed) bug in the template parsing, linking a lots of verbs to the literal `flont:_oui`)
-- [ ] **[ontology]** Insert labels (relation names, POS names, etc.) as annotations within the ontology, through the `rdfs:label` property.
+- [x] **[ontology]** ~~Insert labels (relation names, POS names, etc.) as annotations within the ontology, through the `rdfs:label` property.~~
 - [ ] **[ontology]** Clearly state the grammatical gender and number of adjectives, pronouns, etc., to allow for gender selection queries.
 - [x] **[ontology]** ~~Express definition dependency (characterized by precisions of type `flont:RelationshipBetweenDefinition`) through a new relation between lexical senses.~~
 - [x] **[ontology]** ~~When a definition is parsed as an inflection description, do not output a lexical sense for it.~~
