@@ -169,7 +169,7 @@
     <!-- https://ontology.chalier.fr/flont#hasDerivative -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasDerivative">
-        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#isLinkedTo"/>
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasLink"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
         <rdfs:label xml:lang="fr">Dérivé</rdfs:label>
@@ -288,7 +288,7 @@
     <!-- https://ontology.chalier.fr/flont#hasHomophone -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasHomophone">
-        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#soundsSimilarTo"/>
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasCloseSound"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
@@ -451,7 +451,7 @@
     <!-- https://ontology.chalier.fr/flont#hasRelative -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasRelative">
-        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#isLinkedTo"/>
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasLink"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
         <rdfs:label xml:lang="fr">Apparenté</rdfs:label>
@@ -462,7 +462,7 @@
     <!-- https://ontology.chalier.fr/flont#hasSemanticLinkWith -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasSemanticLinkWith">
-        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#isLinkedTo"/>
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasLink"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
@@ -530,7 +530,7 @@
     <!-- https://ontology.chalier.fr/flont#hasVariant -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasVariant">
-        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#isLinkedTo"/>
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasLink"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
@@ -854,10 +854,10 @@
     
 
 
-    <!-- https://ontology.chalier.fr/flont#isAnagramOf -->
+    <!-- https://ontology.chalier.fr/flont#hasAnagram -->
 
-    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#isAnagramOf">
-        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#isLinkedTo"/>
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasAnagram">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasLink"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
@@ -866,9 +866,9 @@
     
 
 
-    <!-- https://ontology.chalier.fr/flont#isAntonymOf -->
+    <!-- https://ontology.chalier.fr/flont#hasAntonym -->
 
-    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#isAntonymOf">
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasAntonym">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasSimilarityLinkWith"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
@@ -878,9 +878,9 @@
     
 
 
-    <!-- https://ontology.chalier.fr/flont#isComponentOf -->
+    <!-- https://ontology.chalier.fr/flont#hasCompound -->
 
-    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#isComponentOf">
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasCompound">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasDerivative"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
@@ -916,9 +916,9 @@
     
 
 
-    <!-- https://ontology.chalier.fr/flont#isLinkedTo -->
+    <!-- https://ontology.chalier.fr/flont#hasLink -->
 
-    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#isLinkedTo">
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasLink">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:label xml:lang="fr">Relié</rdfs:label>
     </owl:ObjectProperty>
@@ -945,10 +945,10 @@
     
 
 
-    <!-- https://ontology.chalier.fr/flont#isParonymOf -->
+    <!-- https://ontology.chalier.fr/flont#hasParonym -->
 
-    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#isParonymOf">
-        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#soundsSimilarTo"/>
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasParonym">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasCloseSound"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
@@ -966,9 +966,9 @@
     
 
 
-    <!-- https://ontology.chalier.fr/flont#isQuasiSynonymOf -->
+    <!-- https://ontology.chalier.fr/flont#hasQuasisynonym -->
 
-    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#isQuasiSynonymOf">
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasQuasisynonym">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasSimilarityLinkWith"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
@@ -989,9 +989,9 @@
     
 
 
-    <!-- https://ontology.chalier.fr/flont#isSynonymOf -->
+    <!-- https://ontology.chalier.fr/flont#hasSynonym -->
 
-    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#isSynonymOf">
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasSynonym">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasSimilarityLinkWith"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
@@ -1065,10 +1065,10 @@
     
 
 
-    <!-- https://ontology.chalier.fr/flont#soundsSimilarTo -->
+    <!-- https://ontology.chalier.fr/flont#hasCloseSound -->
 
-    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#soundsSimilarTo">
-        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#isLinkedTo"/>
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasCloseSound">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasLink"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>

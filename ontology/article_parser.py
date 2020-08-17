@@ -291,7 +291,7 @@ class WikitextLiteral(SectionParser, OntologyIndividual):
         if subtitle == "étymologie":
             self._parse_etymology(subsection)
         elif subtitle == "anagrammes":
-            self._parse_links("isAnagramOf", subsection)
+            self._parse_links("hasAnagram", subsection)
         elif subtitle == "pronunciation":
             self._parse_pronunciation(subsection)
         elif subtitle in self.rscmgr.pos_templates:

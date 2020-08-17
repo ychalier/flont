@@ -129,7 +129,7 @@ LINK_LABEL_FR = {
     "hasDerivedLocution": "Proverbes",
     "hasDerivedPhrase": "Phrases dérivées",
     "hasDerivedWord": "Mots dérivés",
-    "isComponentOf": "Composés",
+    "hasCompound": "Composés",
     "hasRelative": "Apparentés",
     "hasRelatedVocabulary": "Vocabulaire apparenté",
     "hasRelatedWord": "Mots apparentés",
@@ -138,9 +138,9 @@ LINK_LABEL_FR = {
     "hasDiminutive": "Diminutifs",
     "hasHolonym": "Holonymes",
     "hasMeronym": "Méronymes",
-    "isAntonymOf": "Antonymes",
-    "isQuasiSynonymOf": "Quasi-synonymes",
-    "isSynonymOf": "Synonymes",
+    "hasAntonym": "Antonymes",
+    "hasQuasisynonym": "Quasi-synonymes",
+    "hasSynonym": "Synonymes",
     "hasHypernym": "Hyperonymes",
     "hasHyponym": "Hyponymes",
     "hasTroponym": "Troponymes",
@@ -149,9 +149,9 @@ LINK_LABEL_FR = {
     "hasDialectVariant": "Variantes dialectales",
     "hasOldSpelling": "Anciennes ortographes",
     "hasSpellingVariant": "Autres ortographes",
-    "isAnagramOf": "Anagrammes",
+    "hasAnagram": "Anagrammes",
     "hasHomophone": "Homophones",
-    "isParonymOf": "Paronymes",
+    "hasParonym": "Paronymes",
 }
 
 
@@ -573,7 +573,7 @@ class Literal:  # pylint: disable=R0902
         PREFIX flont: <https://ontology.chalier.fr/flont#>
         SELECT ?literal ?label
         WHERE {
-            %s flont:isAnagramOf ?literal .
+            %s flont:hasAnagram ?literal .
             ?literal flont:label ?label .
         }
         """ % self.node.n3()
@@ -708,7 +708,7 @@ class LexicalEntry:  # pylint: disable=R0902
         SELECT ?literal ?label ?relation
         WHERE {
             %s ?relation ?literal .
-            ?relation rdfs:subPropertyOf* flont:isLinkedTo .
+            ?relation rdfs:subPropertyOf* flont:hasLink .
             ?literal flont:label ?label .
         }
         """ % self.node.n3()

@@ -27,6 +27,6 @@ One literal may have several lexical entries. Most of the time, it has one per g
 
 Such inconsistencies belittle the quality of the ontology. I am not sure what should be done about that. A simple fix would be grouping together all entries with the same POS, at the cost of semantic knowledge. Unsupervised partitioning seems like a hard task though. There could be literature about that.
 
-## Re-targeting `flont:isLinkedTo` Properties
+## Re-targeting `flont:hasLink` Properties
 
-Those are the properties such as `flont:isSynonymOf`, `flont:hasHolonym`, etc. Currently, they are instantiated between lexical entries and literals. This is due to Wiktionary's article format. Roughly, each lexical entry is a section in the article (one article per literal); `flont:isLinkedTo` properties are extracted from hyperlinks (usually only stating the literal) within the subsections. Depending on what is done with polysemy balancing, it could be a nice improvement to change the domain/range of those properties so they can be more meaningful.
+Those are the properties such as `flont:hasSynonym`, `flont:hasHolonym`, etc. Currently, they are instantiated between lexical entries and literals. This is due to Wiktionary's article format. Roughly, each lexical entry is a section in the article (one article per literal); `flont:hasLink` properties are extracted from hyperlinks (usually only stating the literal) within the subsections. Depending on what is done with polysemy balancing, it could be a nice improvement to change the domain/range of those properties so they can be more meaningful.

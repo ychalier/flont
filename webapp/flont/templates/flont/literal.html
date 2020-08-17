@@ -21,7 +21,7 @@
 
     {% if literal.anagrams %}
     <div class="literal__anagrams linkbox">
-        <span class="linkbox__element linkbox__title"><a class="black" href="{% url 'flont:graph' short_iri='isAnagramOf' %}">anagramme{{ literal.anagrams|pluralize }}</a></span>
+        <span class="linkbox__element linkbox__title"><a class="black" href="{% url 'flont:graph' short_iri='hasAnagram' %}">anagramme{{ literal.anagrams|pluralize }}</a></span>
         {% for label in literal.anagrams %}
         <span class="linkbox__element linkbox__link">{{ label.html_black | safe }}</span>
         {% endfor %}

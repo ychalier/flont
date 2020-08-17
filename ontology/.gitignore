@@ -11,7 +11,9 @@
 *.old
 *.rdf
 *.txt
+*.ods
 !requirements.txt
 !schema.owl
 flexion.csv
+agreement.csv
 .~lock*
