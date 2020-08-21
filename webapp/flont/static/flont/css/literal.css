@@ -56,17 +56,17 @@
     color: grey;
 }
 
-table.conjugation {
+.inflection_table {
     width: auto;
     margin-right: 16px;
     margin-bottom: 16px;
 }
 
-table.conjugation td:first-child {
-    width: 32px;
+.inflection_table td:first-child {
+    min-width: 32px;
 }
 
-.literal__conjugations {
+.inflection_tables {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

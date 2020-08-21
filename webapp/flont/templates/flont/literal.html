@@ -5,6 +5,7 @@
         {% if literal.pronunciation %}
         <span class="literal__header__pronunciation"><a class="black" href="{% url 'flont:graph' short_iri='pronunciation' %}">/<i>{{ literal.pronunciation }}</i>/</a></span>
         {% endif %}
+        <small><a class="black" href="https://www.wordreference.com/fren/{{ literal.label | urlencode }}">[en]</a></small>
         <span class="literal__header__iri iri">{{ literal.iri.html_black | safe }}</span>
     </div>
 
@@ -35,24 +36,6 @@
         {% include 'flont/lexical_entry.html' %}
         {% endfor %}
 
-    </div>
-    {% endif %}
-
-    {% if literal.conjugations %}
-    <div class="literal__conjugations">
-        {% for conjugation in literal.conjugations %}
-        <table class="conjugation">
-            <tr>
-                <th colspan="2">{{ conjugation.tense.html_black | safe }}</th>
-            </tr>
-            {% for subjet, target in conjugation %}
-            <tr>
-                <td><i>{{ subjet.html_black | safe}}</i></td>
-                <td>{{ target.html_internal | safe }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-        {% endfor %}
     </div>
     {% endif %}
 

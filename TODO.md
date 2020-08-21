@@ -11,8 +11,8 @@
 - [ ] **[ontology]** Parse verb group (1st, 2nd or 3rd).
 - [ ] **[webapp]** Support symmetric relationships (such as synonymy).
 - [ ] **[webapp]** Template parsing for clean etymology display.
-- [ ] **[webapp]** Link WordReference to translate French literals into English.
-- [ ] **[webapp]** Add present and past participle displays.
+- [x] **[webapp]** ~~Link WordReference to translate French literals into English.~~
+- [x] **[webapp]** ~~Add present and past participle displays.~~
 
 ## Ideas
 

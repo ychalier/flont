@@ -63,6 +63,9 @@ class OntologyManager:
         functionality = self._functional.get(ppty)
         if functionality is None:
             ppty_node = self.ontology[ppty]
+            if ppty_node is None:
+                logging.error("Could not find the node for property '%s'", ppty)
+                return
             functionality = ppty_node.is_functional_for(obj)
             self._functional[ppty] = functionality
         if functionality:

@@ -18,9 +18,9 @@ def main():
     populate_parser.add_argument(
         "database", type=str, help="path to the database")
     populate_parser.add_argument(
-        "resources", type=str, help="path the the resources folder")
-    populate_parser.add_argument(
         "output", type=str, help="output filename")
+    populate_parser.add_argument(
+        "-r", "--resources", type=str, help="path the the resources folder", default="resources")
     populate_parser.add_argument(
         "-mi", "--max-iter", type=int, default=0,
         help="maximum number of iterations")

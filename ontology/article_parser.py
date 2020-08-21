@@ -262,6 +262,7 @@ class WikitextLiteral(SectionParser, OntologyIndividual):
 
     IGNORE = {
         "références",
+        "réf",
         "voir aussi",
         "voir",
         "variante typographique",
@@ -292,7 +293,7 @@ class WikitextLiteral(SectionParser, OntologyIndividual):
             self._parse_etymology(subsection)
         elif subtitle == "anagrammes":
             self._parse_links("hasAnagram", subsection)
-        elif subtitle == "pronunciation":
+        elif subtitle in {"prononciation", "pron"}:
             self._parse_pronunciation(subsection)
         elif subtitle in self.rscmgr.pos_templates:
             self._parse_lexical_entry(subtitle, subsection)

@@ -49,6 +49,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#conditionalPresent1P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#conditionalPresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">1&lt;sup&gt;ère&lt;/sup&gt; personne du pluriel du conditionnel présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -58,6 +59,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#conditionalPresent1S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#conditionalPresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">1&lt;sup&gt;ère&lt;/sup&gt; personne du singulier du conditionnel présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -67,6 +69,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#conditionalPresent2P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#conditionalPresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">2&lt;sup&gt;ème&lt;/sup&gt; personne du pluriel du conditionnel présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -76,6 +79,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#conditionalPresent2S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#conditionalPresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">2&lt;sup&gt;ème&lt;/sup&gt; personne du singulier du conditionnel présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -85,6 +89,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#conditionalPresent3P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#conditionalPresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">3&lt;sup&gt;ème&lt;/sup&gt; personne du pluriel du conditionnel présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -94,6 +99,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#conditionalPresent3S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#conditionalPresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">3&lt;sup&gt;ème&lt;/sup&gt; personne du singulier du conditionnel présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -134,6 +140,30 @@
     
 
 
+    <!-- https://ontology.chalier.fr/flont#hasAnagram -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasAnagram">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasLink"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+        <rdfs:label xml:lang="fr">Anagramme</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#hasAntonym -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasAntonym">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasSimilarityLinkWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+        <rdfs:label xml:lang="fr">Antonyme</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://ontology.chalier.fr/flont#hasAugmentative -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasAugmentative">
@@ -142,6 +172,27 @@
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
         <rdfs:label xml:lang="fr">Augmentatif</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#hasCloseSound -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasCloseSound">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasLink"/>
+        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#hasCompound -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasCompound">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasDerivative"/>
+        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+        <rdfs:label xml:lang="fr">Composé</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -239,6 +290,7 @@
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasAgreement"/>
         <owl:inverseOf rdf:resource="https://ontology.chalier.fr/flont#isFeminineOf"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">Féminin singulier</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -249,6 +301,7 @@
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasPlural"/>
         <owl:inverseOf rdf:resource="https://ontology.chalier.fr/flont#isFemininePluralOf"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">Féminin pluriel</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -342,6 +395,15 @@
     
 
 
+    <!-- https://ontology.chalier.fr/flont#hasLink -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasLink">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:label xml:lang="fr">Relié</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://ontology.chalier.fr/flont#hasLiteral -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasLiteral">
@@ -360,6 +422,7 @@
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasPlural"/>
         <owl:inverseOf rdf:resource="https://ontology.chalier.fr/flont#isMasculinePluralOf"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">Masculin pluriel</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -397,6 +460,18 @@
     
 
 
+    <!-- https://ontology.chalier.fr/flont#hasParonym -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasParonym">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasCloseSound"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+        <rdfs:label xml:lang="fr">Paronyme</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://ontology.chalier.fr/flont#hasPartitiveLinkWith -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasPartitiveLinkWith">
@@ -413,6 +488,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasPlural">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasAgreement"/>
         <owl:inverseOf rdf:resource="https://ontology.chalier.fr/flont#isPluralOf"/>
+        <rdfs:label xml:lang="fr">Pluriel</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -422,6 +498,18 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasPrecision">
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalSense"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#DefinitionPrecision"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://ontology.chalier.fr/flont#hasQuasisynonym -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasQuasisynonym">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasSimilarityLinkWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+        <rdfs:label xml:lang="fr">Quasi-synonyme</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -505,6 +593,18 @@
     
 
 
+    <!-- https://ontology.chalier.fr/flont#hasSynonym -->
+
+    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasSynonym">
+        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasSimilarityLinkWith"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
+        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
+        <rdfs:label xml:lang="fr">Synonyme</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- https://ontology.chalier.fr/flont#hasTaxonomicalLinkWith -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasTaxonomicalLinkWith">
@@ -562,6 +662,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#imperativePresent1P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#imperativePresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">1&lt;sup&gt;ère&lt;/sup&gt; personne du pluriel de l&apos;impératif présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -571,6 +672,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#imperativePresent2P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#imperativePresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">2&lt;sup&gt;ème&lt;/sup&gt; personne du pluriel de l&apos;impératif présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -580,6 +682,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#imperativePresent2S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#imperativePresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">2&lt;sup&gt;ème&lt;/sup&gt; personne du singulier de l&apos;impératif présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -589,6 +692,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#imperativePresent2SPostposed">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#imperativePresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">2&lt;sup&gt;ème&lt;/sup&gt; personne du singulier de l&apos;impératif présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -607,6 +711,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeImperfect1P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeImperfect"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">1&lt;sup&gt;ère&lt;/sup&gt; personne du pluriel de l&apos;indicatif imparfait</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -616,6 +721,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeImperfect1S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeImperfect"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">1&lt;sup&gt;ère&lt;/sup&gt; personne du singulier de l&apos;indicatif imparfait</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -625,6 +731,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeImperfect2P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeImperfect"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">2&lt;sup&gt;ème&lt;/sup&gt; personne du pluriel de l&apos;indicatif imparfait</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -634,6 +741,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeImperfect2S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeImperfect"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">2&lt;sup&gt;ème&lt;/sup&gt; personne du singulier de l&apos;indicatif imparfait</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -643,6 +751,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeImperfect3P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeImperfect"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">3&lt;sup&gt;ème&lt;/sup&gt; personne du pluriel de l&apos;indicatif imparfait</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -652,6 +761,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeImperfect3S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeImperfect"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">3&lt;sup&gt;ème&lt;/sup&gt; personne du singulier de l&apos;indicatif imparfait</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -670,6 +780,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativePresent1P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativePresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">1&lt;sup&gt;ère&lt;/sup&gt; personne du pluriel de l&apos;indicatif présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -679,6 +790,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativePresent1S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativePresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">1&lt;sup&gt;ère&lt;/sup&gt; personne du singulier de l&apos;indicatif présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -688,6 +800,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativePresent2P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativePresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">2&lt;sup&gt;ème&lt;/sup&gt; personne du pluriel de l&apos;indicatif présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -697,6 +810,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativePresent2S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativePresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">2&lt;sup&gt;ème&lt;/sup&gt; personne du singulier de l&apos;indicatif présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -706,6 +820,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativePresent3P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativePresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">3&lt;sup&gt;ème&lt;/sup&gt; personne du pluriel de l&apos;indicatif présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -715,6 +830,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativePresent3S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativePresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">3&lt;sup&gt;ème&lt;/sup&gt; personne du singulier de l&apos;indicatif présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -733,6 +849,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimpleFuture1P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimpleFuture"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">1&lt;sup&gt;ère&lt;/sup&gt; personne du pluriel de l&apos;indicatif futur</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -742,6 +859,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimpleFuture1S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimpleFuture"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">1&lt;sup&gt;ère&lt;/sup&gt; personne du singulier de l&apos;indicatif futur</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -751,6 +869,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimpleFuture2P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimpleFuture"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">2&lt;sup&gt;ème&lt;/sup&gt; personne du pluriel de l&apos;indicatif futur</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -760,6 +879,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimpleFuture2S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimpleFuture"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">2&lt;sup&gt;ème&lt;/sup&gt; personne du singulier de l&apos;indicatif futur</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -769,6 +889,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimpleFuture3P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimpleFuture"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">3&lt;sup&gt;ème&lt;/sup&gt; personne du pluriel de l&apos;indicatif futur</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -778,6 +899,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimpleFuture3S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimpleFuture"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">3&lt;sup&gt;ème&lt;/sup&gt; personne du singulier de l&apos;indicatif futur</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -796,6 +918,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimplePast1P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimplePast"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">1&lt;sup&gt;ère&lt;/sup&gt; personne du pluriel du passé simple de l&apos;indicatif</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -805,6 +928,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimplePast1S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimplePast"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">1&lt;sup&gt;ère&lt;/sup&gt; personne du singulier du passé simple de l&apos;indicatif</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -814,6 +938,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimplePast2P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimplePast"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">2&lt;sup&gt;ème&lt;/sup&gt; personne du pluriel du passé simple de l&apos;indicatif</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -823,6 +948,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimplePast2S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimplePast"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">2&lt;sup&gt;ème&lt;/sup&gt; personne du singulier du passé simple de l&apos;indicatif</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -832,6 +958,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimplePast3P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimplePast"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">3&lt;sup&gt;ème&lt;/sup&gt; personne du pluriel du passé simple de l&apos;indicatif</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -841,6 +968,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indicativeSimplePast3S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#indicativeSimplePast"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">3&lt;sup&gt;ème&lt;/sup&gt; personne du singulier du passé simple de l&apos;indicatif</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -850,41 +978,6 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#indidicative">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasConjugation"/>
         <rdfs:label xml:lang="fr">Indicatif</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#hasAnagram -->
-
-    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasAnagram">
-        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasLink"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
-        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
-        <rdfs:label xml:lang="fr">Anagramme</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#hasAntonym -->
-
-    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasAntonym">
-        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasSimilarityLinkWith"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
-        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
-        <rdfs:label xml:lang="fr">Antonyme</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#hasCompound -->
-
-    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasCompound">
-        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasDerivative"/>
-        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
-        <rdfs:label xml:lang="fr">Composé</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -916,15 +1009,6 @@
     
 
 
-    <!-- https://ontology.chalier.fr/flont#hasLink -->
-
-    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasLink">
-        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
-        <rdfs:label xml:lang="fr">Relié</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://ontology.chalier.fr/flont#isLiteralOf -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#isLiteralOf">
@@ -945,35 +1029,11 @@
     
 
 
-    <!-- https://ontology.chalier.fr/flont#hasParonym -->
-
-    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasParonym">
-        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasCloseSound"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
-        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
-        <rdfs:label xml:lang="fr">Paronyme</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
     <!-- https://ontology.chalier.fr/flont#isPluralOf -->
 
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#isPluralOf">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#isInflectionOf"/>
         <rdfs:label xml:lang="fr">Pluriel</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#hasQuasisynonym -->
-
-    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasQuasisynonym">
-        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasSimilarityLinkWith"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
-        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
-        <rdfs:label xml:lang="fr">Quasi-synonyme</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -985,18 +1045,6 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalSense"/>
         <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#hasSynonym -->
-
-    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasSynonym">
-        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasSimilarityLinkWith"/>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
-        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
-        <rdfs:label xml:lang="fr">Synonyme</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1024,6 +1072,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#pastParticipleFP">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#pastParticiple"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">Participe passé féminin pluriel</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1033,6 +1082,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#pastParticipleFS">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#pastParticiple"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">Participe passé féminin singulier</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1042,6 +1092,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#pastParticipleMP">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#pastParticiple"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">Participe passé masculin pluriel</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1051,6 +1102,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#pastParticipleMS">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#pastParticiple"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">Participe passé masculin singulier</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1061,16 +1113,6 @@
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#participle"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:label xml:lang="fr">Participe présent</rdfs:label>
-    </owl:ObjectProperty>
-    
-
-
-    <!-- https://ontology.chalier.fr/flont#hasCloseSound -->
-
-    <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#hasCloseSound">
-        <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#hasLink"/>
-        <rdfs:domain rdf:resource="https://ontology.chalier.fr/flont#LexicalEntry"/>
-        <rdfs:range rdf:resource="https://ontology.chalier.fr/flont#Literal"/>
     </owl:ObjectProperty>
     
 
@@ -1098,6 +1140,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctiveImperfect1P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctiveImperfect"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">1&lt;sup&gt;ère&lt;/sup&gt; personne du pluriel du subjonctif imparfait</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1107,6 +1150,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctiveImperfect1S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctiveImperfect"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">1&lt;sup&gt;ère&lt;/sup&gt; personne du singulier du subjonctif imparfait</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1116,6 +1160,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctiveImperfect2P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctiveImperfect"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">2&lt;sup&gt;ème&lt;/sup&gt; personne du pluriel du subjonctif imparfait</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1125,6 +1170,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctiveImperfect2S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctiveImperfect"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">2&lt;sup&gt;ème&lt;/sup&gt; personne du singulier du subjonctif imparfait</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1134,6 +1180,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctiveImperfect3P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctiveImperfect"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">3&lt;sup&gt;ème&lt;/sup&gt; personne du pluriel du subjonctif imparfait</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1143,6 +1190,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctiveImperfect3S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctiveImperfect"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">3&lt;sup&gt;ème&lt;/sup&gt; personne du singulier du subjonctif imparfait</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1161,6 +1209,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctivePresent1P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctivePresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">1&lt;sup&gt;ère&lt;/sup&gt; personne du pluriel du subjonctif présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1170,6 +1219,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctivePresent1S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctivePresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">1&lt;sup&gt;ère&lt;/sup&gt; personne du singulier du subjonctif présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1179,6 +1229,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctivePresent2P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctivePresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">2&lt;sup&gt;ème&lt;/sup&gt; personne du pluriel du subjonctif présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1188,6 +1239,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctivePresent2S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctivePresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">2&lt;sup&gt;ème&lt;/sup&gt; personne du singulier du subjonctif présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1197,6 +1249,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctivePresent3P">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctivePresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">3&lt;sup&gt;ème&lt;/sup&gt; personne du pluriel du subjonctif présent</rdfs:label>
     </owl:ObjectProperty>
     
 
@@ -1206,6 +1259,7 @@
     <owl:ObjectProperty rdf:about="https://ontology.chalier.fr/flont#subjonctivePresent3S">
         <rdfs:subPropertyOf rdf:resource="https://ontology.chalier.fr/flont#subjonctivePresent"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:label xml:lang="fr">3&lt;sup&gt;ème&lt;/sup&gt; personne du singulier du subjonctif présent</rdfs:label>
     </owl:ObjectProperty>
     
 

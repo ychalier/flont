@@ -1,7 +1,11 @@
 <article class="literal__entry">
 
     <div class="literal__entry__header">
-        <span class="literal__entry__header__pos">{{ entry.format_pos.html_black | safe }}</span>
+        <span class="literal__entry__header__pos">
+            {% if entry.index %}({{ entry.index }}){% endif%}
+            {{ entry.pos.html_black | safe }}
+            {% if entry.gender %} <small><i>{{ entry.gender.html_black | safe }}</i></small>{% endif %}
+        </span>
         {% if entry.pronunciation %}
         <span class="literal__entry__header__pronunciation"><a class="black" href="{% url 'flont:graph' short_iri='pronunciation' %}">/<i>{{ entry.pronunciation }}</i>/</a></span>
         {% endif %}
@@ -12,14 +16,14 @@
     {% if entry.inflections %}
 
     <ul class="literal__entry__inflections">
-        {% for literal, relation in entry.inflections %}
+        {% for literal, relation in entry.inflections.items %}
         <li class="literal__entry__inflection">
             <i>{{ relation.html_black | safe }}</i> de {{ literal.html_internal | safe }}.
         </li>
         {% endfor %}
     </ul>
 
-    {% else %}
+    {% endif %}
 
     <ol class="literal__entry__definitions">
         {% for sense in entry.senses %}
@@ -29,8 +33,6 @@
         {% endfor %}
     </ol>
 
-    {% endif %}
-
     {% for relation, targets in entry.links.items %}
     <div class="literal__entry__relation linkbox">
         <span class="literal__entry__relation__name linkbox__element linkbox__title">{{ relation.html_black | safe }}</span>
@@ -39,5 +41,23 @@
         {% endfor %}
     </div>
     {% endfor %}
+
+    {% if entry.literal_inflections %}
+    <div class="inflection_tables">
+        {% for table in entry.literal_inflections %}
+        <table class="inflection_table">
+            <tr>
+                <th colspan="2">{{ table.title.html_black | safe }}</th>
+            </tr>
+            {% for key, value in table %}
+            <tr>
+                <td><i>{{ key.html_black | safe}}</i></td>
+                <td>{{ value.html_internal | safe }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endfor %}
+    </div>
+    {% endif %}
 
 </article>
