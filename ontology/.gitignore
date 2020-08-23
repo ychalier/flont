@@ -15,6 +15,7 @@
 !requirements.txt
 !schema.owl
 flexion.csv
+definitions.csv
 agreement.csv
 etymology.csv
 .~lock*

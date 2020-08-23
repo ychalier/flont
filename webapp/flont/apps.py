@@ -19,7 +19,7 @@ class FlontConfig(AppConfig):
         print("django-flont: Loading app...")
         if world is None:
             print("django-flont: Loading world...")
-            world = owlready2.World(filename=settings.ONTOLOGY_WORLD_DB)
+            world = owlready2.World(filename=settings.FLONT_DB)
         if ontology is None:
             print("django-flont: Loading ontology...")
             ontology = world.get_ontology("https://ontology.chalier.fr/flont").load()

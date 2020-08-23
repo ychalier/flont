@@ -16,7 +16,10 @@ You'll need Python 3.6+.
     pip install --extra-index-url="https://packages.chalier.fr" django-flont
     ```
 
-2. Add `flont` to your Django project `INSTALLED_APPS`
+2. Edit the website `settings.py`:
+  - Add `flont` the the `INSTALLED_APPS`
+  - Set the path to the database in a variable `FLONT_DB`
+  - Set the variable `FLONT_GET_CLOSE_LABELS` to either `True` or `False`
 
 3. Migrate the database:
     ```bash
@@ -29,7 +32,3 @@ You'll need Python 3.6+.
     ```
 
 5. Integrate `flont.urls` in your project URLs
-
-## Demonstration
-
-![Webapp Demo](https://i.imgur.com/SQwJ6yD.png)

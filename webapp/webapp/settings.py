@@ -28,8 +28,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-ONTOLOGY_WORLD_DB = "../ontology/filled.db"
-
+FLONT_DB = "../ontology/flont.db"
+FLONT_GET_CLOSE_LABELS = True
 
 # Application definition
 

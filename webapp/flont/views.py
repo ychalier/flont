@@ -4,6 +4,7 @@
 import re
 import urllib.parse
 import difflib
+from django.conf import settings
 from django.shortcuts import render, redirect
 from django.http import Http404
 import flont.apps
@@ -52,7 +53,9 @@ def search(request):
     node = ontology.find_literal_by_label(query)
     if node is not None:
         return redirect("flont:graph", short_iri=str(node).replace(ontology.FLONT_IRI, ""))
-    top_labels = difflib.get_close_matches(query, iterate_labels(), n=10, cutoff=0.6)
+    top_labels = list()
+    if settings.FLONT_GET_CLOSE_LABELS:
+        top_labels = difflib.get_close_matches(query, iterate_labels(), n=10, cutoff=0.6)
     return render(request, "flont/search.html", {
         "query": query_raw,
         "top_labels": top_labels
