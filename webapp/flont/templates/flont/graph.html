@@ -1,6 +1,10 @@
 {% extends 'flont/base.html' %}
 {% load static %}
 
+{% block title %}
+{% if entity_type == "literal" %}{{ entity_data.label }}{% else %}{{ short_iri }}{% endif %} &mid;
+{% endblock title %}
+
 {% block head %}
 <link rel="stylesheet" href="{% static 'flont/css/literal.css' %}" />
 {% endblock head %}

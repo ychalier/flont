@@ -3,11 +3,23 @@
     <div class="literal__header">
         <span class="literal__header__label">{{ literal.label }}</span>
         {% if literal.pronunciation %}
-        <span class="literal__header__pronunciation"><a class="black" href="{% url 'flont:graph' short_iri='pronunciation' %}">/<i>{{ literal.pronunciation }}</i>/</a></span>
+        <span class="literal__header__pronunciation"><a class="black" href="{% url 'flont:graph' short_iri='pronunciation' %}">\<i>{{ literal.pronunciation }}</i>\</a></span>
         {% endif %}
         <small><a class="black" href="https://www.wordreference.com/fren/{{ literal.label | urlencode }}">[en]</a></small>
         <span class="literal__header__iri iri">{{ literal.iri.html_black | safe }}</span>
     </div>
+
+    {% if literal.etymology %}
+    <div class="literal__etymology">
+        <span class="literal__etymology__title">
+            <a class="black" href="{% url 'flont:graph' short_iri='etymology' %}">Étymologie</a>
+        </span>
+        <div class="literal__etymology__content">
+            {{ literal.etymology.list | safe }}
+        </div>
+    </div>
+
+    {% endif %}
 
     {% if literal.get_inflections %}
     <div class="literal__inflections linkbox">

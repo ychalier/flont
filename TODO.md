@@ -10,13 +10,17 @@
 - [x] **[ontology]** ~~When a level 3 section contains pronunciation information, associate it to entries without pronunciation information instead of the literal (for consistency).~~
 - [ ] **[ontology]** Parse verb group (1st, 2nd or 3rd).
 - [ ] **[webapp]** Support symmetric relationships (such as synonymy).
-- [ ] **[webapp]** Template parsing for clean etymology display.
+- [x] **[webapp]** ~~Template parsing for clean etymology display.~~
 - [x] **[webapp]** ~~Link WordReference to translate French literals into English.~~
 - [x] **[webapp]** ~~Add present and past participle displays.~~
+- [ ] **[ontology]** Parse verb (in)transitivity
+- [ ] **[ontology]** Parse remaining definition templates (such as `{{vieux|fr}}`, `{{basket|fr}}`)
 
 ## Ideas
 
 - [ ] **[webapp]** Serve portions of the data through a REST API.
+- [ ] Parse and represent etymology in the ontology
+- [ ] Parse and represent definitions in the ontology
 
 ## Polysemy Balancing
 

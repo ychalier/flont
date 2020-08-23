@@ -7,7 +7,7 @@
             {% if entry.gender %} <small><i>{{ entry.gender.html_black | safe }}</i></small>{% endif %}
         </span>
         {% if entry.pronunciation %}
-        <span class="literal__entry__header__pronunciation"><a class="black" href="{% url 'flont:graph' short_iri='pronunciation' %}">/<i>{{ entry.pronunciation }}</i>/</a></span>
+        <span class="literal__entry__header__pronunciation"><a class="black" href="{% url 'flont:graph' short_iri='pronunciation' %}">\<i>{{ entry.pronunciation }}</i>\</a></span>
         {% endif %}
         <span class="literal__entry__header__iri iri">{{ entry.iri.html_black | safe }}</span>
         {% if entry.inflections %}<span class="literal__entry__header__flexion"><a href="{% url 'flont:graph' short_iri='isInflectionOf' %}" class="black">flexion</a></span>{% endif %}

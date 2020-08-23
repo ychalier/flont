@@ -96,3 +96,8 @@ th, td {
     padding: 8px;
     border: 1px solid #DDD;
 }
+
+.small-caps {
+    font-size: 80%;
+    text-transform: uppercase;
+}

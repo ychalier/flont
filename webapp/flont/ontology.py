@@ -226,11 +226,10 @@ class ConjugationTable(InflectionTable):
         if self.tense.full_iri.endswith("presentParticiple"):
             self._append_row(LabeledEntity(self.tense.full_iri, "inv."))
         elif self.tense.full_iri.endswith("pastParticiple"):
-            self._append_row(LabeledEntity(self.tense.full_iri + "MS", "il"))
-            self._append_row(LabeledEntity(self.tense.full_iri + "FS", "elle"))
-            self._append_row(LabeledEntity(self.tense.full_iri + "MP", "ils"))
-            self._append_row(LabeledEntity(
-                self.tense.full_iri + "FP", "elles"))
+            self._append_row(LabeledEntity(self.tense.full_iri + "MS", "m.s."))
+            self._append_row(LabeledEntity(self.tense.full_iri + "FS", "f.s."))
+            self._append_row(LabeledEntity(self.tense.full_iri + "MP", "m.p."))
+            self._append_row(LabeledEntity(self.tense.full_iri + "FP", "f.p."))
         else:
             self._append_row(LabeledEntity(self.tense.full_iri + "1S", "je"))
             self._append_row(LabeledEntity(self.tense.full_iri + "2S", "tu"))
@@ -402,7 +401,7 @@ class Literal(OntologyObject):
     def _fecth_etymology(self):
         wikitext = self._query_ppty("flont:etymology", 1)
         if wikitext is not None:
-            self.etymology = flont.wikitext.WikiTextString(wikitext)
+            self.etymology = flont.wikitext.WikiTextString.from_text(wikitext)
 
     def _fetch_inflections(self):
         results = self._query("""
@@ -547,12 +546,12 @@ class LexicalSense(OntologyObject):
 
     def _fetch_precisions(self):
         for precision, label in self._query_ppty_label("flont:hasPrecision"):
-            self.precisions.add(LabeledEntity(str(precision), label))
+            self.precisions.add(LabeledEntity(precision, label))
 
     def _fetch_definition(self):
         wikitext = self._query_ppty("flont:definition", 1)
         if wikitext is not None:
-            self.definition = flont.wikitext.WikiTextString(wikitext)
+            self.definition = flont.wikitext.WikiTextString.from_text(wikitext)
         if len(self.definition.html()) == 0:
             self.definition = None
         else:
