@@ -23,4 +23,4 @@ Contributions are welcomed. See the readmes in subdirectories for documentation 
 - [Hirst, G. (2009). *Ontology and the lexicon.* In Handbook on ontologies (pp. 269-292). Springer, Berlin, Heidelberg.](https://link.springer.com/chapter/10.1007/978-3-540-92673-3_12)
 - [Cimiano, P., Buitelaar, P., McCrae, J., & Sintek, M. (2011). *LexInfo: A declarative model for the lexicon-ontology interface.* Journal of Web Semantics, 9(1), 29-51.](https://www.sciencedirect.com/science/article/pii/S1570826810000892)
 
-![](webapp/flont/static/flont/img/banner_a_800_1600.jpg)
+![](webapp/flont/static/flont/img/banner_dict_1600_800.jpg)
