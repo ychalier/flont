@@ -14,6 +14,8 @@ The [French Wiktionary](https://fr.wiktionary.org/wiki/Wiktionnaire:Page_d%E2%80
 - Ontology crafting: [Protégé](https://protege.stanford.edu/)
 - Web application framework: [Django](https://www.djangoproject.com/)
 
+[More on my website.](https://chalier.fr/projects/flont)
+
 ## Contributing
 
 Contributions are welcomed. See the readmes in subdirectories for documentation on how to get started with the code. See the [to-do list](TODO.md) for inputs on what you can do. Write clean code (use a linter). Then send a pull request with your changes.
