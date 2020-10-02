@@ -5,3 +5,4 @@ clint
 bz2file
 wikitextparser
 pandas
+rdflib

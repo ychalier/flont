@@ -33,6 +33,7 @@ setup(
     install_requires=[
         "Django>=3.0.3",
         "wikitextparser",
-        "owlready2"
+        "owlready2",
+        "rdflib"
     ],
 )
