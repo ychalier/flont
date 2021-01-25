@@ -2,14 +2,15 @@
 {% load static %}
 
 {% block title %}
-{% if entity_type == "literal" %}{{ entity_data.label }}{% else %}{{ short_iri }}{% endif %} &mid;
+{% if entity_type == "literal" %}{{ entity_data.label }}{% else %}{{ short_iri }}{% endif %} &mid; {{ block.super }}
 {% endblock title %}
 
 {% block head %}
+{{ block.super }}
 <link rel="stylesheet" href="{% static 'flont/css/literal.css' %}" />
 {% endblock head %}
 
-{% block body %}
+{% block main_content %}
 
     {% include 'flont/searchbar.html' %}
 
@@ -25,4 +26,4 @@
         {% include 'flont/meta.html' with meta=entity_data %}
     {% endif %}
 
-{% endblock body %}
+{% endblock main_content %}

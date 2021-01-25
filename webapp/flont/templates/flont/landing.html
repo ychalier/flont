@@ -1,7 +1,7 @@
 {% extends 'flont/base.html' %}
 {% load static %}
 
-{% block body %}
+{% block main_content %}
 
 {% include 'flont/searchbar.html' %}
 
@@ -14,6 +14,7 @@
         la langue française, ainsi que des informations sur ce qui les lient,
         syntactiquement ou sémantiquement. La version actuelle compte plus de six millions d'entités,
         pour 1 801 056 mots et phrases (incluant les flexions).
+        Par exemple, voici la page présentant le mot &laquo; <a class="internal" href="{% url 'flont:graph' short_iri='_penser' %}">penser</a> &raquo.
     </p>
 
     <p>
@@ -28,14 +29,27 @@
     </p>
 
     <p>
-        Par exemple, voici la page présentant le mot &laquo; <a class="internal" href="{% url 'flont:graph' short_iri='_marcher' %}">marcher</a> &raquo.
+        Pour utiliser l'<a href="{% url 'flont:endpoint' %}">endpoint SPARQL</a>,
+        veuillez me <a href="https://chalier.fr/#contact?lang=fr">contacter</a> pour 
+        obtenir un compte de démonstration.
     </p>
 
+    <div class="notices blue">
+        <p class="container">
+            Cette démonstration ne contient que quelques entrées, autour des mots
+            <a href="{% url 'flont:graph' short_iri='_penser' %}">penser</a>,
+            <a href="{% url 'flont:graph' short_iri='_panser' %}">panser</a>
+            et <a href="{% url 'flont:graph' short_iri='_pensée' %}">pensée</a>,
+            dans le but de préserver au possible mon petit serveur.
+            <a href="https://mega.nz/file/2O4ixQjJ#BK_1VXqX9MaUBulma6EBcryWWl6QqJFXA61hSKu05jk">Télécharger la base complète (1.90 Go).</a>
+        </p>
+    </div>
+
     <!--<img src="https://i.imgur.com/bVeWwTA.jpg?1" alt="Nouveau Dictionnaire Larousse" />-->
-    <img src="{% static 'flont/img/banner_dict_1600_800.jpg' %}" />
+    <img class="img-responsive" alt="FLOnt" src="{% static 'flont/img/banner_dict_1600_800.jpg' %}" />
 
 </div>
 
 
 
-{% endblock body %}
+{% endblock main_content %}

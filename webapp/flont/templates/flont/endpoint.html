@@ -2,15 +2,17 @@
 {% load static %}
 
 {% block head %}
+{{ block.super }}
 <link rel="stylesheet" href="{% static 'flont/css/endpoint.css' %}" />
 {% endblock head %}
 
-{% block body %}
+{% block main_content %}
 <h1>SPARQL</h1>
 <p>
     Le formulaire ci-dessous vous permet d'écrire et d'exécuter des requêtes SPARQL pour FLOnt.
 </p>
-<form action="" method="post">
+
+<form action="" method="post" class="my-2">
     {% csrf_token %}
     <div class="textarea_wrapper">
         <textarea name="query" rows="15" >{{ sparql_query }}</textarea>
@@ -20,7 +22,7 @@
 </form>
 {% if results %}
 <h2>Résultats</h2>
-<table>
+<table class="table table-striped table-hover">
     {% if header %}
     <tr>
         {% for column in header %}
@@ -37,4 +39,4 @@
     {% endfor %}
 </table>
 {% endif %}
-{% endblock body %}
+{% endblock main_content %}

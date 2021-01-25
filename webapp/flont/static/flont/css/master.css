@@ -2,7 +2,11 @@
     font-family: 'Lato', sans-serif;
 }
 
-p, table, ul, ol, blockquote {
+p,
+table,
+ul,
+ol,
+blockquote {
     color: #555555;
     font-size: 15px;
     line-height: 24px;
@@ -12,7 +16,6 @@ p, table, ul, ol, blockquote {
     from {
         opacity: 0;
     }
-
     to {
         opacity: 1;
     }
@@ -60,10 +63,6 @@ a.black {
     font-size: 24px;
 }
 
-img {
-    width: 100%;
-}
-
 .title {
     text-align: center;
     margin-bottom: 48px;
@@ -73,7 +72,8 @@ img {
     font-size: 120px;
 }
 
-.title_second, .title_second * {
+.title_second,
+.title_second * {
     font-size: 30px;
     font-family: 'Parisienne', cursive;
 }
@@ -81,20 +81,6 @@ img {
 .title a {
     text-decoration: none;
     color: black;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-tr:nth-child(even) {
-    background-color: #F2F2F2;
-}
-
-th, td {
-    padding: 8px;
-    border: 1px solid #DDD;
 }
 
 .small-caps {

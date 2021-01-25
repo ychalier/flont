@@ -1,4 +1,8 @@
-<form method="get" action="{% url 'flont:search' %}" class="searchbar__form">
-    <input class="searchbar__field" type="text" name="q" placeholder="Chercher un mot..." value="{{ query }}"/>
-    <input class="searchbar__button" type="submit" value="Chercher" />
+<form method="get" action="{% url 'flont:search' %}">
+    <div class="form-group my-2">
+        <div class="input-group">
+                <input class="form-input" type="text" name="q" placeholder="Chercher un mot..." value="{{ query }}" />
+                <button class="btn btn-primary input-group-btn">Chercher</button>
+        </div>
+    </div> 
 </form>

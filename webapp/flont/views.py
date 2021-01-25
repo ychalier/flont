@@ -7,6 +7,7 @@ import difflib
 from django.conf import settings
 from django.shortcuts import render, redirect
 from django.http import Http404
+from piweb.decorators import require_app_access
 import flont.apps
 import rdflib
 from . import ontology
@@ -16,7 +17,7 @@ DEFAUTL_SPARQL_QUERY = """
 PREFIX flont: <https://ontology.chalier.fr/flont#>
 SELECT ?literal ?label
 WHERE {
-    flont:_musique_nCom1 flont:hasDerivedWord ?literal .
+    flont:_pensée_nCom1 flont:hasRelatedWord ?literal .
     ?literal flont:label ?label .
 }
 LIMIT 10
@@ -62,6 +63,7 @@ def search(request):
     })
 
 
+@require_app_access("flont")
 def endpoint(request):
     """SPARQL endpoint.
     """
